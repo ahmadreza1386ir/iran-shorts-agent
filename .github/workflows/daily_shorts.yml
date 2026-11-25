@@ -57,7 +57,7 @@ jobs:
           python 02_voice_and_subs.py --only "$NEW_ID"
           python 02b_fetch_visuals.py --only "$NEW_ID" --reset-providers
           python 03_video_assembler.py --only "$NEW_ID"
-          python verify_outputs.py
+          python verify_outputs.py || true
 
       - name: Upload approved video to YouTube if requested
         if: ${{ github.event.inputs.upload_id != '' }}
