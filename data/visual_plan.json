@@ -4178,6 +4178,441 @@
           }
         }
       ]
+    },
+    {
+      "id": "9",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Bustling old bazaar entrance at golden hour",
+          "query": "old bazaar arch sunset",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old bazaar arch sunset",
+              "old bazaar"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a crowded old Persian bazaar entrance with a tall brick arch, warm golden light and teal shadows, merchants and shoppers in the background, no people in foreground, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Confident merchant standing proudly at his spice stall",
+          "query": "spice merchant stall bazaar",
+          "anchor": "Confident merchant standing",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "spice merchant stall bazaar",
+              "spice merchant"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of one elderly male merchant with a white beard and turban standing proudly behind a colorful spice stall, pyramids of saffron and sumac, warm and teal palette, exactly one person, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant boasting with arms raised",
+          "query": "proud merchant gesturing bazaar",
+          "anchor": "Merchant boasting with",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "proud merchant gesturing bazaar",
+              "proud merchant"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one elderly merchant with arms spread wide in a boastful gesture, surrounded by baskets of goods, expressive face, warm golden tones with teal accents, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Young girl entering the bazaar carrying a basket",
+          "query": "girl carrying basket market",
+          "anchor": "Young girl entering",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "girl carrying basket market",
+              "girl carrying"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one young girl with a woven basket of dates on her hip walking into a bazaar lane, sunlight through dust, storybook style, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Girl setting out dates on a cloth",
+          "query": "dates on cloth market stall",
+          "anchor": "Girl setting out",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "dates on cloth market stall",
+              "dates on"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one young girl arranging bright red and golden dates on a cloth mat on the ground, cheerful expression, warm palette with teal fabric, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Customers crowding the girl's stall",
+          "query": "customers buying fruit market",
+          "anchor": "Customers crowding the",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "customers buying fruit market",
+              "customers buying"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly three customers in traditional clothing reaching toward a small fruit stall with a young girl behind it, lively bazaar atmosphere, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant noticing the crowd shifting away from him",
+          "query": "merchant looking surprised bazaar",
+          "anchor": "Merchant noticing the",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "merchant looking surprised bazaar",
+              "merchant looking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one elderly merchant at his empty stall glancing across the lane toward a busy crowd, surprised expression, warm light, teal shadows, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Empty dates basket in sunlight",
+          "query": "empty basket sunlight market",
+          "anchor": "Empty dates basket",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "empty basket sunlight market",
+              "empty basket"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a single empty woven basket resting on a sunlit cobblestone bazaar floor with a few scattered date pits, warm golden light, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant laughing and bowing to the girl",
+          "query": "old man bowing respect child",
+          "anchor": "Merchant laughing and",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old man bowing respect child",
+              "old man"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly two people, an elderly merchant with a warm smile bowing respectfully to a young girl who smiles back, facing each other in a bazaar lane, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two hands clasped in mutual respect",
+          "query": "hands shaking respect symbol",
+          "anchor": "Two hands clasped",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "hands shaking respect symbol",
+              "hands shaking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly two people's hands clasped together in friendly respect, one older and one younger, close-up, warm golden light, teal background, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Girl climbing a staircase toward a bright doorway",
+          "query": "girl climbing stairs light",
+          "anchor": "Girl climbing a",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "girl climbing stairs light",
+              "girl climbing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one young girl climbing a winding stone staircase toward a bright archway glowing with golden light, symbolic of rising higher, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }

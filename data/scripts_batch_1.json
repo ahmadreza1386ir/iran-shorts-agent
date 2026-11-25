@@ -258,5 +258,43 @@
       "Prison cell in Aleppo with a single window of light",
       "Closing image of his light continuing in scholars' hands"
     ]
+  },
+  {
+    "id": 9,
+    "category": "Proverb",
+    "proverb_fa": "دست بالای دست بسیار است",
+    "proverb_en": "Dast bala-ye dast bisiar ast (There is always a hand above a hand)",
+    "word_count": 110,
+    "hook_en": "Every master of the bazaar eventually meets someone who makes him look like an apprentice.",
+    "narration": "In Iran, a bazaar merchant once thought he had mastered every trick of his trade. He boasted that no one could outsell him, no one could outwit him. Then a young girl walked in with a basket of dates, priced them lower, and sold out before noon. The old merchant laughed, bowed, and repeated the saying he had heard all his life: dast-e bala-ye dast bisiar ast. There is always a hand above a hand. Skill has no ceiling. The moment you feel you have reached the top, remember that someone is already climbing higher. Stay humble, keep learning, and your next lesson may come from the least expected hand.",
+    "narration_alt": "In Iran, a bazaar merchant once thought he had mastered every trick of his trade. He boasted that no one could outsell him, no one could outwit him. Then a young girl walked in with a basket of dates, priced them lower, and sold out before noon. The old merchant laughed, bowed, and repeated the saying he had heard all his life: dast-e bala-ye dast bisiar ast. There is always a hand above a hand. Skill has no ceiling. The moment you feel you have reached the top, remember that someone is already climbing higher. Stay humble, keep learning, and your next lesson may come from the least expected hand.",
+    "narration_display": "In Iran, a bazaar merchant once thought he had mastered every trick of his trade. He boasted that no one could outsell him, no one could outwit him. Then a young girl walked in with a basket of dates, priced them lower, and sold out before noon. The old merchant laughed, bowed, and repeated the saying he had heard all his life: dast-e bala-ye dast bisiar ast. There is always a hand above a hand. Skill has no ceiling. The moment you feel you have reached the top, remember that someone is already climbing higher. Stay humble, keep learning, and your next lesson may come from the least expected hand.",
+    "narration_tts": "In Eran, a bazaar merchant once thought he had mastered every trick of his trade. He boasted that no one could outsell him, no one could outwit him. Then a young girl walked in with a basket of dates, priced them lower, and sold out before noon. The old merchant laughed, bowed, and repeated the saying he had heard all his life: dast e bala ye dast bisiar ast. There is always a hand above a hand. Skill has no ceiling. The moment you feel you have reached the top, remember that someone is already climbing higher. Stay humble, keep learning, and your next lesson may come from the least expected hand.",
+    "visual_scenes": [
+      "Bustling old bazaar entrance at golden hour",
+      "Confident merchant standing proudly at his spice stall",
+      "Merchant boasting with arms raised",
+      "Young girl entering the bazaar carrying a basket",
+      "Girl setting out dates on a cloth",
+      "Customers crowding the girl's stall",
+      "Merchant noticing the crowd shifting away from him",
+      "Empty dates basket in sunlight",
+      "Merchant laughing and bowing to the girl",
+      "Two hands clasped in mutual respect",
+      "Girl climbing a staircase toward a bright doorway"
+    ],
+    "scenes": [
+      "Bustling old bazaar entrance at golden hour",
+      "Confident merchant standing proudly at his spice stall",
+      "Merchant boasting with arms raised",
+      "Young girl entering the bazaar carrying a basket",
+      "Girl setting out dates on a cloth",
+      "Customers crowding the girl's stall",
+      "Merchant noticing the crowd shifting away from him",
+      "Empty dates basket in sunlight",
+      "Merchant laughing and bowing to the girl",
+      "Two hands clasped in mutual respect",
+      "Girl climbing a staircase toward a bright doorway"
+    ]
   }
 ]

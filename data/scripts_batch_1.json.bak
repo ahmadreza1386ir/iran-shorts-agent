@@ -220,5 +220,43 @@
       "Dawn reunion of the caravan",
       "Behrouz opens his bag to reveal the secret"
     ]
+  },
+  {
+    "id": 8,
+    "category": "Cultural/Historical Fact",
+    "proverb_fa": "",
+    "proverb_en": "Sheikh Ishraq and the Caravanserai of Light",
+    "word_count": 129,
+    "hook_en": "A Persian philosopher once argued that you cannot see the world by light alone, you must first become light.",
+    "narration": "A Persian philosopher once argued that you cannot see the world by light alone, you must first become light. His name was Shihab al-Din Suhrawardi, born in 1154 near Zanjan, in what is now northwestern Iran. Young, brilliant, and fearless, he founded a school he called Ishraq, or Illumination. Instead of treating knowledge as a dry list of rules, he taught that truth is a living radiance that flows from the highest source down into the soul. He wrote his greatest works in a few short years, often in parables set in strange caravanserais and mountain cities. Scholars still study his Book of Radiance. Many believed his ideas threatened the powerful, and in 1191, at only thirty-eight, he died in prison in Aleppo. Yet his light never went out.",
+    "narration_alt": "A Persian philosopher once argued that you cannot see the world by light alone, you must first become light. His name was Shihab al-Din Suhrawardi, born in 1154 near Zanjan, in what is now northwestern Iran. Young, brilliant, and fearless, he founded a school he called Ishraq, or Illumination. Instead of treating knowledge as a dry list of rules, he taught that truth is a living radiance that flows from the highest source down into the soul. He wrote his greatest works in a few short years, often in parables set in strange caravanserais and mountain cities. Scholars still study his Book of Radiance. Many believed his ideas threatened the powerful, and in 1191, at only thirty-eight, he died in prison in Aleppo. Yet his light never went out.",
+    "narration_display": "A Persian philosopher once argued that you cannot see the world by light alone, you must first become light. His name was Shihab al-Din Suhrawardi, born in 1154 near Zanjan, in what is now northwestern Iran. Young, brilliant, and fearless, he founded a school he called Ishraq, or Illumination. Instead of treating knowledge as a dry list of rules, he taught that truth is a living radiance that flows from the highest source down into the soul. He wrote his greatest works in a few short years, often in parables set in strange caravanserais and mountain cities. Scholars still study his Book of Radiance. Many believed his ideas threatened the powerful, and in 1191, at only thirty-eight, he died in prison in Aleppo. Yet his light never went out.",
+    "narration_tts": "A Persian philosopher once argued that you cannot see the world by light alone, you must first become light. His name was Shihab al-Din Suhrawardi, born in eleven fifty-four near Zanjan, in what is now northwestern Iran. Young, brilliant, and fearless, he founded a school he called Ishraq, or Illumination. Instead of treating knowledge as a dry list of rules, he taught that truth is a living radiance that flows from the highest source down into the soul. He wrote his greatest works in a few short years, often in parables set in strange caravanserais and mountain cities. Scholars still study his Book of Radiance. Many believed his ideas threatened the powerful, and in eleven ninety-one, at only thirty-eight, he died in prison in Aleppo. Yet his light never went out.",
+    "visual_scenes": [
+      "Opening silhouette of a robed scholar at dawn",
+      "Young Suhrawardi as a boy in a village near Zanjan",
+      "Suhrawardi studying in a madrasa courtyard",
+      "Scholar lecturing before a circle of students",
+      "Abstract depiction of divine light flowing into the soul",
+      "Caravanserai scene from one of his parables",
+      "Writing the Book of Radiance by lamplight",
+      "Mountain city of ideas rising at sunset",
+      "Scholar confronting rulers in a royal hall",
+      "Prison cell in Aleppo with a single window of light",
+      "Closing image of his light continuing in scholars' hands"
+    ],
+    "scenes": [
+      "Opening silhouette of a robed scholar at dawn",
+      "Young Suhrawardi as a boy in a village near Zanjan",
+      "Suhrawardi studying in a madrasa courtyard",
+      "Scholar lecturing before a circle of students",
+      "Abstract depiction of divine light flowing into the soul",
+      "Caravanserai scene from one of his parables",
+      "Writing the Book of Radiance by lamplight",
+      "Mountain city of ideas rising at sunset",
+      "Scholar confronting rulers in a royal hall",
+      "Prison cell in Aleppo with a single window of light",
+      "Closing image of his light continuing in scholars' hands"
+    ]
   }
 ]

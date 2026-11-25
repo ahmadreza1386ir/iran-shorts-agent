@@ -3743,6 +3743,441 @@
           }
         }
       ]
+    },
+    {
+      "id": "8",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Opening silhouette of a robed scholar at dawn",
+          "query": "persian scholar dawn silhouette",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "persian scholar dawn silhouette",
+              "persian scholar"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm golden dawn light bleeding into teal mountain shadows, one lone robed Persian scholar with a turban standing on a rocky ridge facing the rising sun, exactly one person, no text, no watermark, cohesive warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Young Suhrawardi as a boy in a village near Zanjan",
+          "query": "persian boy village mountains",
+          "anchor": "Young Suhrawardi as",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "persian boy village mountains",
+              "persian boy"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a small village of clay-brick houses nestled in green hills near Zanjan, exactly one young boy in a simple tunic reading a scroll on a stone wall, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Suhrawardi studying in a madrasa courtyard",
+          "query": "medieval persian madrasa courtyard",
+          "anchor": "Suhrawardi studying in",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "medieval persian madrasa courtyard",
+              "medieval persian"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, an arched medieval Persian madrasa courtyard with turquoise tilework and a small pool, exactly three students sitting in a circle on carpets with open books, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Scholar lecturing before a circle of students",
+          "query": "philosopher teaching students ancient",
+          "anchor": "Scholar lecturing before",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "philosopher teaching students ancient",
+              "philosopher teaching"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a Persian philosopher in a long cloak speaking animatedly, exactly six students seated around him under a domed hall, light streaming through a high window, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Abstract depiction of divine light flowing into the soul",
+          "query": "light rays glowing mystical",
+          "anchor": "Abstract depiction of",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "light rays glowing mystical",
+              "light rays"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a single beam of golden radiance descending from a sky of deep teal clouds onto a human figure with open arms, exactly one person silhouetted, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Caravanserai scene from one of his parables",
+          "query": "ancient caravanserai desert night",
+          "anchor": "Caravanserai scene from",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient caravanserai desert night",
+              "ancient caravanserai"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a desert caravanserai at night with lanterns glowing in archways, exactly two travelers with camels resting in the courtyard, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Writing the Book of Radiance by lamplight",
+          "query": "scholar writing by lamplight",
+          "anchor": "Writing the Book",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "scholar writing by lamplight",
+              "scholar writing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a scholar at a low wooden desk writing with a reed pen by an oil lamp, exactly one person, papers scattered around, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Mountain city of ideas rising at sunset",
+          "query": "persian mountain city sunset",
+          "anchor": "Mountain city of",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "persian mountain city sunset",
+              "persian mountain"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a terraced mountain city with domes and minarets glowing at sunset, no people visible, teal shadows and warm gold highlights, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Scholar confronting rulers in a royal hall",
+          "query": "medieval court debate ruler",
+          "anchor": "Scholar confronting rulers",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "medieval court debate ruler",
+              "medieval court"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a grand medieval royal hall with a seated ruler on a throne and exactly two figures facing each other in debate, one robed scholar and one guard, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Prison cell in Aleppo with a single window of light",
+          "query": "dark prison cell window light",
+          "anchor": "Prison cell in",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "dark prison cell window light",
+              "dark prison"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a stone prison cell with a single arched window letting in a shaft of golden light, exactly one seated prisoner in a robe, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Closing image of his light continuing in scholars' hands",
+          "query": "scholars reading books light",
+          "anchor": "Closing image of",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "scholars reading books light",
+              "scholars reading"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, exactly three scholars of different generations reading an old manuscript together under a glowing lamp in a library, warm golden light against teal shadows, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }
