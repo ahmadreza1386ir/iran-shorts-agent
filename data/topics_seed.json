@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "category": "proverb",
+    "topic_fa": "مشت نمونه خروار است",
+    "note": "A small sample reveals the whole; connect to modern judgment and first impressions."
+  },
+  {
+    "id": 2,
+    "category": "fable_story",
+    "topic_fa": "حکایت کوتاه از گلستان سعدی یا انتخاب خردمندانه",
+    "note": "Drop straight into the scene; focus on a sharp human lesson in 35 seconds."
+  },
+  {
+    "id": 3,
+    "category": "cultural_fact",
+    "topic_fa": "یخچال‌های قدیمی ایرانی و نگهداری یخ در بیابان",
+    "note": "Contrast desert heat with ancient passive cooling engineering without cliché openings."
+  }
+]

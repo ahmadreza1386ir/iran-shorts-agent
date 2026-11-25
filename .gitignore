@@ -1,0 +1,8 @@
+output/
+assets/
+client_secret.json
+token.json
+__pycache__/
+*.pyc
+.env
+setup_and_push.bat
