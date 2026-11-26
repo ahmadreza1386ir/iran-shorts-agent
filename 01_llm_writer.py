@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Phase 1 (LLM): Hardened script & visual plan writer via Hormouz Chat Completions API.
-Generates fresh Iranian proverbs, short stories/fables, or cultural/historical facts
+Uses explosive hook brainstorming to craft gripping openings, locks core meaning,
 and appends validated entries to scripts_batch_1.json and visual_plan.json.
 """
 
@@ -37,7 +37,7 @@ MOTIONS = ["push_in", "pan_right", "drift_up", "pull_out", "pan_left", "drift_do
 FORMATS = ["Proverb", "Short Story", "Cultural/Historical Fact"]
 
 MIN_WORDS = 75
-MAX_WORDS = 125
+MAX_WORDS = 130
 MIN_SCENES = 5
 MAX_SCENES = 20
 
@@ -145,9 +145,7 @@ def _extract_json_object(raw_text: str) -> dict[str, Any]:
 
 def sanitize_tts_text(text: str) -> str:
     cleaned = re.sub(r"[\r\n\t]+", " ", text)
-    # Remove awkward hyphenated transliteration tokens that TTS often stumbles over
     cleaned = re.sub(r"\b[A-Za-z]+-[A-Za-z]+(?:-[A-Za-z]+)+\b", "", cleaned)
-    # Collapse excess spaces and fix spacing around punctuation
     cleaned = re.sub(r"\s+([.,!?;:])", r"\1", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
     return cleaned
@@ -165,7 +163,10 @@ def _ensure_no_text_clause(prompt: str) -> str:
     return f"{prompt.strip()}, {', '.join(addition_parts)}"
 
 
-def _validate_llm_payload(data: dict[str, Any], num_scenes: int) -> tuple[str, str, str, str, str, str, list[dict[str, str]]]:
+def _validate_llm_payload(
+    data: dict[str, Any],
+    num_scenes: int,
+) -> tuple[str, str, str, str, str, str, str, list[dict[str, str]]]:
     disp = re.sub(r"\s+", " ", str(data.get("narration_display") or data.get("narration") or "")).strip()
     if not disp:
         raise ValueError("Empty narration_display.")
@@ -181,7 +182,9 @@ def _validate_llm_payload(data: dict[str, Any], num_scenes: int) -> tuple[str, s
 
     raw_scenes = data.get("scenes")
     if not isinstance(raw_scenes, list) or len(raw_scenes) < num_scenes:
-        raise ValueError(f"Expected at least {num_scenes} scenes, got {len(raw_scenes) if isinstance(raw_scenes, list) else 0}.")
+        raise ValueError(
+            f"Expected at least {num_scenes} scenes, got {len(raw_scenes) if isinstance(raw_scenes, list) else 0}."
+        )
 
     scenes_out: list[dict[str, str]] = []
     for i in range(num_scenes):
@@ -211,12 +214,23 @@ def _validate_llm_payload(data: dict[str, Any], num_scenes: int) -> tuple[str, s
 
     proverb_fa = str(data.get("proverb_fa") or "").strip()[:160]
     proverb_en = re.sub(r"\s+", " ", str(data.get("proverb_en") or topic_key)).strip()[:160]
-    hook_en = re.sub(r"\s+", " ", str(data.get("hook_en") or disp.split(".")[0])).strip()[:220]
+
+    raw_hook = str(data.get("hook_en") or "").strip()
+    if not raw_hook and isinstance(data.get("hook_candidates"), list) and data["hook_candidates"]:
+        raw_hook = str(data["hook_candidates"][0]).strip()
+    if not raw_hook:
+        raw_hook = disp.split(".")[0].strip()
+    hook_en = re.sub(r"\s+", " ", raw_hook)[:220]
 
     return topic_key, core_message, proverb_fa, proverb_en, hook_en, disp, tts, scenes_out
 
 
-def call_llm(api_key: str, fmt: str, used_topics: list[str], num_scenes: int) -> tuple[str, str, str, str, str, str, str, list[dict[str, str]]]:
+def call_llm(
+    api_key: str,
+    fmt: str,
+    used_topics: list[str],
+    num_scenes: int,
+) -> tuple[str, str, str, str, str, str, str, list[dict[str, str]]]:
     url = (
         HORMOUZ_BASE_URL
         if HORMOUZ_BASE_URL.endswith("/chat/completions")
@@ -225,20 +239,25 @@ def call_llm(api_key: str, fmt: str, used_topics: list[str], num_scenes: int) ->
     avoid_list = ", ".join(used_topics[-40:]) if used_topics else "none"
 
     system_prompt = (
-        "You are an expert scriptwriter and visual art director for English YouTube Shorts "
+        "You are an expert viral scriptwriter and visual art director for English YouTube Shorts "
         "about Iranian proverbs, short stories/fables, and cultural/historical facts. "
-        "Stay strictly faithful to the true meaning of any proverb or story. "
+        "First use rapid divergent hook brainstorming to craft punchy, visual, counterintuitive or high-stakes openings "
+        "that stop viewers mid-scroll in the first 1.5 seconds (for instance, contrasting immovable mountains in a landscape "
+        "with paths and people crossing again later). Keep the script strictly faithful to the true meaning of the proverb or story. "
         "Output ONLY valid JSON with no extra commentary."
     )
 
     user_prompt = f"""Create ONE original YouTube Short script in format "{fmt}".
 Rules:
 1. Do NOT repeat any of these previously used topics: [{avoid_list}].
-2. Define "core_message" first so the hook, narrative, and ending all support the exact true meaning.
-3. "narration_display": 85 to 110 natural English words (around 32-38 seconds spoken). Start with a sharp, non-cliche hook (never start with "Did you know").
-4. "narration_tts": smooth spoken English for text-to-speech. Avoid hyphenated Persian transliterations that sound choppy; prefer clear English phrasing and simple, natural names.
-5. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
-   - Each scene must advance the story or concept without repeating the same action.
+2. Define "core_message" first so the hook, narrative, and payoff all lock onto the exact true meaning.
+3. Run a quick divergent brainstorm in "hook_candidates" (3 distinct punchy opening lines: one visual/spatial contrast like immovable mountains while human paths cross again, one sharp human tension/consequence, one surprising twist). Pick the strongest single opening line as "hook_en" and start "narration_display" directly with that hook.
+4. Never start with weak clichés like "Did you know", "Today we will talk about", or "In this video". Keep sentences crisp, vivid, and rhythmic.
+5. "narration_display": 85 to 112 natural English words (around 32-38 seconds spoken).
+6. "narration_tts": smooth spoken English for text-to-speech. Avoid hyphenated Persian transliterations that sound choppy; prefer clear English phrasing and simple, natural names.
+7. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
+   - Scene 1 MUST visually embody the opening hook immediately.
+   - Each subsequent scene must advance the story or concept without repeating the same action.
    - Specify exact character counts whenever people appear (e.g., "two men talking beside a clay jar").
    - Never include text, letters, signs, captions, screens with text, or watermarks in scene prompts.
    - Visual style: cohesive hand-painted storybook illustration, warm and teal palette, vertical 9:16 framing.
@@ -249,8 +268,13 @@ Return strictly this JSON schema:
   "core_message": "one clear sentence stating the exact true meaning/lesson",
   "proverb_fa": "Persian phrase/title if applicable or empty string",
   "proverb_en": "clear English title or short phrase",
-  "hook_en": "opening hook sentence",
-  "narration_display": "full narration for display/subtitles",
+  "hook_candidates": [
+    "hook option 1 (spatial/visual contrast)",
+    "hook option 2 (sharp human tension)",
+    "hook option 3 (unexpected twist)"
+  ],
+  "hook_en": "the single strongest opening hook line",
+  "narration_display": "full narration starting with hook_en",
   "narration_tts": "full narration optimized for smooth TTS",
   "scenes": [
     {{
@@ -263,7 +287,7 @@ Return strictly this JSON schema:
 
     payload = {
         "model": HORMOUZ_CHAT_MODEL,
-        "temperature": 0.7,
+        "temperature": 0.82,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
@@ -442,7 +466,7 @@ def main() -> int:
             used_topics.append(topic_key)
 
         generated_count += 1
-        log.info("Prepared short id=%s (%s): %s", target_id, fmt, topic_key)
+        log.info("Prepared short id=%s (%s): %s | hook=%r", target_id, fmt, topic_key, hook_en)
 
     if not args.dry_run and generated_count > 0:
         _backup_if_exists(INPUT_JSON, args.dry_run)
@@ -451,77 +475,6 @@ def main() -> int:
         plan_data["shorts"] = plan_shorts
         _atomic_write_text(PLAN_JSON, json.dumps(plan_data, ensure_ascii=False, indent=2) + "\n")
         save_used_topics(used_topics, args.dry_run)
-        log.info("Saved %d new script(s) to %s and %s.", generated_count, INPUT_JSON.name, PLAN_JSON.name)
-
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
-              prompt = desc
-            if "no text" not in prompt.lower():
-                prompt = f"{prompt}, no text, no watermark"
-            normalized_scenes.append({"desc": desc, "query": query, "prompt": prompt})
-
-        target_id = _next_numeric_id(existing_ids)
-        existing_ids.append(target_id)
-
-        topic_key = str(llm_out.get("topic_key") or llm_out.get("proverb_en") or f"{fmt}_{target_id}").strip()
-        proverb_fa = str(llm_out.get("proverb_fa") or "").strip()
-        proverb_en = str(llm_out.get("proverb_en") or topic_key).strip()
-        hook_en = str(llm_out.get("hook_en") or disp.split(".")[0]).strip()
-        scene_descs = [s["desc"] for s in normalized_scenes]
-
-        new_script = {
-            "id": int(target_id),
-            "category": fmt,
-            "proverb_fa": proverb_fa,
-            "proverb_en": proverb_en,
-            "word_count": len(disp.split()),
-            "hook_en": hook_en,
-            "narration": disp,
-            "narration_alt": disp,
-            "narration_display": disp,
-            "narration_tts": tts,
-            "visual_scenes": scene_descs,
-            "scenes": scene_descs,
-        }
-
-        new_plan_entry = {
-            "id": target_id,
-            "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
-            "scenes": [
-                {
-                    "desc": sc["desc"],
-                    "query": sc["query"],
-                    "anchor": _anchor_from_segment(sc["desc"], s_i),
-                    "motion": MOTIONS[s_i % len(MOTIONS)],
-                    "order": ["commons", "card"],
-                    "commons": {
-                        "queries": [sc["query"], " ".join(sc["query"].split()[:2])],
-                        "reject": ["text", "watermark", "logo", "map", "diagram", "cartoon", "clipart"],
-                    },
-                    "prompt": sc["prompt"],
-                    "card": {"palette": "story_sunset", "layers": [["sun", {}], ["dunes", {}]]},
-                }
-                for s_i, sc in enumerate(normalized_scenes)
-            ],
-        }
-
-        if not args.dry_run:
-            scripts.append(new_script)
-            plan_shorts.append(new_plan_entry)
-            used_topics.append(topic_key)
-        generated_count += 1
-        log.info("Prepared short id=%s (%s): %s", target_id, fmt, topic_key)
-
-    if not args.dry_run and generated_count > 0:
-        _backup_if_exists(INPUT_JSON, args.dry_run)
-        _backup_if_exists(PLAN_JSON, args.dry_run)
-        INPUT_JSON.write_text(json.dumps(scripts, ensure_ascii=False, indent=2), encoding="utf-8")
-        plan_data["shorts"] = plan_shorts
-        PLAN_JSON.write_text(json.dumps(plan_data, ensure_ascii=False, indent=2), encoding="utf-8")
-        save_used_topics(used_topics)
         log.info("Saved %d new script(s) to %s and %s.", generated_count, INPUT_JSON.name, PLAN_JSON.name)
 
     return 0
