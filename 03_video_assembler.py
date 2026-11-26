@@ -16,8 +16,24 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from common import (AUDIO_DIR, FPS, HEIGHT, IMAGE_EXTS, MUSIC_DIR, OUTPUT_DIR, VISUALS_DIR, WIDTH, ToolError,
-                    find_tool, load_plan, load_scripts, parse_srt, probe_duration, run, setup_logging)
+from common import (
+    AUDIO_DIR,
+    FPS,
+    HEIGHT,
+    IMAGE_EXTS,
+    MUSIC_DIR,
+    OUTPUT_DIR,
+    VISUALS_DIR,
+    WIDTH,
+    ToolError,
+    find_tool,
+    load_plan,
+    load_scripts,
+    parse_srt,
+    probe_duration,
+    run,
+    setup_logging,
+)
 
 log = setup_logging("assembler")
 
@@ -26,6 +42,21 @@ MIN_SCENE_FRAMES = 2 * FPS
 SNAP_SECONDS = 1.6
 TARGET_LUFS = -14.0
 MOTION_CYCLE = ["push_in", "pan_right", "drift_up", "pull_out", "pan_left", "drift_down"]
+
+
+def _atomic_move_file(src: Path, dst: Path) -> None:
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{dst.name}.", suffix=".tmp", dir=str(dst.parent))
+    os.close(fd)
+    tmp_path = Path(tmp_name)
+    try:
+        shutil.copyfile(src, tmp_path)
+        if not tmp_path.is_file() or tmp_path.stat().st_size == 0:
+            raise RuntimeError(f"Generated output is empty: {src}")
+        os.replace(tmp_path, dst)
+    except Exception:
+        tmp_path.unlink(missing_ok=True)
+        raise
 
 
 def find_caption_font() -> tuple[str, list[Path]]:
@@ -48,11 +79,16 @@ def find_caption_font() -> tuple[str, list[Path]]:
 
 
 def ass_escape(text: str) -> str:
-    return text.replace("\\", "\\\\").replace("{", r"\{").replace("}", r"\}").replace("\n", r"\N")
+    return (
+        text.replace("\\", "\\\\")
+        .replace("{", r"\{")
+        .replace("}", r"\}")
+        .replace("\n", r"\N")
+    )
 
 
 def ass_time(t: float) -> str:
-    cs = int(round(t * 100))
+    cs = max(0, int(round(t * 100)))
     return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
 
 
@@ -64,19 +100,23 @@ def build_ass(cues: list[tuple[float, float, str]], total: float, family: str) -
         "Style: Main,%s,60,&H00FFFFFF,&H000000FF,&H00101010,&HC8000000,-1,0,0,0,100,100,0,0,1,5,3,2,85,85,375,1\n\n"
         "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
     ) % (WIDTH, HEIGHT, family)
-    lines = []
+    lines: list[str] = []
     for i, (s, e, text) in enumerate(cues):
+        s_clamped = max(0.0, min(float(s), total))
+        e_clamped = min(float(e), total)
         if i + 1 < len(cues):
-            e = min(e, cues[i + 1][0])
-        e = min(e, total)
-        if e - s < 0.05 or s >= total:
+            next_start = max(0.0, min(float(cues[i + 1][0]), total))
+            e_clamped = min(e_clamped, next_start)
+        if e_clamped - s_clamped < 0.05 or s_clamped >= total:
             continue
-        lines.append(f"Dialogue: 0,{ass_time(s)},{ass_time(e)},Main,,0,0,0,,{{\\fad(80,60)}}{ass_escape(text)}")
-    return head + "\n".join(lines) + "\n"
+        lines.append(
+            f"Dialogue: 0,{ass_time(s_clamped)},{ass_time(e_clamped)},Main,,0,0,0,,{{\\fad(80,60)}}{ass_escape(text)}"
+        )
+    return head + "\n".join(lines) + ("\n" if lines else "")
 
 
 def cut_candidates(cues: list[tuple[float, float, str]]) -> list[float]:
-    out = []
+    out: list[float] = []
     for a, b in zip(cues, cues[1:]):
         out.append((a[1] + b[0]) / 2 if b[0] - a[1] >= 0.12 else b[0])
     return out
@@ -90,7 +130,9 @@ def scene_boundaries(
     cues: list[tuple[float, float, str]],
 ) -> tuple[list[int], list[str]]:
     notes: list[str] = []
-    total = round(dur * FPS)
+    total = max(n * MIN_SCENE_FRAMES, round(dur * FPS))
+    if n <= 1:
+        return [], notes
     cands = cut_candidates(cues)
     times: list[float] = []
     for i in range(1, n):
@@ -161,6 +203,7 @@ def render_fast_video(
         seg_files.append(seg_out)
 
         z_expr, x_expr, y_expr = _motion_expr(motion, s_frames)
+        fade_out_st = max(0.0, s_dur - 0.18)
         run(
             [
                 ffmpeg, "-y", "-hide_banner", "-loglevel", "error",
@@ -168,7 +211,7 @@ def render_fast_video(
                 "-vf", (
                     f"scale={WIDTH * 2}:{HEIGHT * 2}:flags=lanczos,"
                     f"zoompan=z='{z_expr}':x='{x_expr}':y='{y_expr}':d={s_frames}:s={WIDTH}x{HEIGHT}:fps={FPS},"
-                    f"fade=t=in:st=0:d=0.18,fade=t=out:st={max(0.0, s_dur - 0.18):.3f}:d=0.18,"
+                    f"fade=t=in:st=0:d=0.18,fade=t=out:st={fade_out_st:.3f}:d=0.18,"
                     f"format=yuv420p,setsar=1"
                 ),
                 "-t", f"{s_dur:.4f}",
@@ -182,7 +225,7 @@ def render_fast_video(
     concat_list.write_text("\n".join(f"file '{p.name}'" for p in seg_files) + "\n", encoding="utf-8")
 
     vf_parts = ["eq=contrast=1.04:saturation=1.07"]
-    if with_subs:
+    if with_subs and (work / "subs.ass").is_file():
         vf_parts.append("subtitles=subs.ass:fontsdir=.")
     vf_parts.append("scale=in_range=full:out_range=tv:flags=bicubic,format=yuv420p,setsar=1")
 
@@ -209,7 +252,10 @@ VOICE_CHAIN = (
 
 def master_voice(ffmpeg: str, work: Path, src: str) -> str:
     ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=9"
-    p1 = run([ffmpeg, "-hide_banner", "-nostats", "-i", src, "-af", f"{VOICE_CHAIN},{ln}:print_format=json", "-f", "null", "-"], cwd=work)
+    p1 = run(
+        [ffmpeg, "-hide_banner", "-nostats", "-i", src, "-af", f"{VOICE_CHAIN},{ln}:print_format=json", "-f", "null", "-"],
+        cwd=work,
+    )
     blocks = re.findall(r"\{[^{}]*\}", p1.stderr)
     try:
         m = json.loads(blocks[-1])
@@ -396,7 +442,11 @@ def mux_final(
 
     if not use_bed:
         g = f"[1:a]alimiter=limit=0.89:level=0,apad=whole_dur={dur:.4f},atrim=end={dur:.4f},asetpts=PTS-STARTPTS[aout]"
-        cmd += ["-filter_complex", g, "-map", "0:v:0", "-map", "[aout]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-t", f"{dur:.4f}", "-movflags", "+faststart", out_name]
+        cmd += [
+            "-filter_complex", g, "-map", "0:v:0", "-map", "[aout]",
+            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+            "-ac", "2", "-t", f"{dur:.4f}", "-movflags", "+faststart", out_name,
+        ]
         run(cmd, cwd=work)
         return "off"
 
@@ -448,10 +498,14 @@ def collect_scene_images(sid: str, n: int) -> list[Path]:
     d = VISUALS_DIR / f"short_{sid}"
     imgs: list[Path] = []
     for i in range(1, n + 1):
-        found = [p for p in sorted(d.glob(f"scene_{i:02d}.*")) if p.suffix.lower() in IMAGE_EXTS and p.stat().st_size > 1024]
-        if not found:
-            raise FileNotFoundError(f"Scene {i} image missing in {d} - run 02b_fetch_visuals.py first.")
-        imgs.append(found[0])
+        candidates: list[Path] = []
+        if d.is_dir():
+            candidates.extend(sorted(d.glob(f"scene_{i:02d}.*")))
+        candidates.extend(sorted(VISUALS_DIR.glob(f"short_{sid}_scene_{i:02d}.*")))
+        valid = [p for p in candidates if p.suffix.lower() in IMAGE_EXTS and p.stat().st_size > 1024]
+        if not valid:
+            raise FileNotFoundError(f"Scene {i} image missing for short {sid} - run 02b_fetch_visuals.py first.")
+        imgs.append(valid[0])
     return imgs
 
 
@@ -462,125 +516,8 @@ def process_short(
     plan_entry: dict[str, Any],
     args: argparse.Namespace,
 ) -> dict[str, Any]:
-    sid = script["id"]
+    sid = str(script["id"])
     audio = find_audio(sid)
     if not audio:
         raise FileNotFoundError(f"Audio not found for short {sid} in {AUDIO_DIR}")
-    full_dur = probe_duration(ffprobe, audio)
-    dur = min(full_dur, float(args.max_secs)) if args.max_secs and args.max_secs > 0 else full_dur
-    total_frames = round(dur * FPS)
-    n = len(script["scenes"]) or len((plan_entry or {}).get("scenes", []))
-    images = collect_scene_images(sid, n)
-    plan_scenes = (plan_entry or {}).get("scenes", [])
-    anchors = [(plan_scenes[i].get("anchor") if i < len(plan_scenes) else None) for i in range(n)]
-
-    srt = AUDIO_DIR / f"short_{sid}.srt"
-    cues = parse_srt(srt) if srt.is_file() else []
-    cues = [(s, min(e, dur), t) for (s, e, t) in cues if s < dur]
-    with_subs = bool(cues) and not args.no_subs
-
-    bounds, notes = scene_boundaries(n, dur, [script["narration"], script["narration_alt"]], anchors, cues)
-    bounds_sec = [b / FPS for b in bounds]
-    mood = _detect_mood(script, plan_scenes)
-
-    log.info("[%s] %.3fs (%d frames) | %d scenes | %d cues | mood=%s", sid, dur, total_frames, n, len(cues), mood)
-    for note in notes:
-        log.info("[%s]   %s", sid, note)
-
-    work = Path(tempfile.mkdtemp(prefix="shorts_"))
-    try:
-        shutil.copyfile(audio, work / f"voice_src{audio.suffix.lower()}")
-        family = ""
-        if with_subs:
-            family, fonts = find_caption_font()
-            for f in fonts:
-                shutil.copyfile(f, work / f.name)
-            (work / "subs.ass").write_text(build_ass(cues, dur, family), encoding="utf-8-sig")
-        music = None if args.no_bed else pick_music(sid, mood=mood)
-        if music:
-            shutil.copyfile(music, work / f"music{music.suffix.lower()}")
-
-        preset = "veryfast" if args.fast_test else args.preset
-        a_note = master_voice(ffmpeg, work, f"voice_src{audio.suffix.lower()}")
-        render_fast_video(ffmpeg, work, sid, plan_scenes, images, bounds, total_frames, with_subs, preset)
-        bed_tag = mux_final(ffmpeg, work, dur, music, not args.no_bed, bounds_sec, mood, "final.mp4")
-
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        final = OUTPUT_DIR / f"short_{sid}.mp4"
-        staging = final.with_name(final.name + ".tmp")
-        try:
-            shutil.copyfile(work / "final.mp4", staging)
-            os.replace(staging, final)
-        finally:
-            staging.unlink(missing_ok=True)
-    finally:
-        if args.keep_temp:
-            log.info("[%s] temp kept at %s", sid, work)
-        else:
-            shutil.rmtree(work, ignore_errors=True)
-
-    bed_desc = ("music:" + music.name) if music else (f"synth({bed_tag})" if not args.no_bed else "off")
-    return {
-        "sid": sid, "path": final, "dur": dur, "audio_note": a_note, "bed": bed_desc,
-        "loud": measure_loudness(ffmpeg, final), "size": final.stat().st_size / 1048576,
-        "font": family if with_subs else "-",
-    }
-
-
-def main() -> int:
-    ap = argparse.ArgumentParser(description="Assemble vertical Shorts quickly with FFmpeg motion.")
-    ap.add_argument("--only", help="process only this short id")
-    ap.add_argument("--no-subs", action="store_true", help="do not burn captions")
-    ap.add_argument("--no-bed", action="store_true", help="no background ambience")
-    ap.add_argument("--preset", default="medium", help="x264 preset")
-    ap.add_argument("--fast-test", action="store_true", help="faster preview render")
-    ap.add_argument("--max-secs", type=float, default=None, help="trim output to first N seconds")
-    ap.add_argument("--keep-temp", action="store_true")
-    args = ap.parse_args()
-
-    log.info("=" * 72)
-    log.info("Phase 3: Fast Shorts assembler (%dx%d @ %d fps)", WIDTH, HEIGHT, FPS)
-    log.info("=" * 72)
-    try:
-        ffmpeg, ffprobe = find_tool("ffmpeg"), find_tool("ffprobe")
-        scripts = load_scripts()
-        plan = load_plan()
-    except (ToolError, OSError, ValueError) as exc:
-        log.error("Initialization failed: %s", exc)
-        return 1
-    if args.only:
-        scripts = [s for s in scripts if s["id"] == args.only]
-    if not scripts:
-        log.error("No scripts to process.")
-        return 1
-
-    shutil.rmtree(OUTPUT_DIR.parent / "_assemble_tmp", ignore_errors=True)
-
-    done: list[dict[str, Any]] = []
-    failed = 0
-    for sc in scripts:
-        try:
-            done.append(process_short(ffmpeg, ffprobe, sc, plan.get(sc["id"], {}), args))
-            log.info("[%s] DONE -> %s (%.2f MB)", sc["id"], done[-1]["path"], done[-1]["size"])
-        except (ToolError, OSError, ValueError) as exc:
-            failed += 1
-            log.error("[%s] FAILED: %s", sc["id"], exc)
-
-    log.info("=" * 72)
-    log.info("SUMMARY | ok: %d | failed: %d", len(done), failed)
-    for r in done:
-        log.info(
-            "  short %-3s %6.2fs  %5.1f MB  voice: %s | bed: %s | font: %s | final: %s",
-            r["sid"], r["dur"], r["size"], r["audio_note"], r["bed"], r["font"], r["loud"],
-        )
-    log.info("Verify with:  py verify_outputs.py")
-    log.info("=" * 72)
-    return 1 if failed else 0
-
-
-if __name__ == "__main__":
-    try:
-        sys.exit(main())
-    except KeyboardInterrupt:
-        log.warning("Interrupted.")
-        sys.exit(130)
+    full_dur = probe_duration(ffprobe, a
