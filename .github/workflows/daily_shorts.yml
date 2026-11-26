@@ -12,13 +12,17 @@ on:
         required: false
         default: "11"
       upload_id:
-        description: "Optional approved short ID to upload to YouTube (e.g. 8)"
+        description: "Short ID to upload to YouTube (leave empty to auto-use newly generated short)"
         required: false
         default: ""
       privacy:
         description: "YouTube privacy status (private / unlisted / public)"
         required: false
         default: "private"
+      skip_generate:
+        description: "Set to true to skip generation and only upload upload_id (saves Hormouz tokens)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -43,6 +47,7 @@ jobs:
           pip install pillow google-api-python-client google-auth-oauthlib
 
       - name: Generate script, audio, visuals, and assemble short
+        if: ${{ github.event.inputs.skip_generate != 'true' }}
         env:
           HORMOUZ_API_KEY: ${{ secrets.HORMOUZ_API_KEY }}
           HORMOUZ_BASE_URL: ${{ secrets.HORMOUZ_BASE_URL }}
@@ -59,23 +64,39 @@ jobs:
           python 03_video_assembler.py --only "$NEW_ID"
           python verify_outputs.py || true
 
-      - name: Upload approved video to YouTube if requested
-        if: ${{ github.event.inputs.upload_id != '' }}
+      - name: Upload video to YouTube (private by default for review in YouTube Studio)
+        if: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON != '' && secrets.YOUTUBE_TOKEN_JSON != '' && (github.event.inputs.upload_id != '' || github.event.inputs.skip_generate != 'true') }}
         env:
           HORMOUZ_API_KEY: ${{ secrets.HORMOUZ_API_KEY }}
+          HORMOUZ_BASE_URL: ${{ secrets.HORMOUZ_BASE_URL }}
+          HORMOUZ_CHAT_MODEL: ${{ secrets.HORMOUZ_CHAT_MODEL }}
+          HORMOUZ_IMAGE_MODELS: ${{ secrets.HORMOUZ_IMAGE_MODELS }}
+          HORMOUZ_IMAGE_SIZE: "9:16"
         run: |
-          if [ -n "${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}" ]; then
-            printf "%s" "${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}" > client_secret.json
+          printf "%s" "${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}" > client_secret.json
+          printf "%s" "${{ secrets.YOUTUBE_TOKEN_JSON }}" > token.json
+
+          TARGET_ID="${{ github.event.inputs.upload_id }}"
+          if [ -z "$TARGET_ID" ]; then
+            TARGET_ID="${{ env.NEW_ID }}"
           fi
-          if [ -n "${{ secrets.YOUTUBE_TOKEN_JSON }}" ]; then
-            printf "%s" "${{ secrets.YOUTUBE_TOKEN_JSON }}" > token.json
+
+          if [ -z "$TARGET_ID" ]; then
+            echo "No TARGET_ID found to upload."
+            exit 1
           fi
-          python 04_youtube_uploader.py --id "${{ github.event.inputs.upload_id }}" --approve --privacy "${{ github.event.inputs.privacy || 'private' }}"
+
+          if [ ! -f "output/pending_approval/short_${TARGET_ID}.mp4" ] && [ ! -f "output/approved/short_${TARGET_ID}.mp4" ]; then
+            python 02_voice_and_subs.py --only "$TARGET_ID"
+            python 03_video_assembler.py --only "$TARGET_ID"
+          fi
+
+          python 04_youtube_uploader.py --id "$TARGET_ID" --privacy "${{ github.event.inputs.privacy || 'private' }}" --no-local-auth
 
       - name: Upload pending video artifact for review
         uses: actions/upload-artifact@v4
         with:
-          name: pending-short-${{ env.NEW_ID || 'latest' }}
+          name: pending-short-${{ github.event.inputs.upload_id || env.NEW_ID || 'latest' }}
           path: |
             output/pending_approval/*.mp4
             output/approved/*.mp4
