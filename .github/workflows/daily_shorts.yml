@@ -65,16 +65,18 @@ jobs:
           python verify_outputs.py || true
 
       - name: Upload video to YouTube (private by default for review in YouTube Studio)
-        if: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON != '' && secrets.YOUTUBE_TOKEN_JSON != '' && (github.event.inputs.upload_id != '' || github.event.inputs.skip_generate != 'true') }}
+        if: ${{ github.event_name == 'schedule' || github.event.inputs.upload_id != '' || github.event.inputs.skip_generate != 'true' }}
         env:
-          HORMOUZ_API_KEY: ${{ secrets.HORMOUZ_API_KEY }}
-          HORMOUZ_BASE_URL: ${{ secrets.HORMOUZ_BASE_URL }}
-          HORMOUZ_CHAT_MODEL: ${{ secrets.HORMOUZ_CHAT_MODEL }}
-          HORMOUZ_IMAGE_MODELS: ${{ secrets.HORMOUZ_IMAGE_MODELS }}
-          HORMOUZ_IMAGE_SIZE: "9:16"
+          YT_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
+          YT_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
         run: |
-          printf "%s" "${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}" > client_secret.json
-          printf "%s" "${{ secrets.YOUTUBE_TOKEN_JSON }}" > token.json
+          if [ -z "$YT_CLIENT_SECRET_JSON" ] || [ -z "$YT_TOKEN_JSON" ]; then
+            echo "Missing YOUTUBE_CLIENT_SECRET_JSON or YOUTUBE_TOKEN_JSON secret."
+            exit 1
+          fi
+
+          printf "%s" "$YT_CLIENT_SECRET_JSON" > client_secret.json
+          printf "%s" "$YT_TOKEN_JSON" > token.json
 
           TARGET_ID="${{ github.event.inputs.upload_id }}"
           if [ -z "$TARGET_ID" ]; then
