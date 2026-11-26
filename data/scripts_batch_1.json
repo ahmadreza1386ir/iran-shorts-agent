@@ -334,5 +334,43 @@
       "Boy sitting alone reflecting by a quiet fire",
       "Boy standing tall in a sunlit valley, voice echoing"
     ]
+  },
+  {
+    "id": 11,
+    "category": "Cultural/Historical Fact",
+    "proverb_fa": "",
+    "proverb_en": "The Qanat: Persia's Underground Water Gift",
+    "word_count": 108,
+    "hook_en": "Some of the oldest engineering in the world is hidden beneath the desert, and it still gives water today.",
+    "narration": "Some of the oldest engineering in the world is hidden beneath the desert, and it still gives water today. Across Iran, ancient builders dug the qanat, a gently sloping underground tunnel that carries water from distant mountain aquifers to villages and farms. Instead of pumping water uphill, they let gravity do the work. Vertical shafts, spaced along the route, let workers reach down for repairs and bring out the soil. Some qanats stretch for dozens of kilometers and have run for more than two thousand years. Engineers from many lands have studied them with respect. In a land where rain is scarce, the qanat turned patience into life.",
+    "narration_alt": "Some of the oldest engineering in the world is hidden beneath the desert, and it still gives water today. Across Iran, ancient builders dug the qanat, a gently sloping underground tunnel that carries water from distant mountain aquifers to villages and farms. Instead of pumping water uphill, they let gravity do the work. Vertical shafts, spaced along the route, let workers reach down for repairs and bring out the soil. Some qanats stretch for dozens of kilometers and have run for more than two thousand years. Engineers from many lands have studied them with respect. In a land where rain is scarce, the qanat turned patience into life.",
+    "narration_display": "Some of the oldest engineering in the world is hidden beneath the desert, and it still gives water today. Across Iran, ancient builders dug the qanat, a gently sloping underground tunnel that carries water from distant mountain aquifers to villages and farms. Instead of pumping water uphill, they let gravity do the work. Vertical shafts, spaced along the route, let workers reach down for repairs and bring out the soil. Some qanats stretch for dozens of kilometers and have run for more than two thousand years. Engineers from many lands have studied them with respect. In a land where rain is scarce, the qanat turned patience into life.",
+    "narration_tts": "Some of the oldest engineering in the world is hidden beneath the desert, and it still gives water today. Across Eeran, ancient builders dug the kah-NAHT, a gently sloping underground tunnel that carries water from distant mountain aquifers to villages and farms. Instead of pumping water uphill, they let gravity do the work. Vertical shafts, spaced along the route, let workers reach down for repairs and bring out the soil. Some qanats stretch for dozens of kilometers and have run for more than two thousand years. Engineers from many lands have studied them with respect. In a land where rain is scarce, the kah-NAHT turned patience into life.",
+    "visual_scenes": [
+      "Sun-scorched desert plain at dawn",
+      "Mountain aquifer at the foothills",
+      "Workers digging the first vertical shaft",
+      "Sloped tunnel descending underground",
+      "Row of vertical shafts across the desert",
+      "Two workers repairing the tunnel by lamplight",
+      "Water flowing into a village channel",
+      "Women filling jugs at a village pool",
+      "Green fields irrigated by the qanat",
+      "Old qanat shaft viewed from above",
+      "Sunset over the living desert oasis"
+    ],
+    "scenes": [
+      "Sun-scorched desert plain at dawn",
+      "Mountain aquifer at the foothills",
+      "Workers digging the first vertical shaft",
+      "Sloped tunnel descending underground",
+      "Row of vertical shafts across the desert",
+      "Two workers repairing the tunnel by lamplight",
+      "Water flowing into a village channel",
+      "Women filling jugs at a village pool",
+      "Green fields irrigated by the qanat",
+      "Old qanat shaft viewed from above",
+      "Sunset over the living desert oasis"
+    ]
   }
 ]

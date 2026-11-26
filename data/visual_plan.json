@@ -5048,6 +5048,441 @@
           }
         }
       ]
+    },
+    {
+      "id": "11",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Sun-scorched desert plain at dawn",
+          "query": "desert dawn landscape Iran",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert dawn landscape Iran",
+              "desert dawn"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a vast Iranian desert plain at dawn, pale gold sand dunes fading into teal shadows, a distant snow-capped mountain range glowing softly, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Mountain aquifer at the foothills",
+          "query": "mountain spring foothills water",
+          "anchor": "Mountain aquifer at",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "mountain spring foothills water",
+              "mountain spring"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of clear water seeping from rocky mountain foothills into a shallow pool, green shrubs along the edges, warm sunlight and teal shadows, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Workers digging the first vertical shaft",
+          "query": "ancient well digging workers",
+          "anchor": "Workers digging the",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient well digging workers",
+              "ancient well"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly three workers in simple robes digging a deep round vertical shaft in dry earth with wooden tools, a pile of soil beside them, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Sloped tunnel descending underground",
+          "query": "underground tunnel cross section",
+          "anchor": "Sloped tunnel descending",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "underground tunnel cross section",
+              "underground tunnel"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook cross-section illustration of a gently sloping underground tunnel with arched brick walls, a faint trickle of water along the floor, warm lantern glow against teal stone, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Row of vertical shafts across the desert",
+          "query": "row of desert wells landscape",
+          "anchor": "Row of vertical",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "row of desert wells landscape",
+              "row of"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a long line of small circular mound openings marking an underground channel across golden desert, dusk light, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two workers repairing the tunnel by lamplight",
+          "query": "workers repairing tunnel lamplight",
+          "anchor": "Two workers repairing",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "workers repairing tunnel lamplight",
+              "workers repairing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly two workers kneeling inside a narrow underground tunnel, one holding a clay oil lamp, the other patching the stone wall, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Water flowing into a village channel",
+          "query": "irrigation channel village water",
+          "anchor": "Water flowing into",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "irrigation channel village water",
+              "irrigation channel"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of clear water flowing out of a tunnel mouth into a stone channel that winds between mud-brick houses and date palms, warm sunlight, teal reflections, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Women filling jugs at a village pool",
+          "query": "village women water jugs",
+          "anchor": "Women filling jugs",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "village women water jugs",
+              "village women"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly three women in colorful headscarves and long dresses filling clay jugs at a small stone pool, palm trees behind them, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Green fields irrigated by the qanat",
+          "query": "green farm fields oasis",
+          "anchor": "Green fields irrigated",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "green farm fields oasis",
+              "green farm"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of lush green wheat fields and orchards in a desert oasis, irrigated by thin shining water channels, golden desert edges, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Old qanat shaft viewed from above",
+          "query": "ancient qanat shaft aerial",
+          "anchor": "Old qanat shaft",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient qanat shaft aerial",
+              "ancient qanat"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of an aerial view of several circular shaft openings in tan desert soil, long shadows across the sand, a line of green crops in the distance, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Sunset over the living desert oasis",
+          "query": "desert oasis sunset",
+          "anchor": "Sunset over the",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert oasis sunset",
+              "desert oasis"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a peaceful desert oasis at sunset, a single farmer with a walking stick standing at the edge of green fields, warm glowing sky and teal shadows, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }
