@@ -1,7 +1,8 @@
 import argparse
 import json
-import os
+import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 from google.auth.transport.requests import Request
@@ -36,8 +37,9 @@ def find_short_record(short_id: str) -> dict:
     records = load_json(SCRIPTS_FILE, [])
     if not isinstance(records, list):
         raise ValueError("data/scripts_batch_1.json must contain a list.")
+    target = str(short_id).strip()
     for item in records:
-        if str(item.get("id", "")).strip() == str(short_id).strip():
+        if isinstance(item, dict) and str(item.get("id", "")).strip() == target:
             return item
     raise FileNotFoundError(f"Short ID '{short_id}' not found in {SCRIPTS_FILE}.")
 
@@ -80,34 +82,96 @@ def get_youtube_service(allow_local_auth: bool = False):
     return build("youtube", "v3", credentials=creds)
 
 
+def _clean_tag(raw_tag: str) -> str:
+    cleaned = re.sub(r"[^A-Za-z0-9 ]+", "", str(raw_tag)).strip()
+    return cleaned[:30]
+
+
 def build_metadata(record: dict, short_id: str) -> tuple[str, str, list[str]]:
     raw_title = (
         record.get("youtube_title")
         or record.get("title")
         or record.get("proverb")
         or record.get("topic")
-        or f"Iranian Short #{short_id}"
+        or f"Daily Insight #{short_id}"
     )
-    title = str(raw_title).strip()[:95]
+    title = re.sub(r"\s+", " ", str(raw_title)).strip()
     if "#shorts" not in title.lower():
         suffix = " #Shorts"
-        title = f"{title[: 100 - len(suffix)]}{suffix}"
+        max_base_len = 100 - len(suffix)
+        title = f"{title[:max_base_len].rstrip()}{suffix}"
+    else:
+        title = title[:100]
 
     hook = str(record.get("hook") or record.get("summary") or record.get("moral") or "").strip()
-    description = (
-        f"{hook}\n\n"
-        f"Short #{short_id}\n"
-        "#Shorts #Persian #Iran #Story #Proverb"
-    ).strip()[:4900]
+    proverb = str(record.get("proverb") or "").strip()
+    moral = str(record.get("moral") or "").strip()
 
-    tags = ["Shorts", "Persian", "Iran", "Story", "Proverb"]
-    return title, description, tags
+    parts = []
+    if hook:
+        parts.append(hook)
+    if proverb and proverb.lower() not in hook.lower():
+        parts.append(f"Proverb: {proverb}")
+    if moral and moral.lower() not in hook.lower():
+        parts.append(f"Takeaway: {moral}")
+
+    body_text = "\n\n".join(parts).strip()
+    footer = (
+        f"PulseShorts Daily — Episode #{short_id}\n"
+        "#Shorts #Stories #Proverbs #Insights #Wisdom"
+    )
+    description = f"{body_text}\n\n{footer}".strip() if body_text else footer
+    description = description[:4900]
+
+    base_tags = ["Shorts", "PulseShorts", "Stories", "Proverbs", "Insights", "Wisdom"]
+    extra_tags = record.get("tags")
+    if isinstance(extra_tags, list):
+        for t in extra_tags:
+            ct = _clean_tag(t)
+            if ct and ct.lower() not in {x.lower() for x in base_tags}:
+                base_tags.append(ct)
+
+    # YouTube total tags character limit is 500 chars
+    final_tags: list[str] = []
+    total_len = 0
+    for tag in base_tags:
+        if total_len + len(tag) + 1 <= 450:
+            final_tags.append(tag)
+            total_len += len(tag) + 1
+    if not final_tags:
+        final_tags = ["Shorts", "Stories", "Proverbs", "Insights"]
+
+    return title, description, final_tags
 
 
-def upload_video(short_id: str, privacy: str, allow_local_auth: bool) -> dict:
+def is_already_uploaded(short_id: str, logs: list) -> bool:
+    target = str(short_id).strip()
+    return any(
+        isinstance(entry, dict)
+        and str(entry.get("short_id", "")).strip() == target
+        and bool(str(entry.get("video_id", "")).strip())
+        for entry in logs
+    )
+
+
+def upload_video(
+    short_id: str,
+    privacy: str,
+    allow_local_auth: bool,
+    allow_duplicate: bool = False,
+) -> dict:
     privacy = privacy.lower().strip()
     if privacy not in {"private", "unlisted", "public"}:
         raise ValueError("privacy must be one of: private, unlisted, public")
+
+    existing_logs = load_json(UPLOAD_LOG_FILE, [])
+    if not isinstance(existing_logs, list):
+        existing_logs = []
+
+    if not allow_duplicate and is_already_uploaded(short_id, existing_logs):
+        raise RuntimeError(
+            f"Short ID '{short_id}' is already recorded in {UPLOAD_LOG_FILE}. Skipping duplicate upload."
+        )
 
     record = find_short_record(short_id)
     video_path = find_video_file(short_id)
@@ -144,11 +208,9 @@ def upload_video(short_id: str, privacy: str, allow_local_auth: bool) -> dict:
         "url": watch_url,
         "title": title,
         "privacy": privacy,
+        "uploaded_at_utc": datetime.now(timezone.utc).isoformat(),
     }
 
-    existing_logs = load_json(UPLOAD_LOG_FILE, [])
-    if not isinstance(existing_logs, list):
-        existing_logs = []
     existing_logs.append(log_entry)
     save_json(UPLOAD_LOG_FILE, existing_logs)
 
@@ -174,6 +236,11 @@ def main():
         action="store_true",
         help="Fail instead of opening a local browser if token is missing/invalid",
     )
+    parser.add_argument(
+        "--allow-duplicate",
+        action="store_true",
+        help="Allow uploading even if short_id already exists in uploaded_shorts.json",
+    )
     args = parser.parse_args()
 
     if args.auth_only:
@@ -185,6 +252,7 @@ def main():
         short_id=args.id,
         privacy=args.privacy,
         allow_local_auth=not args.no_local_auth,
+        allow_duplicate=args.allow_duplicate,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
