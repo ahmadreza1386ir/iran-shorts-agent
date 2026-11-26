@@ -5483,6 +5483,441 @@
           }
         }
       ]
+    },
+    {
+      "id": "12",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Opening close-up of a brimming clay bowl of water on a wooden table",
+          "query": "full bowl water wooden table",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "full bowl water wooden table",
+              "full bowl"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a brimming clay bowl of water sitting on a rustic wooden table in a sunlit Persian courtyard, a single drop about to fall, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A young potter hurries at a wheel, clay wobbling",
+          "query": "young potter wheel clay",
+          "anchor": "A young potter",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "young potter wheel clay",
+              "young potter"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man in a patched tunic rushing at a spinning potter's wheel, clay wobbling dangerously, eager expression, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The clay vessel cracks apart on the wheel",
+          "query": "cracked clay pot wheel",
+          "anchor": "The clay vessel",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "cracked clay pot wheel",
+              "cracked clay"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a clay vessel splitting into cracks on a spinning wheel, shards flying, one young man in a patched tunic recoiling with a startled face, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Young potter pointing accusingly at the clay",
+          "query": "frustrated man pointing clay",
+          "anchor": "Young potter pointing",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frustrated man pointing clay",
+              "frustrated man"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man in a patched tunic pointing an accusing finger at a lump of gray clay on a workbench, frowning, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Elderly master potter observing with a calm smile",
+          "query": "old potter smiling workshop",
+          "anchor": "Elderly master potter",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old potter smiling workshop",
+              "old potter"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one elderly master potter with a white beard seated in a warm clay workshop, gentle knowing smile, hands folded, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Master and apprentice facing each other across the workshop",
+          "query": "master apprentice talking workshop",
+          "anchor": "Master and apprentice",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "master apprentice talking workshop",
+              "master apprentice"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, two people facing each other in a clay workshop, an elderly master on the left and a young apprentice on the right, both mid-conversation, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Master gently pours water out of a bowl to empty it",
+          "query": "pouring water out bowl",
+          "anchor": "Master gently pours",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "pouring water out bowl",
+              "pouring water"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one elderly master potter tilting a clay bowl to pour out its water onto the earth, calm focused gesture, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Apprentice sits quietly with eyes closed, listening",
+          "query": "young man meditating quiet",
+          "anchor": "Apprentice sits quietly",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "young man meditating quiet",
+              "young man"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man sitting cross-legged on a woven mat with eyes closed, hands resting on his knees, peaceful posture, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Apprentice slowly centers fresh clay on the wheel",
+          "query": "hands shaping clay wheel",
+          "anchor": "Apprentice slowly centers",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "hands shaping clay wheel",
+              "hands shaping"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man's two hands gently centering a mound of soft clay on a spinning wheel, careful and patient, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A finished graceful vessel gleaming in the light",
+          "query": "beautiful clay vase sunlight",
+          "anchor": "A finished graceful",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "beautiful clay vase sunlight",
+              "beautiful clay"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a finished elegant turquoise-glazed clay vase standing on a shelf in warm morning light, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Closing image of an empty bowl ready to be filled again",
+          "query": "empty bowl sunlight courtyard",
+          "anchor": "Closing image of",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "empty bowl sunlight courtyard",
+              "empty bowl"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a clean empty clay bowl resting on a wooden table in a sunlit Persian courtyard, open and ready, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }

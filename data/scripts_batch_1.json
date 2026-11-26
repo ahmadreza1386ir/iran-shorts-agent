@@ -372,5 +372,43 @@
       "Old qanat shaft viewed from above",
       "Sunset over the living desert oasis"
     ]
+  },
+  {
+    "id": 12,
+    "category": "Proverb",
+    "proverb_fa": "کار نیکو کردن از پر کردن است",
+    "proverb_en": "Kar-e nikoo kardan az pur kardan ast",
+    "word_count": 107,
+    "hook_en": "A bowl that is already full cannot take another drop, and neither can a mind that thinks it knows everything.",
+    "narration": "A bowl that is already full cannot take another drop, and neither can a mind that thinks it knows everything. In Iran there is an old saying: Kar-e nikoo kardan az pur kardan ast, which means doing good work is harder than filling a cup. Filling is easy, anyone can pour. Doing good requires patience, listening, and emptying yourself first. Think of a young potter who believes his clay already knows its shape. He rushes, cracks the vessel, and blames the clay. His master simply smiles and says, empty your heart before you shape anything. Wisdom begins when we admit how much we have yet to learn.",
+    "narration_alt": "A bowl that is already full cannot take another drop, and neither can a mind that thinks it knows everything. In Iran there is an old saying: Kar-e nikoo kardan az pur kardan ast, which means doing good work is harder than filling a cup. Filling is easy, anyone can pour. Doing good requires patience, listening, and emptying yourself first. Think of a young potter who believes his clay already knows its shape. He rushes, cracks the vessel, and blames the clay. His master simply smiles and says, empty your heart before you shape anything. Wisdom begins when we admit how much we have yet to learn.",
+    "narration_display": "A bowl that is already full cannot take another drop, and neither can a mind that thinks it knows everything. In Iran there is an old saying: Kar-e nikoo kardan az pur kardan ast, which means doing good work is harder than filling a cup. Filling is easy, anyone can pour. Doing good requires patience, listening, and emptying yourself first. Think of a young potter who believes his clay already knows its shape. He rushes, cracks the vessel, and blames the clay. His master simply smiles and says, empty your heart before you shape anything. Wisdom begins when we admit how much we have yet to learn.",
+    "narration_tts": "A bowl that is already full cannot take another drop, and neither can a mind that thinks it knows everything. In Iran there is an old saying: Kar eh nik oo kar dan az por kar dan ast, which means doing good work is harder than filling a cup. Filling is easy, anyone can pour. Doing good requires patience, listening, and emptying yourself first. Think of a young potter who believes his clay already knows its shape. He rushes, cracks the vessel, and blames the clay. His master simply smiles and says, empty your heart before you shape anything. Wisdom begins when we admit how much we have yet to learn.",
+    "visual_scenes": [
+      "Opening close-up of a brimming clay bowl of water on a wooden table",
+      "A young potter hurries at a wheel, clay wobbling",
+      "The clay vessel cracks apart on the wheel",
+      "Young potter pointing accusingly at the clay",
+      "Elderly master potter observing with a calm smile",
+      "Master and apprentice facing each other across the workshop",
+      "Master gently pours water out of a bowl to empty it",
+      "Apprentice sits quietly with eyes closed, listening",
+      "Apprentice slowly centers fresh clay on the wheel",
+      "A finished graceful vessel gleaming in the light",
+      "Closing image of an empty bowl ready to be filled again"
+    ],
+    "scenes": [
+      "Opening close-up of a brimming clay bowl of water on a wooden table",
+      "A young potter hurries at a wheel, clay wobbling",
+      "The clay vessel cracks apart on the wheel",
+      "Young potter pointing accusingly at the clay",
+      "Elderly master potter observing with a calm smile",
+      "Master and apprentice facing each other across the workshop",
+      "Master gently pours water out of a bowl to empty it",
+      "Apprentice sits quietly with eyes closed, listening",
+      "Apprentice slowly centers fresh clay on the wheel",
+      "A finished graceful vessel gleaming in the light",
+      "Closing image of an empty bowl ready to be filled again"
+    ]
   }
 ]
