@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Phase 1 (LLM): Hardened script & visual plan writer via Hormouz Chat Completions API.
-Uses explosive hook brainstorming to craft gripping openings, locks core meaning,
-and appends validated entries to scripts_batch_1.json and visual_plan.json.
+Uses explosive hook brainstorming to craft gripping openings, builds human curiosity
+and varied rhythm across the story, locks core meaning, and appends validated entries
+to scripts_batch_1.json and visual_plan.json.
 """
 
 from __future__ import annotations
@@ -239,26 +240,31 @@ def call_llm(
     avoid_list = ", ".join(used_topics[-40:]) if used_topics else "none"
 
     system_prompt = (
-        "You are an expert viral scriptwriter and visual art director for English YouTube Shorts "
+        "You are an expressive, human-sounding storyteller and scriptwriter for English YouTube Shorts "
         "about Iranian proverbs, short stories/fables, and cultural/historical facts. "
-        "First use rapid divergent hook brainstorming to craft punchy, visual, counterintuitive or high-stakes openings "
-        "that stop viewers mid-scroll in the first 1.5 seconds (for instance, contrasting immovable mountains in a landscape "
-        "with paths and people crossing again later). Keep the script strictly faithful to the true meaning of the proverb or story. "
+        "Write like a real person talking with genuine excitement, surprise, and curiosity—never like a flat textbook "
+        "or monotonous narrator. Use divergent hook brainstorming to open with an arresting surprise or contrast "
+        "(such as immovable mountains standing still while human paths cross again), keep curiosity alive mid-way "
+        "with shifting pacing and vivid detail, and deliver a sharp, memorable landing. "
+        "Stay strictly faithful to the true meaning of the proverb or story. "
         "Output ONLY valid JSON with no extra commentary."
     )
 
     user_prompt = f"""Create ONE original YouTube Short script in format "{fmt}".
 Rules:
 1. Do NOT repeat any of these previously used topics: [{avoid_list}].
-2. Define "core_message" first so the hook, narrative, and payoff all lock onto the exact true meaning.
-3. Run a quick divergent brainstorm in "hook_candidates" (3 distinct punchy opening lines: one visual/spatial contrast like immovable mountains while human paths cross again, one sharp human tension/consequence, one surprising twist). Pick the strongest single opening line as "hook_en" and start "narration_display" directly with that hook.
-4. Never start with weak clichés like "Did you know", "Today we will talk about", or "In this video". Keep sentences crisp, vivid, and rhythmic.
+2. Define "core_message" first so the hook, curiosity arc, and ending all lock onto the exact true meaning.
+3. Run a divergent brainstorm in "hook_candidates" (3 distinct punchy opening lines: one surprising/counterintuitive contrast like immovable mountains while people cross paths again, one sudden human twist or exclamation, one intriguing paradox). Pick the most captivating opening as "hook_en" and start "narration_display" directly with that hook.
+4. Human tone & non-monotonous pacing:
+   - Open with genuine excitement or surprise that grabs attention immediately.
+   - Continue with curiosity and tension—vary sentence lengths (mix short punchy beats with slightly longer storytelling lines) so it never sounds robotic or flat.
+   - Avoid stiff transitions or clichés like "Did you know", "Today we will talk about", "In summary", or "In conclusion".
 5. "narration_display": 85 to 112 natural English words (around 32-38 seconds spoken).
-6. "narration_tts": smooth spoken English for text-to-speech. Avoid hyphenated Persian transliterations that sound choppy; prefer clear English phrasing and simple, natural names.
+6. "narration_tts": natural spoken English with expressive punctuation (exclamation/question/comma pauses where natural) so TTS sounds alive and human. Avoid hyphenated Persian transliterations that sound choppy.
 7. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
-   - Scene 1 MUST visually embody the opening hook immediately.
-   - Each subsequent scene must advance the story or concept without repeating the same action.
-   - Specify exact character counts whenever people appear (e.g., "two men talking beside a clay jar").
+   - Scene 1 MUST visually match the opening hook immediately.
+   - Each subsequent scene must advance the story or curiosity arc without repeating the same action.
+   - Specify exact character counts whenever people appear (e.g., "two travelers meeting on a mountain pass").
    - Never include text, letters, signs, captions, screens with text, or watermarks in scene prompts.
    - Visual style: cohesive hand-painted storybook illustration, warm and teal palette, vertical 9:16 framing.
 
@@ -269,13 +275,13 @@ Return strictly this JSON schema:
   "proverb_fa": "Persian phrase/title if applicable or empty string",
   "proverb_en": "clear English title or short phrase",
   "hook_candidates": [
-    "hook option 1 (spatial/visual contrast)",
-    "hook option 2 (sharp human tension)",
-    "hook option 3 (unexpected twist)"
+    "hook option 1 (surprising contrast)",
+    "hook option 2 (excited/curious opener)",
+    "hook option 3 (intriguing paradox)"
   ],
-  "hook_en": "the single strongest opening hook line",
-  "narration_display": "full narration starting with hook_en",
-  "narration_tts": "full narration optimized for smooth TTS",
+  "hook_en": "the single most gripping opening hook line",
+  "narration_display": "full narration starting with hook_en with varied human pacing",
+  "narration_tts": "full narration optimized for expressive, natural TTS",
   "scenes": [
     {{
       "desc": "concise scene description",
@@ -287,7 +293,7 @@ Return strictly this JSON schema:
 
     payload = {
         "model": HORMOUZ_CHAT_MODEL,
-        "temperature": 0.82,
+        "temperature": 0.9,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
@@ -482,3 +488,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+            
