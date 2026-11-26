@@ -4613,6 +4613,441 @@
           }
         }
       ]
+    },
+    {
+      "id": "10",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Shepherd boy standing alone on a green mountain slope at dawn",
+          "query": "shepherd boy mountain dawn",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd boy mountain dawn",
+              "shepherd boy"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy standing alone on a green Alborz mountain slope at dawn, warm golden light blending into teal mist, grazing sheep scattered in background, soft brush textures, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy cupping hands to mouth shouting across the valley",
+          "query": "boy shouting mountain valley",
+          "anchor": "Boy cupping hands",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy shouting mountain valley",
+              "boy shouting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy cupping his hands to his mouth and shouting across a deep green valley, warm orange sky and teal shadows, wind-swept grass, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Villagers running uphill carrying sticks",
+          "query": "villagers running uphill sticks",
+          "anchor": "Villagers running uphill",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "villagers running uphill sticks",
+              "villagers running"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, four villagers running uphill on a rocky mountain path carrying wooden sticks and stones, warm dusty tones with teal background hills, dynamic brushstrokes, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy laughing while villagers look confused",
+          "query": "boy laughing villagers confused",
+          "anchor": "Boy laughing while",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy laughing villagers confused",
+              "boy laughing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy laughing heartily while three villagers stand breathless and confused on a grassy hilltop, warm golden light, teal sky, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Villagers angrily walking back down the hill",
+          "query": "villagers walking down hill angry",
+          "anchor": "Villagers angrily walking",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "villagers walking down hill angry",
+              "villagers walking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, three villagers walking down a winding hill path with frowns and lowered shoulders, warm earthy palette with teal distant mountains, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy again shouting wolf while sheep graze peacefully",
+          "query": "boy shouting sheep grazing peacefully",
+          "anchor": "Boy again shouting",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy shouting sheep grazing peacefully",
+              "boy shouting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one shepherd boy shouting with a playful grin while sheep graze peacefully beside him on a meadow, warm sunlight and teal shadows, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Cold winter evening with snow on ridge",
+          "query": "winter evening snow mountain ridge",
+          "anchor": "Cold winter evening",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "winter evening snow mountain ridge",
+              "winter evening"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a cold winter evening over a snowy mountain ridge with dusk sky shifting from warm amber to deep teal, bare trees and drifting snow, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Large grey wolf emerging from the ridge toward sheep",
+          "query": "grey wolf mountain ridge snow",
+          "anchor": "Large grey wolf",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "grey wolf mountain ridge snow",
+              "grey wolf"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one large grey wolf stepping down from a snowy ridge toward a small flock of sheep, warm lantern-like glow contrasting teal snow, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy screaming in fear with empty village behind him",
+          "query": "boy screaming fear snow night",
+          "anchor": "Boy screaming in",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy screaming fear snow night",
+              "boy screaming"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one terrified young shepherd boy screaming on a snowy slope at night, distant village lights glowing warm yellow with no people visible, teal night sky, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy sitting alone reflecting by a quiet fire",
+          "query": "boy sitting alone campfire reflecting",
+          "anchor": "Boy sitting alone",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy sitting alone campfire reflecting",
+              "boy sitting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy sitting alone beside a small quiet campfire, head bowed in thought, warm orange firelight against cool teal night, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy standing tall in a sunlit valley, voice echoing",
+          "query": "boy standing tall sunlit valley",
+          "anchor": "Boy standing tall",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy standing tall sunlit valley",
+              "boy standing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one shepherd boy standing tall on a rock in a sunlit valley with his arms open, golden light and teal mountains, sound waves rendered as soft painted swirls in the air, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }

@@ -296,5 +296,43 @@
       "Two hands clasped in mutual respect",
       "Girl climbing a staircase toward a bright doorway"
     ]
+  },
+  {
+    "id": 10,
+    "category": "Short Story",
+    "proverb_fa": "",
+    "proverb_en": "The Shepherd Who Wanted to Be Heard",
+    "word_count": 98,
+    "hook_en": "A lonely shepherd once cried wolf so many times that the mountain itself stopped listening.",
+    "narration": "High in the Alborz mountains, a young shepherd named Kamran was bored. To break the silence, he shouted, \"Wolf! Wolf!\" The villagers ran uphill with sticks and stones, only to find him laughing. He did it again. And again. One cold winter evening, a real wolf came down from the ridge. Kamran screamed, but no one came. The villagers had stopped listening. Kamran learned that a voice is only trusted when it speaks true. In Persian tales, a liar's words grow thin, like breath on a winter window. Speak truly, and your word will carry across any valley.",
+    "narration_alt": "High in the Alborz mountains, a young shepherd named Kamran was bored. To break the silence, he shouted, \"Wolf! Wolf!\" The villagers ran uphill with sticks and stones, only to find him laughing. He did it again. And again. One cold winter evening, a real wolf came down from the ridge. Kamran screamed, but no one came. The villagers had stopped listening. Kamran learned that a voice is only trusted when it speaks true. In Persian tales, a liar's words grow thin, like breath on a winter window. Speak truly, and your word will carry across any valley.",
+    "narration_display": "High in the Alborz mountains, a young shepherd named Kamran was bored. To break the silence, he shouted, \"Wolf! Wolf!\" The villagers ran uphill with sticks and stones, only to find him laughing. He did it again. And again. One cold winter evening, a real wolf came down from the ridge. Kamran screamed, but no one came. The villagers had stopped listening. Kamran learned that a voice is only trusted when it speaks true. In Persian tales, a liar's words grow thin, like breath on a winter window. Speak truly, and your word will carry across any valley.",
+    "narration_tts": "High in the Al-borz mountains, a young shepherd named Kamran was bored. To break the silence, he shouted, \"Wolf! Wolf!\" The villagers ran uphill with sticks and stones, only to find him laughing. He did it again. And again. One cold winter evening, a real wolf came down from the ridge. Kamran screamed, but no one came. The villagers had stopped listening. Kamran learned that a voice is only trusted when it speaks true. In Persian tales, a liar's words grow thin, like breath on a winter window. Speak truly, and your word will carry across any valley.",
+    "visual_scenes": [
+      "Shepherd boy standing alone on a green mountain slope at dawn",
+      "Boy cupping hands to mouth shouting across the valley",
+      "Villagers running uphill carrying sticks",
+      "Boy laughing while villagers look confused",
+      "Villagers angrily walking back down the hill",
+      "Boy again shouting wolf while sheep graze peacefully",
+      "Cold winter evening with snow on ridge",
+      "Large grey wolf emerging from the ridge toward sheep",
+      "Boy screaming in fear with empty village behind him",
+      "Boy sitting alone reflecting by a quiet fire",
+      "Boy standing tall in a sunlit valley, voice echoing"
+    ],
+    "scenes": [
+      "Shepherd boy standing alone on a green mountain slope at dawn",
+      "Boy cupping hands to mouth shouting across the valley",
+      "Villagers running uphill carrying sticks",
+      "Boy laughing while villagers look confused",
+      "Villagers angrily walking back down the hill",
+      "Boy again shouting wolf while sheep graze peacefully",
+      "Cold winter evening with snow on ridge",
+      "Large grey wolf emerging from the ridge toward sheep",
+      "Boy screaming in fear with empty village behind him",
+      "Boy sitting alone reflecting by a quiet fire",
+      "Boy standing tall in a sunlit valley, voice echoing"
+    ]
   }
 ]
