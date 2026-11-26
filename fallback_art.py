@@ -10,11 +10,11 @@ from __future__ import annotations
 import hashlib
 import math
 import random
-from typing import Any, Callable
+from typing import Any
 
 from PIL import Image, ImageDraw, ImageFilter
 
-from common import CANVAS_H as H, CANVAS_W as W, HEIGHT, WIDTH
+from common import CANVAS_H as H, CANVAS_W as W
 
 Color = tuple[int, int, int]
 ICE: Color = (176, 226, 250)
@@ -107,17 +107,20 @@ def _shade(c: Color, f: float) -> Color:
     )
 
 
-def _ease(t: float) -> float:
-    t = max(0.0, min(1.0, t))
-    return t * t * (3.0 - 2.0 * t)
-
-
 def _hash_seed(key: str) -> int:
     return int(hashlib.sha256(key.encode("utf-8")).hexdigest()[:8], 16)
 
 
 class Canvas:
-    def __init__(self, pal: dict[str, Any], seed: int, cw: int = W, ch: int = H, t: float = 0.5, phase: float = 0.0):
+    def __init__(
+        self,
+        pal: dict[str, Any],
+        seed: int,
+        cw: int = W,
+        ch: int = H,
+        t: float = 0.5,
+        phase: float = 0.0,
+    ):
         self.pal = pal
         self.seed = seed
         self.rng = random.Random(seed)
@@ -137,20 +140,28 @@ class Canvas:
     def Y(self, v: float) -> float:
         return v * self.ch
 
-    def poly(self, pts: list[tuple[float, float]], fill: tuple[int, ...], outline: tuple[int, ...] | None = None, width: int = 1) -> None:
+    def poly(
+        self,
+        pts: list[tuple[float, float]],
+        fill: tuple[int, ...],
+        outline: tuple[int, ...] | None = None,
+        width: int = 1,
+    ) -> None:
         self.d.polygon(pts, fill=fill, outline=outline)
         if outline and width > 1:
             self.d.line(pts + [pts[0]], fill=outline, width=width)
 
-    def ell(self, cx: float, cy: float, rx: float, ry: float, fill: tuple[int, ...], outline: tuple[int, ...] | None = None, width: int = 1) -> None:
+    def ell(
+        self,
+        cx: float,
+        cy: float,
+        rx: float,
+        ry: float,
+        fill: tuple[int, ...],
+        outline: tuple[int, ...] | None = None,
+        width: int = 1,
+    ) -> None:
         self.d.ellipse((cx - rx, cy - ry, cx + rx, cy + ry), fill=fill, outline=outline, width=width)
-
-    def capsule(self, x1: float, y1: float, x2: float, y2: float, r: float, fill: tuple[int, ...], outline: tuple[int, ...] | None = None) -> None:
-        self.d.line((x1, y1, x2, y2), fill=fill, width=max(1, int(r * 2)))
-        self.ell(x1, y1, r, r, fill)
-        self.ell(x2, y2, r, r, fill)
-        if outline:
-            self.d.line((x1, y1, x2, y2), fill=outline, width=2)
 
     def glow(self, cx: float, cy: float, r: float, color: Color, strength: int = 200) -> None:
         pad = int(r * 2.6)
@@ -168,85 +179,6 @@ class Canvas:
         base = self.img.crop(box).convert("RGBA")
         self.img.paste(Image.alpha_composite(base, layer).convert("RGB"), box[:2])
         self.refresh()
-
-
-def _bezier(p0, p1, p2, p3, t):
-    u = 1 - t
-    return (
-        u**3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t**3 * p3[0],
-        u**3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t**3 * p3[1],
-    )
-
-
-def _draw_face(
-    c: Canvas,
-    hx: float,
-    hy: float,
-    hr: float,
-    facing: int = 1,
-    beard: bool = False,
-    smile: bool = True,
-    headgear: str = "turban",
-    hair_col: Color = (44, 30, 22),
-) -> None:
-    c.ell(hx - facing * hr * 0.22, hy - hr * 0.04, hr * 0.74, hr * 0.84, (*hair_col, 255))
-    skin = (226, 172, 130)
-    c.ell(hx, hy, hr * 0.84, hr * 1.0, (*skin, 255), outline=(*c.pal["light"], 110), width=2)
-    c.ell(hx + facing * hr * 0.28, hy + hr * 0.14, hr * 0.22, hr * 0.13, (212, 128, 104, 115))
-
-    if beard:
-        beard_c = (206, 202, 198)
-        c.poly(
-            [
-                (hx - hr * 0.6, hy + hr * 0.08),
-                (hx + hr * 0.66, hy + hr * 0.14),
-                (hx + hr * 0.44, hy + hr * 0.98),
-                (hx - hr * 0.05, hy + hr * 1.15),
-                (hx - hr * 0.54, hy + hr * 0.76),
-            ],
-            (*beard_c, 255),
-            outline=(*_shade(beard_c, 0.72), 185),
-            width=2,
-        )
-        c.ell(hx + facing * hr * 0.26, hy + hr * 0.3, hr * 0.35, hr * 0.13, (*_shade(beard_c, 0.88), 255))
-
-    blink_cycle = (c.phase * 0.38 + (0.2 if facing > 0 else 0.6)) % 1.0
-    is_blinking = blink_cycle > 0.94
-
-    eye_y = hy - hr * 0.12
-    for idx, ox in enumerate([facing * hr * 0.14, facing * hr * 0.46]):
-        ex = hx + ox
-        erx = hr * (0.145 if idx == 0 else 0.12)
-        ery = hr * 0.115
-        brow_y = eye_y - hr * 0.21
-        c.d.line((ex - erx * 1.15, brow_y, ex + erx * 1.15, brow_y - hr * 0.025), fill=(*hair_col, 240), width=max(2, int(hr * 0.075)))
-        if is_blinking:
-            c.d.line((ex - erx, eye_y, ex + erx, eye_y), fill=(64, 40, 30, 255), width=max(2, int(hr * 0.065)))
-        else:
-            c.ell(ex, eye_y, erx, ery, (254, 252, 248, 255))
-            px = ex + facing * erx * 0.25
-            c.ell(px, eye_y, erx * 0.55, ery * 0.72, (32, 22, 18, 255))
-            c.ell(px - erx * 0.15, eye_y - ery * 0.22, erx * 0.2, ery * 0.24, (255, 255, 255, 245))
-
-    nx = hx + facing * hr * 0.35
-    c.d.line((nx, eye_y + hr * 0.04, nx + facing * hr * 0.12, hy + hr * 0.16), fill=(*_shade(skin, 0.74), 230), width=max(2, int(hr * 0.065)))
-
-    mx = hx + facing * hr * 0.26
-    my = hy + hr * 0.40
-    mw = hr * 0.23
-    if smile:
-        c.d.arc((mx - mw, my - hr * 0.1, mx + mw, my + hr * 0.15), 15, 165, fill=(134, 58, 50, 245), width=max(2, int(hr * 0.07)))
-    else:
-        c.d.line((mx - mw * 0.7, my, mx + mw * 0.7, my), fill=(134, 58, 50, 235), width=max(2, int(hr * 0.065)))
-
-    if headgear == "turban":
-        c.ell(hx, hy - hr * 0.64, hr * 1.08, hr * 0.6, (*c.pal["light"], 255), outline=(*_shade(c.pal["accent"], 0.8), 170), width=2)
-        c.ell(hx + facing * hr * 0.1, hy - hr * 0.84, hr * 0.7, hr * 0.38, (*_shade(c.pal["light"], 0.86), 255))
-        c.d.arc((hx - hr * 0.85, hy - hr * 0.9, hx + hr * 0.85, hy - hr * 0.2), 195, 345, fill=(*_shade(c.pal["accent"], 0.85), 210), width=2)
-    elif headgear == "cap":
-        c.ell(hx, hy - hr * 0.62, hr * 0.94, hr * 0.5, (*_shade(c.pal["accent"], 0.72), 255), outline=(*c.pal["light"], 115), width=2)
-    else:
-        c.ell(hx - facing * hr * 0.05, hy - hr * 0.68, hr * 0.9, hr * 0.5, (*hair_col, 255))
 
 
 def sky(c: Canvas, **_: Any) -> None:
@@ -272,10 +204,278 @@ def sky(c: Canvas, **_: Any) -> None:
         c.ell(bx, by, bw, bh, (*c.pal["light"], 30))
 
 
-def clouds(c: Canvas, y=0.22, n=4, **_: Any) -> None:
+def clouds(c: Canvas, y: float = 0.22, n: int = 4, **_: Any) -> None:
     crng = random.Random(c.seed + 313)
     for i in range(n):
         base_x = crng.uniform(0.12, 0.88)
+        drift = ((base_x + c.phase * (0.014 + 0.004 * i)) % 1.25) - 0.12
+        cx = c.X(drift)
+        cy = c.Y(y + crng.uniform(-0.04, 0.05))
+        rx = c.X(crng.uniform(0.10, 0.16))
+        ry = c.Y(crng.uniform(0.022, 0.036))
+        c.ell(cx, cy, rx, ry, (*c.pal["light"], 55))
+        c.ell(cx - rx * 0.45, cy + ry * 0.2, rx * 0.65, ry * 0.75, (*c.pal["light"], 45))
+        c.ell(cx + rx * 0.45, cy + ry * 0.2, rx * 0.65, ry * 0.75, (*c.pal["light"], 45))
+
+
+def sun(c: Canvas, x: float = 0.5, y: float = 0.3, r: float = 0.1, **_: Any) -> None:
+    pulse = 1.0 + 0.09 * math.sin(c.phase * 2.4)
+    cx = c.X(x + 0.025 * (c.t - 0.5))
+    cy = c.Y(y - 0.025 * c.t)
+    rr = c.X(r)
+
+    ray_len = rr * 4.8
+    for idx in range(10):
+        ang = c.phase * 0.28 + idx * (2 * math.pi / 10)
+        spread = 0.095
+        p1 = (cx + math.cos(ang - spread) * ray_len, cy + math.sin(ang - spread) * ray_len)
+        p2 = (cx + math.cos(ang + spread) * ray_len, cy + math.sin(ang + spread) * ray_len)
+        c.poly([(cx, cy), p1, p2], (*c.pal["light"], 26))
+
+    c.glow(cx, cy, rr * 2.2 * pulse, c.pal["light"], 180)
+    c.ell(cx, cy, rr * 1.14, rr * 1.14, (*c.pal["accent"], 95))
+    c.ell(cx, cy, rr, rr, (*c.pal["light"], 255))
+
+
+def moon(c: Canvas, x: float = 0.76, y: float = 0.16, r: float = 0.06, **_: Any) -> None:
+    pulse = 1.0 + 0.08 * math.sin(c.phase * 2.0)
+    cx = c.X(x + 0.015 * (c.t - 0.5))
+    cy = c.Y(y - 0.015 * c.t)
+    rr = c.X(r)
+    c.glow(cx, cy, rr * 2.8 * pulse, c.pal["light"], 145)
+    c.ell(cx, cy, rr, rr, (*c.pal["light"], 255))
+    c.ell(cx + rr * 0.35, cy - rr * 0.1, rr * 0.9, rr * 0.9, (*c.pal["sky"][0], 78))
+
+
+def stars(c: Canvas, n: int = 120, **_: Any) -> None:
+    for i in range(n):
+        x = c.rng.random() * c.cw
+        y = c.rng.random() * c.ch * 0.54
+        twinkle = 0.4 + 0.6 * ((math.sin(c.phase * 3.8 + i * 1.3) + 1.0) * 0.5)
+        r = c.rng.choice([2, 3]) * (c.cw / 1080) * (0.85 + 0.4 * twinkle)
+        c.ell(x, y, r, r, (255, 250, 235, int(240 * twinkle)))
+
+
+def atmosphere(c: Canvas) -> None:
+    mode = c.pal.get("air", "none")
+    if mode == "none":
+        return
+    rng = random.Random(c.seed + 909)
+    count = 18 if mode == "fireflies" else 24
+    for i in range(count):
+        bx = rng.random()
+        by = rng.random() * (0.75 if mode == "fireflies" else 0.85)
+        spd_x = rng.uniform(-0.03, 0.03)
+        spd_y = rng.uniform(-0.04, 0.02) if mode == "fireflies" else rng.uniform(0.03, 0.07)
+        swirl = math.sin(c.phase * 2.0 + i * 1.1) * 0.02
+        px = ((bx + c.phase * spd_x + swirl) % 1.0) * c.cw
+        py = ((by + c.phase * spd_y) % 0.85) * c.ch
+        pulse = 0.35 + 0.65 * ((math.sin(c.phase * 3.5 + i * 0.9) + 1.0) * 0.5)
+        rad = rng.uniform(2.5, 4.5) * (c.cw / 1080)
+
+        if mode == "fireflies":
+            col = (255, 236, 130)
+            c.ell(px, py, rad * 2.4, rad * 2.4, (*col, int(55 * pulse)))
+            c.ell(px, py, rad, rad, (*col, int(205 * pulse)))
+        elif mode == "frost":
+            col = (232, 248, 255)
+            c.ell(px, py, rad, rad, (*col, int(140 * pulse)))
+
+
+def dunes(c: Canvas, y: float = 0.62, layers: int = 3, **_: Any) -> None:
+    cols = [c.pal["g1"], c.pal["g2"], c.pal["g3"]]
+    step = max(20, c.cw // 30)
+    for i in range(layers):
+        base = c.Y(y + i * 0.09)
+        amp = c.Y(0.032 + 0.01 * i)
+        ph = c.rng.random() * 6 + c.t * (0.16 * (i + 1))
+        fr = 1.4 + i * 0.6
+        pts = [(x, base + amp * math.sin(x / c.cw * fr * math.pi * 2 + ph)) for x in range(0, c.cw + step, step)]
+        c.poly(pts + [(c.cw, c.ch), (0, c.ch)], (*cols[min(i, 2)], 255))
+        c.d.line(pts, fill=(*c.pal["light"], 100 if i == 0 else 58), width=3)
+
+
+def ground(c: Canvas, y: float = 0.7, **_: Any) -> None:
+    top = int(c.Y(y))
+    h_span = max(1, c.ch - top)
+    strip = Image.new("RGB", (1, h_span))
+    px = strip.load()
+    for i in range(h_span):
+        px[0, i] = _mix(c.pal["g1"], c.pal["g3"], i / h_span)
+    c.img.paste(strip.resize((c.cw, h_span), Image.NEAREST), (0, top))
+    c.refresh()
+    c.d.line((0, top, c.cw, top), fill=(*c.pal["light"], 90), width=2)
+    for _i in range(110):
+        x, yy = c.rng.random() * c.cw, top + c.rng.random() * h_span
+        c.d.line((x, yy, x + c.rng.randint(15, 65) * (c.cw / 1080), yy), fill=(*c.pal["dark"], 48), width=2)
+
+
+def reeds(c: Canvas, side: str = "left", y: float = 0.68, n: int = 7, **_: Any) -> None:
+    rrng = random.Random(c.seed + 515)
+    base_x = c.X(0.12 if side == "left" else 0.88)
+    base_y = c.Y(y)
+    reed_col = (118, 148, 76)
+    tip_col = (218, 178, 86)
+    for i in range(n):
+        rx = base_x + (i - n / 2) * c.X(0.022)
+        h_len = c.Y(rrng.uniform(0.10, 0.20))
+        sway = math.sin(c.phase * 2.5 + i * 0.65) * c.X(0.018)
+        tx = rx + sway
+        ty = base_y - h_len
+        c.d.line((rx, base_y, tx, ty), fill=(*reed_col, 235), width=4)
+        c.ell(tx, ty, 5, 11, (*tip_col, 245))
+
+
+def yakhchal(c: Canvas, x: float = 0.5, y: float = 0.74, w: float = 0.7, h: float = 0.42, **_: Any) -> None:
+    cx, base, hw, hh = c.X(x), c.Y(y), c.X(w) / 2, c.Y(h)
+    lit, shade = (220, 170, 108), (146, 100, 64)
+    c.ell(cx, base + c.Y(0.01), hw * 1.28, c.Y(0.028), (*c.pal["dark"], 85))
+    prof = [
+        (hw * (1 - (t / 40) ** 1.7) ** 0.78 * 0.92 + hw * 0.08 * (1 - t / 40), base - hh * t / 40)
+        for t in range(41)
+    ]
+    left = [(cx - px, py) for px, py in prof]
+    right = [(cx + px, py) for px, py in prof]
+    c.poly(left + [(cx, left[-1][1])] + [(cx, base)], (*lit, 255), outline=(*c.pal["light"], 95), width=2)
+    c.poly(right + [(cx, right[-1][1])] + [(cx, base)], (*shade, 255))
+    for k in range(1, 22):
+        yy = base - hh * k / 22
+        half = hw * (1 - (k / 22) ** 1.7) ** 0.78 * 0.92 + hw * 0.08 * (1 - k / 22)
+        c.d.line((cx - half, yy, cx + half, yy), fill=(*c.pal["dark"], 60), width=2)
+    c.poly(
+        [
+            (cx - hw * 0.1, base),
+            (cx - hw * 0.1, base - hh * 0.12),
+            (cx, base - hh * 0.16),
+            (cx + hw * 0.1, base - hh * 0.12),
+            (cx + hw * 0.1, base),
+        ],
+        (*c.pal["dark"], 240),
+    )
+    wall_top = base - hh * 0.13
+    c.poly([(cx - hw * 1.2, base), (cx - hw * 1.2, wall_top), (cx + hw * 1.2, wall_top), (cx + hw * 1.2, base)], (*_shade(lit, 0.92), 255))
+    c.poly([(cx, base), (cx, wall_top), (cx + hw * 1.2, wall_top), (cx + hw * 1.2, base)], (*_shade(shade, 0.95), 255))
+    c.poly([(cx - hw * 0.1, base), (cx - hw * 0.1, wall_top + hh * 0.015), (cx + hw * 0.1, wall_top + hh * 0.015), (cx + hw * 0.1, base)], (*c.pal["dark"], 240))
+
+
+def brick_wall(c: Canvas, y: float = 0.35, **_: Any) -> None:
+    top = int(c.Y(y))
+    c.d.rectangle((0, top, c.cw, c.ch), fill=(*_shade(c.pal["g1"], 0.95), 255))
+    sc = c.cw / 1080
+    row_h = max(16, int(36 * sc))
+    brick_w = max(40, int(105 * sc))
+    pan_x = int(c.t * brick_w * 0.9)
+    for r, yy in enumerate(range(top, c.ch, row_h)):
+        c.d.line((0, yy, c.cw, yy), fill=(*c.pal["dark"], 85), width=2)
+        offset = (brick_w // 2 if (r % 2) else 0) - pan_x
+        for xx in range(offset - brick_w, c.cw + brick_w, brick_w):
+            tone = _shade(c.pal["g1"] if (r + (xx + pan_x) // brick_w) % 2 == 0 else c.pal["g2"], c.rng.uniform(0.9, 1.07))
+            c.d.rectangle((xx + 2, yy + 2, xx + brick_w - 2, yy + row_h - 2), fill=(*tone, 105), outline=(*c.pal["light"], 32))
+            c.d.line((xx, yy, xx, yy + row_h), fill=(*c.pal["dark"], 75), width=2)
+
+
+def cutaway(c: Canvas, **_: Any) -> None:
+    gy = c.Y(0.52)
+    c.poly([(0, gy), (c.cw, gy), (c.cw, c.ch), (0, c.ch)], (*c.pal["g2"], 255))
+    for i in range(12):
+        yy = gy + i * (c.ch - gy) / 12
+        c.d.line((0, yy, c.cw, yy + c.rng.randint(-12, 12)), fill=(*c.pal["dark"], 32), width=3)
+
+    cx, hw = c.X(0.5), c.X(0.38)
+    dome_pts = [(cx - hw * 0.85, gy)]
+    for t_step in range(1, 21):
+        ang = math.pi * (1 - t_step / 20)
+        dome_pts.append((cx + math.cos(ang) * hw * 0.85, gy - math.sin(ang) * c.Y(0.24)))
+    dome_pts.append((cx + hw * 0.85, gy))
+    c.poly(dome_pts, (*c.pal["g1"], 255), outline=(*c.pal["light"], 90), width=2)
+
+    inner_pts = [(cx - hw * 0.65, gy)]
+    for t_step in range(1, 21):
+        ang = math.pi * (1 - t_step / 20)
+        inner_pts.append((cx + math.cos(ang) * hw * 0.65, gy - math.sin(ang) * c.Y(0.18)))
+    inner_pts.append((cx + hw * 0.65, gy))
+    c.poly(inner_pts, (*_shade(c.pal["sky"][-1], 0.85), 255))
+
+    chamber = (cx - hw * 0.72, gy + c.Y(0.05), cx + hw * 0.72, gy + c.Y(0.31))
+    c.d.rounded_rectangle(chamber, radius=int(c.X(0.04)), fill=(18, 30, 56, 255), outline=(*c.pal["light"], 130), width=3)
+
+    for k in range(4):
+        wy = chamber[1] + c.Y(0.05 + k * 0.045)
+        wx = cx + math.sin(c.phase * 2.6 + k) * hw * 0.35
+        c.ell(wx, wy, hw * 0.16, 6, (190, 235, 255, 70))
+
+    s = c.X(0.068)
+    gap = max(4, int(c.X(0.006)))
+    shimmer = int(24 * math.sin(c.phase * 3.0))
+    for row in range(3):
+        cols_n = 5 - row
+        row_w = cols_n * (s + gap) - gap
+        start_x = cx - row_w / 2
+        for col in range(cols_n):
+            x0 = start_x + col * (s + gap)
+            y0 = chamber[3] - c.X(0.032) - (row + 1) * (s + gap)
+            ice_c = (min(255, ICE[0] + shimmer), min(255, ICE[1] + shimmer), ICE[2])
+            c.d.rounded_rectangle((x0, y0, x0 + s, y0 + s), radius=8, fill=(*ice_c, 240), outline=(*ICE_EDGE, 255), width=2)
+
+
+def pools(c: Canvas, y: float = 0.76, **_: Any) -> None:
+    shimmer = 0.025 * math.sin(c.phase * 2.6)
+    for idx, (px_n, py_n, rx_n, ry_n) in enumerate([
+        (0.35, y, 0.21, 0.028),
+        (0.66, y + 0.04, 0.2, 0.026),
+        (0.49, y + 0.085, 0.24, 0.03),
+    ]):
+        cx, cy = c.X(px_n), c.Y(py_n)
+        rx, ry = c.X(rx_n * (1 + shimmer)), c.Y(ry_n)
+        c.ell(cx, cy + 4, rx * 1.06, ry * 1.25, (*c.pal["dark"], 70))
+        c.ell(cx, cy, rx, ry, (*c.pal["water"][0], 220), outline=(*c.pal["light"], 185), width=3)
+        for _k in range(7 + idx):
+            sx = cx + c.rng.uniform(-rx * 0.55, rx * 0.55) + math.sin(c.phase * 2.2 + _k) * 8
+            sy = cy + c.rng.uniform(-ry * 0.35, ry * 0.35)
+            c.d.line((sx, sy, sx + c.X(0.03), sy), fill=(*c.pal["light"], 150), width=2)
+
+
+def render_card(
+    title: str = "",
+    subtitle: str = "",
+    palette: str = "story_sunset",
+    width: int = W,
+    height: int = H,
+    seed_key: str | None = None,
+    **_: Any,
+) -> Image.Image:
+    pal_key = palette if palette in PALETTES else "story_sunset"
+    pal = PALETTES[pal_key]
+    key = seed_key or f"{title}|{subtitle}|{pal_key}|{width}x{height}"
+    seed = _hash_seed(key)
+
+    c = Canvas(pal=pal, seed=seed, cw=width, ch=height, t=0.5, phase=0.25)
+    sky(c)
+
+    if pal_key in ("cool_dusk", "night_ice"):
+        stars(c, n=90)
+        moon(c, x=0.75, y=0.18, r=0.055)
+    else:
+        sun(c, x=0.52, y=0.27, r=0.085)
+
+    clouds(c, y=0.21, n=4)
+    dunes(c, y=0.58, layers=3)
+    ground(c, y=0.72)
+
+    variant = seed % 3
+    if variant == 0:
+        yakhchal(c, x=0.5, y=0.73, w=0.62, h=0.34)
+    elif variant == 1:
+        cutaway(c)
+    else:
+        pools(c, y=0.77)
+
+    reeds(c, side="left", y=0.72, n=6)
+    reeds(c, side="right", y=0.72, n=6)
+    atmosphere(c)
+
+    return c.img.convert("RGB")
+.88)
         drift = ((base_x + c.phase * (0.014 + 0.004 * i)) % 1.25) - 0.12
         cx = c.X(drift)
         cy = c.Y(y + crng.uniform(-0.04, 0.05))
