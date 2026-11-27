@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Phase 3: High-clarity vertical Shorts assembler with 3x supersampled camera motion,
-subtle vignette & micro-sharpening, mood-matched music, SFX & -14 LUFS voice.
+silky de-essed & presence-boosted narration (-14 LUFS), mood-matched music & SFX.
 """
 
 from __future__ import annotations
@@ -219,7 +219,6 @@ def scene_boundaries(
 
 def _motion_expr(motion: str, frames_n: int) -> tuple[str, str, str]:
     denom = max(1, frames_n - 1)
-    # Smooth ease-in-out progress curve: 3p^2 - 2p^3
     linear = f"(on/{denom})"
     p = f"(3*pow({linear},2)-2*pow({linear},3))"
     if motion == "pan_right":
@@ -304,14 +303,20 @@ def render_fast_video(
     )
 
 
+# Silky anti-sibilance (tames S/SH around 6.2kHz) + warm body (210Hz) + awake presence (2.7kHz)
 VOICE_CHAIN = (
-    "highpass=f=75,equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1:g=2,deesser=i=0.25,"
-    "acompressor=threshold=0.125:ratio=3:attack=12:release=180:makeup=1.5"
+    "highpass=f=80,"
+    "equalizer=f=210:t=q:w=1.1:g=1.5,"
+    "equalizer=f=420:t=q:w=1.2:g=-2.0,"
+    "equalizer=f=2700:t=q:w=1.1:g=2.4,"
+    "equalizer=f=6300:t=q:w=1.6:g=-4.5,"
+    "deesser=i=0.45:m=0.5:f=0.5:s=o,"
+    "acompressor=threshold=0.14:ratio=2.8:attack=10:release=160:makeup=1.6"
 )
 
 
 def master_voice(ffmpeg: str, work: Path, src: str) -> str:
-    ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=9"
+    ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=8"
     p1 = run(
         [ffmpeg, "-hide_banner", "-nostats", "-i", src, "-af", f"{VOICE_CHAIN},{ln}:print_format=json", "-f", "null", "-"],
         cwd=work,
