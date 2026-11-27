@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Phase 3: High-clarity vertical Shorts assembler with 3x supersampled camera motion,
-silky de-essed & presence-boosted narration (-14 LUFS), mood-matched music & SFX.
+softer warm narration (+1.2% tempo, anti-sibilance), mood-matched music & SFX at -14 LUFS.
 """
 
 from __future__ import annotations
@@ -41,6 +41,7 @@ SFX_DIR = VISUALS_DIR.parent / "sfx"
 MIN_SCENE_FRAMES = 2 * FPS
 SNAP_SECONDS = 1.6
 TARGET_LUFS = -14.0
+VOICE_TEMPO = 1.012
 MOTION_CYCLE = ["push_in", "pan_right", "drift_up", "pull_out", "pan_left", "drift_down"]
 
 ACCENT_COLORS_ASS: list[str] = [
@@ -303,15 +304,17 @@ def render_fast_video(
     )
 
 
-# Silky anti-sibilance (tames S/SH around 6.2kHz) + warm body (210Hz) + awake presence (2.7kHz)
+# Softer, warmer vocal body (+2.2dB @ 220Hz), gentle presence (+1.4dB @ 2.4kHz),
+# and smooth anti-sibilance (tames S/SH around 6.3kHz) without harshness.
 VOICE_CHAIN = (
+    f"atempo={VOICE_TEMPO},"
     "highpass=f=80,"
-    "equalizer=f=210:t=q:w=1.1:g=1.5,"
-    "equalizer=f=420:t=q:w=1.2:g=-2.0,"
-    "equalizer=f=2700:t=q:w=1.1:g=2.4,"
-    "equalizer=f=6300:t=q:w=1.6:g=-4.5,"
-    "deesser=i=0.45:m=0.5:f=0.5:s=o,"
-    "acompressor=threshold=0.14:ratio=2.8:attack=10:release=160:makeup=1.6"
+    "equalizer=f=220:t=q:w=1.2:g=2.2,"
+    "equalizer=f=420:t=q:w=1.2:g=-1.8,"
+    "equalizer=f=2400:t=q:w=1.2:g=1.4,"
+    "equalizer=f=6300:t=q:w=1.7:g=-5.0,"
+    "deesser=i=0.50:m=0.5:f=0.5:s=o,"
+    "acompressor=threshold=0.14:ratio=2.6:attack=12:release=180:makeup=1.5"
 )
 
 
@@ -335,9 +338,9 @@ def master_voice(ffmpeg: str, work: Path, src: str) -> str:
             )
         )
         f2 = f"{VOICE_CHAIN},{ln}:{meas}:linear=true"
-        note = f"loudnorm 2-pass (in {m['input_i']} LUFS -> {TARGET_LUFS})"
+        note = f"loudnorm 2-pass (in {m['input_i']} LUFS -> {TARGET_LUFS}, tempo {VOICE_TEMPO}x)"
     except (IndexError, KeyError, ValueError):
-        f2, note = f"{VOICE_CHAIN},{ln}", "loudnorm 1-pass"
+        f2, note = f"{VOICE_CHAIN},{ln}", f"loudnorm 1-pass (tempo {VOICE_TEMPO}x)"
     run(
         [
             ffmpeg, "-y", "-hide_banner", "-loglevel", "error", "-i", src,
