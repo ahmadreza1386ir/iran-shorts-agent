@@ -112,27 +112,25 @@ def _stylize_line_ass(text: str, line_idx: int) -> str:
     if not words:
         return ""
 
-    anim_prefix = "{\\fad(75,55)\\fscx92\\fscy92\\t(0,130,\\fscx103\\fscy103)\\t(130,240,\\fscx100\\fscy100)}"
+    anim_prefix = "{\\fad(45,35)}"
     styled_tokens: list[str] = []
 
-    rng = random.Random(line_idx * 997 + len(text))
-    emph_indices: set[int] = set()
+    emph_idx = -1
     for idx, w in enumerate(words):
         clean_w = re.sub(r"[^A-Za-z0-9']+", "", w).lower()
         if clean_w in HIGHLIGHT_WORDS:
-            emph_indices.add(idx)
+            emph_idx = idx
+            break
 
-    if not emph_indices and len(words) >= 3:
-        emph_indices.add(rng.randrange(len(words)))
+    if emph_idx == -1 and len(words) >= 2:
+        emph_idx = len(words) - 1
 
     for idx, w in enumerate(words):
         esc_w = ass_escape(w)
-        if idx in emph_indices:
+        if idx == emph_idx:
             styled_tokens.append(
-                f"{{\\c{base_accent}\\fscx116\\fscy116\\b1}}{esc_w}{{\\c&H00FFFFFF&\\fscx100\\fscy100\\b-1}}"
+                f"{{\\c{base_accent}\\b1}}{esc_w}{{\\c&H00FFFFFF&\\b1}}"
             )
-        elif len(words) >= 5 and idx == len(words) - 1 and rng.random() < 0.35:
-            styled_tokens.append(f"{{\\c{base_accent}}}{esc_w}{{\\c&H00FFFFFF&}}")
         else:
             styled_tokens.append(esc_w)
 
@@ -143,14 +141,14 @@ def build_ass(
     cues: list[tuple[float, float, str]],
     total: float,
     family: str,
-    margin_v: int = 510,
-    font_size: int = 64,
+    margin_v: int = 470,
+    font_size: int = 56,
 ) -> str:
     head = (
         "[Script Info]\nScriptType: v4.00+\nPlayResX: %d\nPlayResY: %d\nWrapStyle: 0\nScaledBorderAndShadow: yes\n\n"
         "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, "
         "Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
-        "Style: Main,%s,%d,&H00FFFFFF,&H000000FF,&H00121212,&HB8000000,-1,0,0,0,100,100,0,0,1,6,3,2,80,80,%d,1\n\n"
+        "Style: Main,%s,%d,&H00FFFFFF,&H000000FF,&H000B0B0B,&HD8000000,-1,0,0,0,100,100,0,0,1,5,3,2,135,135,%d,1\n\n"
         "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n"
     ) % (WIDTH, HEIGHT, family, font_size, margin_v)
 
@@ -224,16 +222,16 @@ def _motion_expr(motion: str, frames_n: int) -> tuple[str, str, str]:
     denom = max(1, frames_n - 1)
     p = f"(on/{denom})"
     if motion == "pan_right":
-        return "1.08", f"(iw-ow)*{p}", "(ih-oh)/2"
+        return "1.10", f"(iw-ow)*{p}", "(ih-oh)/2"
     if motion == "pan_left":
-        return "1.08", f"(iw-ow)*(1-{p})", "(ih-oh)/2"
+        return "1.10", f"(iw-ow)*(1-{p})", "(ih-oh)/2"
     if motion == "drift_up":
-        return "1.08", "(iw-ow)/2", f"(ih-oh)*(1-{p})"
+        return "1.10", "(iw-ow)/2", f"(ih-oh)*(1-{p})"
     if motion == "drift_down":
-        return "1.08", "(iw-ow)/2", f"(ih-oh)*{p}"
+        return "1.10", "(iw-ow)/2", f"(ih-oh)*{p}"
     if motion == "pull_out":
-        return f"1.09-0.09*{p}", "(iw-ow)/2", "(ih-oh)/2"
-    return f"1.00+0.09*{p}", "(iw-ow)/2", "(ih-oh)/2"
+        return f"1.12-0.12*{p}", "(iw-ow)/2", "(ih-oh)/2"
+    return f"1.00+0.12*{p}", "(iw-ow)/2", "(ih-oh)/2"
 
 
 def render_fast_video(
@@ -259,7 +257,6 @@ def render_fast_video(
         seg_files.append(seg_out)
 
         z_expr, x_expr, y_expr = _motion_expr(motion, s_frames)
-        fade_out_st = max(0.0, s_dur - 0.18)
         run(
             [
                 ffmpeg, "-y", "-hide_banner", "-loglevel", "error",
@@ -267,11 +264,10 @@ def render_fast_video(
                 "-vf", (
                     f"scale={WIDTH * 2}:{HEIGHT * 2}:flags=lanczos,"
                     f"zoompan=z='{z_expr}':x='{x_expr}':y='{y_expr}':d={s_frames}:s={WIDTH}x{HEIGHT}:fps={FPS},"
-                    f"fade=t=in:st=0:d=0.18,fade=t=out:st={fade_out_st:.3f}:d=0.18,"
                     f"format=yuv420p,setsar=1"
                 ),
                 "-t", f"{s_dur:.4f}",
-                "-c:v", "libx264", "-preset", preset, "-crf", "19", "-pix_fmt", "yuv420p",
+                "-c:v", "libx264", "-preset", preset, "-crf", "18", "-pix_fmt", "yuv420p",
                 "-an", str(seg_out),
             ],
             cwd=work,
@@ -280,7 +276,7 @@ def render_fast_video(
     concat_list = work / "segs.txt"
     concat_list.write_text("\n".join(f"file '{p.name}'" for p in seg_files) + "\n", encoding="utf-8")
 
-    vf_parts = ["eq=contrast=1.04:saturation=1.07"]
+    vf_parts = ["eq=contrast=1.05:saturation=1.08"]
     if with_subs and (work / "subs.ass").is_file():
         vf_parts.append("subtitles=subs.ass:fontsdir=.")
     vf_parts.append("scale=in_range=full:out_range=tv:flags=bicubic,format=yuv420p,setsar=1")
