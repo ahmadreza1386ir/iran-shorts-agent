@@ -9,6 +9,10 @@ on:
         description: "Number of scenes per short"
         required: false
         default: "9"
+      upscale:
+        description: "Upscale scene images via prunaai/p-image-upscale (true / false)"
+        required: false
+        default: "true"
       upload_id:
         description: "Short ID to upload to YouTube (leave empty to auto-use newly generated short)"
         required: false
@@ -44,7 +48,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install pillow google-api-python-client google-auth-oauthlib
 
-      - name: Generate script, audio, visuals, and assemble short
+      - name: Generate script, audio, visuals, upscale, and assemble short
         if: ${{ github.event.inputs.skip_generate != 'true' }}
         env:
           HORMOUZ_API_KEY: ${{ secrets.HORMOUZ_API_KEY }}
@@ -54,8 +58,10 @@ jobs:
           HORMOUZ_IMAGE_SIZE: "9:16"
           HORMOUZ_TTS_MODEL: "openai/gpt-4o-mini-tts"
           HORMOUZ_TTS_VOICE: "onyx"
+          HORMOUZ_UPSCALE_MODEL: "prunaai/p-image-upscale"
           TTS_VOICE: "en-US-AndrewNeural"
           TTS_RATE: "+0%"
+          ENABLE_UPSCALE: ${{ github.event.inputs.upscale || 'true' }}
         run: |
           SCENES="${{ github.event.inputs.scenes || '9' }}"
           python 01_llm_writer.py --count 1 --scenes "$SCENES"
@@ -63,6 +69,9 @@ jobs:
           echo "NEW_ID=$NEW_ID" >> "$GITHUB_ENV"
           python 02_voice_and_subs.py --only "$NEW_ID"
           python 02b_fetch_visuals.py --only "$NEW_ID" --reset-providers
+          if [ "$ENABLE_UPSCALE" = "true" ]; then
+            python 02c_upscale_visuals.py --only "$NEW_ID"
+          fi
           python 03_video_assembler.py --only "$NEW_ID"
           python verify_outputs.py || true
 
