@@ -29,12 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent
 INPUT_FILE = BASE_DIR / "data" / "scripts_batch_1.json"
 OUTPUT_DIR = BASE_DIR / "output" / "audio"
 
-VOICE = (os.environ.get("TTS_VOICE") or "en-US-BrianNeural").strip()
-RATE = (os.environ.get("TTS_RATE") or "+0%").strip()
+VOICE = (os.environ.get("TTS_VOICE") or "en-US-AriaNeural").strip()
+RATE = (os.environ.get("TTS_RATE") or "+6%").strip()
 
-MIN_WORDS_PER_SUBTITLE = 3
-MAX_WORDS_PER_SUBTITLE = 5
-MIN_SUBTITLE_DURATION = 0.45
+MIN_WORDS_PER_SUBTITLE = 2
+MAX_WORDS_PER_SUBTITLE = 3
+MIN_SUBTITLE_DURATION = 0.38
 MIN_EXPECTED_AUDIO_SECONDS = 3.0
 TTS_MAX_ATTEMPTS = 4
 TTS_STREAM_TIMEOUT_SECONDS = 75.0
@@ -242,7 +242,6 @@ async def synthesize_audio(
 
 
 def detect_speech_segments(audio_path: Path, total_duration: float) -> list[tuple[float, float]]:
-    """Detect non-silent speech intervals inside the generated audio via FFmpeg silencedetect."""
     ffmpeg = shutil.which("ffmpeg")
     if not ffmpeg or total_duration <= 0.2:
         return [(0.0, max(total_duration, 0.2))]
@@ -301,7 +300,6 @@ def speech_paced_word_times(
     fallback_boundaries: list[WordBoundary],
     known_duration: Optional[float] = None,
 ) -> list[tuple[float, float]]:
-    """Distribute word intervals across actual spoken segments so pauses keep pace with narration."""
     n_words = len(display_words)
     if n_words == 0:
         return []
