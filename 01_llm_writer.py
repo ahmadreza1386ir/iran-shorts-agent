@@ -40,7 +40,7 @@ MOTIONS = ["push_in", "pan_right", "drift_up", "pull_out", "pan_left", "drift_do
 FORMATS = ["Proverb", "Short Story", "Cultural/Historical Fact"]
 
 MIN_WORDS = 75
-MAX_WORDS = 130
+MAX_WORDS = 155
 MIN_SCENES = 5
 MAX_SCENES = 20
 
@@ -299,7 +299,7 @@ Rules:
   - {hooks_str}
   - {patterns_str}
 7. PACING & LENGTH:
-  - "narration_display": 85 to 110 crisp, natural English words (~34-40 seconds spoken at an alert, lively pace).
+  - "narration_display": strictly between 85 and 125 crisp, natural English words (~34-44 seconds spoken at an alert, lively pace). Never exceed 125 words.
   - "narration_tts": smooth spoken English using periods and commas instead of exclamation marks so neural TTS stays punchy and clean without harshness. Avoid hyphenated Persian transliterations.
 8. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
   - Scene 1 MUST visually match "hook_en" immediately.
