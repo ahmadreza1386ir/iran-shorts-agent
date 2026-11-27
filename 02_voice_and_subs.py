@@ -29,8 +29,8 @@ BASE_DIR = Path(__file__).resolve().parent
 INPUT_FILE = BASE_DIR / "data" / "scripts_batch_1.json"
 OUTPUT_DIR = BASE_DIR / "output" / "audio"
 
-VOICE = (os.environ.get("TTS_VOICE") or "en-US-AriaNeural").strip()
-RATE = (os.environ.get("TTS_RATE") or "+6%").strip()
+VOICE = (os.environ.get("TTS_VOICE") or "en-US-JennyNeural").strip()
+RATE = (os.environ.get("TTS_RATE") or "+0%").strip()
 
 MIN_WORDS_PER_SUBTITLE = 2
 MAX_WORDS_PER_SUBTITLE = 3
