@@ -558,5 +558,40 @@
       "The sparrow flies away over distant green fields",
       "The sparrow returns with seeds for the whole colony"
     ]
+  },
+  {
+    "id": 17,
+    "category": "Cultural/Historical Fact",
+    "core_message": "Mastery in Persian carpet weaving comes from slow, repeated attention to each small knot, and the whole pattern appears only through patient accumulation.",
+    "proverb_fa": "",
+    "proverb_en": "The Patience of the Carpet Weaver",
+    "word_count": 117,
+    "hook_en": "A single Persian carpet can hold more than a million knots, yet no weaver ever ties them all at once.",
+    "narration": "A single Persian carpet can hold more than a million knots, yet no weaver ever ties them all at once. Each knot is tied by hand, usually around a pair of warp threads, and then trimmed before the next one begins. A skilled weaver might finish only a few hundred knots in a good day. The pattern you see at the end, with its medallions and flowing vines, exists only because the weaver kept returning to the loom, row after row, season after season. Those who learned the craft often said the carpet was not built by force, but by steady attention. Each small knot holds the design together, and the whole becomes visible only through patience.",
+    "narration_alt": "A single Persian carpet can hold more than a million knots, yet no weaver ever ties them all at once. Each knot is tied by hand, usually around a pair of warp threads, and then trimmed before the next one begins. A skilled weaver might finish only a few hundred knots in a good day. The pattern you see at the end, with its medallions and flowing vines, exists only because the weaver kept returning to the loom, row after row, season after season. Those who learned the craft often said the carpet was not built by force, but by steady attention. Each small knot holds the design together, and the whole becomes visible only through patience.",
+    "narration_display": "A single Persian carpet can hold more than a million knots, yet no weaver ever ties them all at once. Each knot is tied by hand, usually around a pair of warp threads, and then trimmed before the next one begins. A skilled weaver might finish only a few hundred knots in a good day. The pattern you see at the end, with its medallions and flowing vines, exists only because the weaver kept returning to the loom, row after row, season after season. Those who learned the craft often said the carpet was not built by force, but by steady attention. Each small knot holds the design together, and the whole becomes visible only through patience.",
+    "narration_tts": "A single Persian carpet can hold more than a million knots, yet no weaver ever ties them all at once. Each knot is tied by hand, usually around a pair of warp threads, and then trimmed before the next one begins. A skilled weaver might finish only a few hundred knots in a good day. The pattern you see at the end, with its medallions and flowing vines, exists only because the weaver kept returning to the loom, row after row, season after season. Those who learned the craft often said the carpet was not built by force, but by steady attention. Each small knot holds the design together, and the whole becomes visible only through patience.",
+    "visual_scenes": [
+      "Close view of a weaver's hands tying a small knot across tightly strung warp threads on a wooden loom",
+      "Wide view of a workshop with several looms, each with a weaver bent over the rows",
+      "A weaver pausing to trim a thread with small scissors, glancing at the rows already completed",
+      "Overhead view of a half-finished carpet with a simple pattern emerging from the rows",
+      "An elderly master weaver standing to examine a section of the carpet, hand resting on the frame",
+      "A young apprentice sitting at a loom beside the master, watching closely with focused eyes",
+      "Sunlight through a workshop window falling across rows of dyed wool threads in bright colors",
+      "The apprentice days later, tying knots with greater ease while the master smiles from a distance",
+      "The completed carpet hung on a wall in a home, its patterns glowing in evening light"
+    ],
+    "scenes": [
+      "Close view of a weaver's hands tying a small knot across tightly strung warp threads on a wooden loom",
+      "Wide view of a workshop with several looms, each with a weaver bent over the rows",
+      "A weaver pausing to trim a thread with small scissors, glancing at the rows already completed",
+      "Overhead view of a half-finished carpet with a simple pattern emerging from the rows",
+      "An elderly master weaver standing to examine a section of the carpet, hand resting on the frame",
+      "A young apprentice sitting at a loom beside the master, watching closely with focused eyes",
+      "Sunlight through a workshop window falling across rows of dyed wool threads in bright colors",
+      "The apprentice days later, tying knots with greater ease while the master smiles from a distance",
+      "The completed carpet hung on a wall in a home, its patterns glowing in evening light"
+    ]
   }
 ]
