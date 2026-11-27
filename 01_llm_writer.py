@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """
-Phase 1 (LLM): Hardened script & visual plan writer via Hormouz Chat Completions API.
-Uses explosive hook brainstorming to craft gripping openings, builds human curiosity
-and varied rhythm across the story, locks core meaning, and appends validated entries
-to scripts_batch_1.json and visual_plan.json.
+Phase 1 (LLM): Ruthless retention-first script & visual plan writer via Hormouz Chat API.
+Preserves full pipeline compatibility (INPUT_JSON, PLAN_JSON, used_topics.json, backups,
+commons/card/prompt structures) while enforcing:
+  1) Explosive 3-second hook (zero slow/cliche openers)
+  2) Seamless loop ending that snaps back into the opening line
+  3) Direct tuning from top 2 YouTube Studio "Stayed to watch" videos every 10 shorts
 """
 
 from __future__ import annotations
@@ -41,6 +43,33 @@ MIN_WORDS = 75
 MAX_WORDS = 130
 MIN_SCENES = 5
 MAX_SCENES = 20
+
+# ==============================================================================
+# UPDATE EVERY 10 SHORTS BASED ON YOUR TOP 2 "STAYED TO WATCH" VIDEOS IN STUDIO
+# ==============================================================================
+TOP_HOOK_STYLES: list[str] = [
+    "Immediate costly mistake or paradox in the first 3 seconds (e.g., 'One grain of wheat nearly bankrupted a king.')",
+    "Sharp reversal or hidden trap where what looks smart ruins the character fast",
+]
+
+WINNING_STORY_PATTERNS: list[str] = [
+    "High-momentum cause-and-effect beats with zero filler or slow throat-clearing",
+    "Punchy, clear sentences that build tension and land on a sharp proverb that loops back to frame 1",
+]
+
+BANNED_OPENERS: tuple[str, ...] = (
+    "once upon a time",
+    "long ago in persia",
+    "in ancient persia",
+    "in ancient iran",
+    "a long time ago",
+    "there once was",
+    "in a distant land",
+    "did you know",
+    "today we will talk about",
+    "today we share",
+    "welcome back",
+)
 
 
 def _env_first(names: tuple[str, ...], default: str = "") -> str:
@@ -166,10 +195,15 @@ def _ensure_no_text_clause(prompt: str) -> str:
     return f"{prompt.strip()}, {', '.join(addition_parts)}"
 
 
+def _starts_with_banned_opener(text: str) -> bool:
+    norm = re.sub(r"\s+", " ", text.strip().lower())
+    return any(norm.startswith(b) for b in BANNED_OPENERS)
+
+
 def _validate_llm_payload(
     data: dict[str, Any],
     num_scenes: int,
-) -> tuple[str, str, str, str, str, str, str, list[dict[str, str]]]:
+) -> tuple[str, str, str, str, str, str, str, str, list[dict[str, str]]]:
     disp = re.sub(r"\s+", " ", str(data.get("narration_display") or data.get("narration") or "")).strip()
     if not disp:
         raise ValueError("Empty narration_display.")
@@ -225,7 +259,9 @@ def _validate_llm_payload(
         raw_hook = disp.split(".")[0].strip()
     hook_en = re.sub(r"\s+", " ", raw_hook)[:220]
 
-    return topic_key, core_message, proverb_fa, proverb_en, hook_en, disp, tts, scenes_out
+    loop_bridge = re.sub(r"\s+", " ", str(data.get("loop_bridge") or "")).strip()[:240]
+
+    return topic_key, core_message, proverb_fa, proverb_en, hook_en, loop_bridge, disp, tts, scenes_out
 
 
 def call_llm(
@@ -233,39 +269,44 @@ def call_llm(
     fmt: str,
     used_topics: list[str],
     num_scenes: int,
-) -> tuple[str, str, str, str, str, str, str, list[dict[str, str]]]:
+) -> tuple[str, str, str, str, str, str, str, str, list[dict[str, str]]]:
     url = (
         HORMOUZ_BASE_URL
         if HORMOUZ_BASE_URL.endswith("/chat/completions")
         else f"{HORMOUZ_BASE_URL}/chat/completions"
     )
     avoid_list = ", ".join(used_topics[-40:]) if used_topics else "none"
+    hooks_str = "\n  - ".join(TOP_HOOK_STYLES)
+    patterns_str = "\n  - ".join(WINNING_STORY_PATTERNS)
+    banned_str = ", ".join(f'"{b}"' for b in BANNED_OPENERS)
 
     system_prompt = (
-        "You are a warm, grounded, natural-sounding storyteller for English YouTube Shorts "
-        "about Iranian proverbs, short stories/fables, and cultural/historical facts. "
-        "Write like a calm, engaging human narrator—never melodramatic, hyper-excited, or choppy. "
-        "Open with an intriguing observation or contrast, maintain steady narrative flow with clear complete sentences, "
-        "and end with a thoughtful takeaway faithful to the true meaning of the proverb or story. "
+        "You are a ruthless, high-retention YouTube Shorts scriptwriter for English Shorts "
+        "about Iranian proverbs, fables/short stories, and cultural/historical facts. "
+        "You write gripping, punchy, forward-driving narration with zero slow setup or viewer boredom, "
+        "smoothly looping the ending right back into the opening hook. "
         "Output ONLY valid JSON with no extra commentary."
     )
 
-    user_prompt = f"""Create ONE original YouTube Short script in format "{fmt}".
+    user_prompt = f"""Create ONE high-retention YouTube Short script in format "{fmt}".
 Rules:
 1. Do NOT repeat any of these previously used topics: [{avoid_list}].
-2. Define "core_message" first so the hook, story arc, and ending stay faithful to the exact true meaning.
-3. Run a brainstorm in "hook_candidates" (3 distinct, natural opening lines: one intriguing contrast, one quiet human observation, one thought-provoking question). Pick the strongest opening as "hook_en" and start "narration_display" directly with that hook.
-4. Natural, warm voice-friendly writing:
-  - Use smooth, well-paced sentences with natural comma and period pauses—avoid choppy one-word fragments, excessive exclamation marks, or theatrical interjections like "Oh!" or "Think about that!".
-  - Avoid clichés like "Did you know", "Today we will talk about", "In summary", or "In conclusion".
-5. "narration_display": 85 to 110 natural English words (around 34-40 seconds spoken).
-6. "narration_tts": smooth spoken English using periods and commas instead of exclamation marks so neural TTS sounds warm, calm, and human. Avoid hyphenated Persian transliterations.
-7. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
-  - Scene 1 MUST visually match the opening hook immediately.
-  - Each subsequent scene must advance the story or curiosity arc with clear character pose, action, gaze, or environment motion without repeating the same static pose.
-  - Specify exact character counts whenever people appear (e.g., "two travelers meeting on a mountain pass").
-  - Never include text, letters, signs, captions, signatures, screens with text, or watermarks in scene prompts.
-  - Visual style: cohesive hand-painted storybook illustration, expressive brushwork, dynamic framing, warm and teal palette, vertical 9:16 framing.
+2. Define "core_message" first so the hook, escalation, and ending stay faithful to the true meaning.
+3. Brainstorm 3 aggressive, scroll-stopping openings in "hook_candidates" (one sharp paradox/costly mistake, one high-stakes contrast, one provocative question). Pick the hardest-hitting one as "hook_en" (first ~3 seconds, ~6-12 words) and start "narration_display" directly with it.
+4. BANNED SLOW/CLICHE OPENERS: Never start with {banned_str}. Jump straight into tension or stakes.
+5. SEAMLESS LOOP ENDING: Craft the final line in "loop_bridge" and end "narration_display" so the last sentence flows naturally back into "hook_en" when the Short replays—no stiff sign-offs, no "In conclusion", no "The moral is...".
+6. DOUBLE DOWN ON WINNING PATTERNS:
+  - {hooks_str}
+  - {patterns_str}
+7. PACING & LENGTH:
+  - "narration_display": 85 to 110 crisp, natural English words (~34-40 seconds spoken at an alert, lively pace).
+  - "narration_tts": smooth spoken English using periods and commas instead of exclamation marks so neural TTS stays punchy and clean without harshness. Avoid hyphenated Persian transliterations.
+8. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
+  - Scene 1 MUST visually match "hook_en" immediately.
+  - Every scene must advance the story/tension with clear action, pose, or visual progression.
+  - Specify exact character counts whenever people appear.
+  - Never include text, letters, signs, captions, signatures, or watermarks in scene prompts.
+  - Style: cohesive hand-painted storybook illustration, expressive brushwork, dynamic framing, warm and teal palette, vertical 9:16 framing.
 
 Return strictly this JSON schema:
 {{
@@ -274,13 +315,14 @@ Return strictly this JSON schema:
   "proverb_fa": "Persian phrase/title if applicable or empty string",
   "proverb_en": "clear English title or short phrase",
   "hook_candidates": [
-    "hook option 1 (intriguing contrast)",
-    "hook option 2 (quiet observation)",
-    "hook option 3 (thought-provoking question)"
+    "hook option 1 (paradox or costly mistake)",
+    "hook option 2 (high-stakes contrast)",
+    "hook option 3 (provocative question)"
   ],
-  "hook_en": "the single best opening hook line",
-  "narration_display": "full narration starting with hook_en with smooth natural pacing",
-  "narration_tts": "full narration optimized for calm, warm neural TTS",
+  "hook_en": "the hardest-hitting opening line for the first ~3 seconds",
+  "loop_bridge": "how the final sentence connects smoothly back into hook_en",
+  "narration_display": "full narration starting with hook_en and looping seamlessly back into hook_en",
+  "narration_tts": "full narration optimized for alert, clean neural TTS",
   "scenes": [
     {{
       "desc": "concise scene description",
@@ -324,7 +366,11 @@ Return strictly this JSON schema:
             if not isinstance(content, str) or not content.strip():
                 raise ValueError("Empty content returned by chat model.")
             parsed = _extract_json_object(content)
-            return _validate_llm_payload(parsed, num_scenes)
+            validated = _validate_llm_payload(parsed, num_scenes)
+            if (_starts_with_banned_opener(validated[4]) or _starts_with_banned_opener(validated[6])) and attempt < 3:
+                log.warning("LLM attempt %d/4 hit banned/slow opener; retrying for stronger 3s hook.", attempt + 1)
+                continue
+            return validated
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError, KeyError, TypeError) as exc:
             last_err = exc
             log.warning("LLM attempt %d/4 failed: %s", attempt + 1, exc)
@@ -415,7 +461,7 @@ def main() -> int:
         )
         log.info("Generating short #%d with format='%s' via %s...", idx + 1, fmt, HORMOUZ_CHAT_MODEL)
 
-        topic_key, core_message, proverb_fa, proverb_en, hook_en, disp, tts, scenes_out = call_llm(
+        topic_key, core_message, proverb_fa, proverb_en, hook_en, loop_bridge, disp, tts, scenes_out = call_llm(
             api_key, fmt, used_topics, num_scenes
         )
 
@@ -436,6 +482,7 @@ def main() -> int:
             "proverb_en": proverb_en,
             "word_count": len(disp.split()),
             "hook_en": hook_en,
+            "loop_bridge": loop_bridge,
             "narration": disp,
             "narration_alt": disp,
             "narration_display": disp,
