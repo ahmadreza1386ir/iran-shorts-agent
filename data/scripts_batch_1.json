@@ -663,5 +663,41 @@
       "Crowds of customers gather at the stall while the grandchildren serve them",
       "The brass scale rests on the counter as morning light fills the bazaar"
     ]
+  },
+  {
+    "id": 20,
+    "category": "Cultural/Historical Fact",
+    "core_message": "Ancient Persian engineers stored winter ice in desert ice houses by using the cold of clear nights and thick insulated walls, proving that clever design can beat the hottest climate.",
+    "proverb_fa": "",
+    "proverb_en": "The Desert Ice House: How Persia Stored Winter in Summer",
+    "word_count": 136,
+    "hook_en": "In the blazing desert, they stored winter in a clay pit.",
+    "loop_bridge": "The final line ends on the idea of stored winter waiting in the dark, so it flows straight back into the opening claim about storing winter in a clay pit.",
+    "narration": "In the blazing desert, they stored winter in a clay pit. No refrigerator. No electricity. Just a massive dome of thick mud brick, sunk deep into the earth. Before dawn, workers carried water into shallow basins. As the night sky cleared, the water froze under the open stars, even in summer. Then the ice was packed inside the thick walls, where the heat could never reach it. Stored in the darkness, shielded from the sun, the ice lasted for months. Nobles bought it for sherbet, and physicians prescribed it for fevers. Every drop of winter was saved by a people who understood the sky and mastered the heat. Ask the desert what it hides, and it will say: winter, waiting in the dark for you. In the blazing desert, they stored winter in a clay pit.",
+    "narration_alt": "In the blazing desert, they stored winter in a clay pit. No refrigerator. No electricity. Just a massive dome of thick mud brick, sunk deep into the earth. Before dawn, workers carried water into shallow basins. As the night sky cleared, the water froze under the open stars, even in summer. Then the ice was packed inside the thick walls, where the heat could never reach it. Stored in the darkness, shielded from the sun, the ice lasted for months. Nobles bought it for sherbet, and physicians prescribed it for fevers. Every drop of winter was saved by a people who understood the sky and mastered the heat. Ask the desert what it hides, and it will say: winter, waiting in the dark for you. In the blazing desert, they stored winter in a clay pit.",
+    "narration_display": "In the blazing desert, they stored winter in a clay pit. No refrigerator. No electricity. Just a massive dome of thick mud brick, sunk deep into the earth. Before dawn, workers carried water into shallow basins. As the night sky cleared, the water froze under the open stars, even in summer. Then the ice was packed inside the thick walls, where the heat could never reach it. Stored in the darkness, shielded from the sun, the ice lasted for months. Nobles bought it for sherbet, and physicians prescribed it for fevers. Every drop of winter was saved by a people who understood the sky and mastered the heat. Ask the desert what it hides, and it will say: winter, waiting in the dark for you. In the blazing desert, they stored winter in a clay pit.",
+    "narration_tts": "In the blazing desert, they stored winter in a clay pit. No refrigerator. No electricity. Just a massive dome of thick mud brick, sunk deep into the earth. Before dawn, workers carried water into shallow basins. As the night sky cleared, the water froze under the open stars, even in summer. Then the ice was packed inside the thick walls, where the heat could never reach it. Stored in the darkness, shielded from the sun, the ice lasted for months. Nobles bought it for sherbet, and physicians prescribed it for fevers. Every drop of winter was saved by a people who understood the sky and mastered the heat. Ask the desert what it hides, and it will say: winter, waiting in the dark for you. In the blazing desert, they stored winter in a clay pit.",
+    "visual_scenes": [
+      "Scorching desert noon with a massive domed mud-brick ice house half-sunk in sand, heat shimmering over the dunes.",
+      "Two workers, one carrying a clay jug, pour water into shallow basins at the edge of the dome.",
+      "Dusk turns to night, the sky clears and stars spill over the empty basins.",
+      "Thin sheets of ice form in the basins under the open starry sky.",
+      "Before dawn, three workers (exactly 3 people) gather and lift the frozen ice blocks.",
+      "Ice blocks are carried down a ramp into the sunken storage chamber.",
+      "Inside the thick-walled dark chamber, ice is packed in layers, shielded from the sun.",
+      "A merchant (exactly 1 person) in fine robes buys a block of ice at a bustling market under the summer sun.",
+      "The desert sun blazes over the ice house dome as a final glowing ember of frost remains in the dark."
+    ],
+    "scenes": [
+      "Scorching desert noon with a massive domed mud-brick ice house half-sunk in sand, heat shimmering over the dunes.",
+      "Two workers, one carrying a clay jug, pour water into shallow basins at the edge of the dome.",
+      "Dusk turns to night, the sky clears and stars spill over the empty basins.",
+      "Thin sheets of ice form in the basins under the open starry sky.",
+      "Before dawn, three workers (exactly 3 people) gather and lift the frozen ice blocks.",
+      "Ice blocks are carried down a ramp into the sunken storage chamber.",
+      "Inside the thick-walled dark chamber, ice is packed in layers, shielded from the sun.",
+      "A merchant (exactly 1 person) in fine robes buys a block of ice at a bustling market under the summer sun.",
+      "The desert sun blazes over the ice house dome as a final glowing ember of frost remains in the dark."
+    ]
   }
 ]

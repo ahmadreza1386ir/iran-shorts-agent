@@ -8573,6 +8573,363 @@
           }
         }
       ]
+    },
+    {
+      "id": "20",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark, no signature",
+      "scenes": [
+        {
+          "desc": "Scorching desert noon with a massive domed mud-brick ice house half-sunk in sand, heat shimmering over the dunes.",
+          "query": "desert ice house dome",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert ice house dome",
+              "desert ice"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a massive domed mud-brick ice house sunk into blazing desert sand under a harsh noon sun, heat shimmer, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two workers, one carrying a clay jug, pour water into shallow basins at the edge of the dome.",
+          "query": "workers pouring water basins",
+          "anchor": "Two workers one",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "workers pouring water basins",
+              "workers pouring"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two workers (exactly 2 people) pouring water from a clay jug into shallow earthen basins beside a desert ice house, dynamic low angle, warm and teal palette, expressive brushwork, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Dusk turns to night, the sky clears and stars spill over the empty basins.",
+          "query": "desert night stars sky",
+          "anchor": "Dusk turns to",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert night stars sky",
+              "desert night"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a clear desert night sky full of stars above shallow water basins, cool teal tones with warm lantern glow, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Thin sheets of ice form in the basins under the open starry sky.",
+          "query": "ice forming basin night",
+          "anchor": "Thin sheets of",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ice forming basin night",
+              "ice forming"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, thin sheets of ice forming in shallow earthen basins under an open starry desert sky, glowing frost highlights, warm and teal palette, expressive brushwork, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Before dawn, three workers (exactly 3 people) gather and lift the frozen ice blocks.",
+          "query": "workers lifting ice blocks",
+          "anchor": "Before dawn three",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "workers lifting ice blocks",
+              "workers lifting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, three workers (exactly 3 people) lifting heavy frozen ice blocks from basins before dawn, muscular strain visible, warm lantern light against teal night, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Ice blocks are carried down a ramp into the sunken storage chamber.",
+          "query": "carrying ice into storage",
+          "anchor": "Ice blocks are",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "carrying ice into storage",
+              "carrying ice"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two workers (exactly 2 people) carrying ice blocks down a sloped entrance into the dark interior of a domed ice house, dramatic chiaroscuro, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Inside the thick-walled dark chamber, ice is packed in layers, shielded from the sun.",
+          "query": "ice packed storage chamber",
+          "anchor": "Inside the thick",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ice packed storage chamber",
+              "ice packed"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, the dark interior of a thick-walled domed ice house with ice packed in layers and straw, a single shaft of light from above, warm and teal palette, expressive brushwork, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A merchant (exactly 1 person) in fine robes buys a block of ice at a bustling market under the summer sun.",
+          "query": "merchant buying ice market",
+          "anchor": "A merchant exactly",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "merchant buying ice market",
+              "merchant buying"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one merchant (exactly 1 person) in fine robes purchasing a block of ice at a bustling summer bazaar, sherbet cups in the foreground, dynamic framing, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The desert sun blazes over the ice house dome as a final glowing ember of frost remains in the dark.",
+          "query": "desert sun ice house glow",
+          "anchor": "The desert sun",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert sun ice house glow",
+              "desert sun"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, the blazing desert sun over a domed ice house with a faint glowing frost ember visible in its dark entrance, dramatic upward framing, warm and teal palette, expressive brushwork, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }

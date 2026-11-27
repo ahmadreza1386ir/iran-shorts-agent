@@ -628,5 +628,40 @@
       "The cook shakes her head gently and looks down at the sparrow",
       "The sparrow sits quietly beside a pot of bread cooling in the sun, waiting"
     ]
+  },
+  {
+    "id": 19,
+    "category": "Short Story",
+    "core_message": "Honesty in small everyday dealings builds a lasting reputation that outlasts any quick profit gained by deception.",
+    "proverb_fa": "",
+    "proverb_en": "The Honest Scale",
+    "word_count": 108,
+    "hook_en": "A merchant can sell the same saffron for a lifetime, yet some customers return to him while others never come back.",
+    "narration": "A merchant can sell the same saffron for a lifetime, yet some customers return to him while others never come back. In an old bazaar in Isfahan, there was a spice seller named Javad who weighed every pinch with a small brass scale. Years earlier, a neighboring trader had tempted him to add a little dust and a few cheap seeds to his pile, promising easy profit. Javad refused, though his stall was quiet that season. Slowly, travelers began to tell one another where the honest saffron could be found. Decades later, his grandchildren still ran the same stall, and the brass scale still sat on the counter.",
+    "narration_alt": "A merchant can sell the same saffron for a lifetime, yet some customers return to him while others never come back. In an old bazaar in Isfahan, there was a spice seller named Javad who weighed every pinch with a small brass scale. Years earlier, a neighboring trader had tempted him to add a little dust and a few cheap seeds to his pile, promising easy profit. Javad refused, though his stall was quiet that season. Slowly, travelers began to tell one another where the honest saffron could be found. Decades later, his grandchildren still ran the same stall, and the brass scale still sat on the counter.",
+    "narration_display": "A merchant can sell the same saffron for a lifetime, yet some customers return to him while others never come back. In an old bazaar in Isfahan, there was a spice seller named Javad who weighed every pinch with a small brass scale. Years earlier, a neighboring trader had tempted him to add a little dust and a few cheap seeds to his pile, promising easy profit. Javad refused, though his stall was quiet that season. Slowly, travelers began to tell one another where the honest saffron could be found. Decades later, his grandchildren still ran the same stall, and the brass scale still sat on the counter.",
+    "narration_tts": "A merchant can sell the same saffron for a lifetime, yet some customers return to him while others never come back. In an old bazaar in Isfahan, there was a spice seller named Javad who weighed every pinch with a small brass scale. Years earlier, a neighboring trader had tempted him to add a little dust and a few cheap seeds to his pile, promising easy profit. Javad refused, though his stall was quiet that season. Slowly, travelers began to tell one another where the honest saffron could be found. Decades later, his grandchildren still ran the same stall, and the brass scale still sat on the counter.",
+    "visual_scenes": [
+      "A spice merchant in a bustling bazaar holds a small brass scale over a pile of saffron threads",
+      "A neighboring trader leans over the counter whispering while offering a bag of dust",
+      "The merchant pushes the bag back across the counter with a calm shake of his head",
+      "An empty stall on a quiet afternoon while the merchant sweeps the floor",
+      "Two travelers in the crowd lean together, quietly sharing a recommendation",
+      "A customer carefully weighs saffron on the same brass scale with a satisfied expression",
+      "The merchant grows older, now sharing tea with a young apprentice at the stall",
+      "Crowds of customers gather at the stall while the grandchildren serve them",
+      "The brass scale rests on the counter as morning light fills the bazaar"
+    ],
+    "scenes": [
+      "A spice merchant in a bustling bazaar holds a small brass scale over a pile of saffron threads",
+      "A neighboring trader leans over the counter whispering while offering a bag of dust",
+      "The merchant pushes the bag back across the counter with a calm shake of his head",
+      "An empty stall on a quiet afternoon while the merchant sweeps the floor",
+      "Two travelers in the crowd lean together, quietly sharing a recommendation",
+      "A customer carefully weighs saffron on the same brass scale with a satisfied expression",
+      "The merchant grows older, now sharing tea with a young apprentice at the stall",
+      "Crowds of customers gather at the stall while the grandchildren serve them",
+      "The brass scale rests on the counter as morning light fills the bazaar"
+    ]
   }
 ]
