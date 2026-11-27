@@ -488,5 +488,40 @@
       "A grandfather teaching a child beside a qanat outlet",
       "Green oasis with date palms and fields thriving where the water emerges"
     ]
+  },
+  {
+    "id": 15,
+    "category": "Proverb",
+    "core_message": "People who are meant to meet will always find their way back to each other, just as paths keep crossing even when mountains stand still.",
+    "proverb_fa": "کوه به کوه نمی‌رسد، اما آدم به آدم می‌رسد",
+    "proverb_en": "Mountains never meet, but people always do",
+    "word_count": 129,
+    "hook_en": "Mountains have stood still for a million years, yet somehow the people who belong together keep bumping into each other on the road!",
+    "narration": "Mountains have stood still for a million years, yet somehow the people who belong together keep bumping into each other on the road! Here's an old Persian saying that makes me smile every time: kooh be kooh nemiresad, but ghabeel be ghabeel miresad. Mountains never meet. Never. They just watch the seasons pass from their towering places. But people? Oh, people find each other. A traveler leaves a village, takes a winding road, and years later, in a crowded bazaar in a city far away, a familiar face turns around. Smiles break open. Nobody planned it. The road simply brought them back. So if you've ever lost someone, don't panic. Mountains stay where they are. People keep walking, and the world has a way of returning them to you.",
+    "narration_alt": "Mountains have stood still for a million years, yet somehow the people who belong together keep bumping into each other on the road! Here's an old Persian saying that makes me smile every time: kooh be kooh nemiresad, but ghabeel be ghabeel miresad. Mountains never meet. Never. They just watch the seasons pass from their towering places. But people? Oh, people find each other. A traveler leaves a village, takes a winding road, and years later, in a crowded bazaar in a city far away, a familiar face turns around. Smiles break open. Nobody planned it. The road simply brought them back. So if you've ever lost someone, don't panic. Mountains stay where they are. People keep walking, and the world has a way of returning them to you.",
+    "narration_display": "Mountains have stood still for a million years, yet somehow the people who belong together keep bumping into each other on the road! Here's an old Persian saying that makes me smile every time: kooh be kooh nemiresad, but ghabeel be ghabeel miresad. Mountains never meet. Never. They just watch the seasons pass from their towering places. But people? Oh, people find each other. A traveler leaves a village, takes a winding road, and years later, in a crowded bazaar in a city far away, a familiar face turns around. Smiles break open. Nobody planned it. The road simply brought them back. So if you've ever lost someone, don't panic. Mountains stay where they are. People keep walking, and the world has a way of returning them to you.",
+    "narration_tts": "Mountains have stood still for a million years, yet somehow the people who belong together keep bumping into each other on the road! Here's an old Persian saying that makes me smile every time: kooh be kooh nemiresad, but ghabeel be ghabeel miresad. Mountains never meet. Never! They just watch the seasons pass from their towering places. But people? Oh, people find each other. A traveler leaves a village, takes a winding road, and years later, in a crowded bazaar in a city far away, a familiar face turns around. Smiles break open. Nobody planned it. The road simply brought them back. So if you've ever lost someone, don't panic. Mountains stay where they are. People keep walking, and the world has a way of returning them to you.",
+    "visual_scenes": [
+      "Two ancient mountain peaks stand motionless under a golden dawn sky, mist curling between them",
+      "A young traveler with a walking stick leaves a mountain village at sunrise, looking back over his shoulder",
+      "The traveler walks a winding dusty road between hills, a satchel bouncing on his back",
+      "Two elderly merchants pass each other at a crossroads, each carrying bundles of cloth",
+      "A bustling bazaar full of colorful arches, lanterns and crowds of shoppers",
+      "The traveler stops mid-stride in the bazaar, eyes wide as he spots someone across the crowd",
+      "Two old friends rush toward each other through the crowd, arms opening wide",
+      "The two friends embrace in the golden lantern light, laughing with joy",
+      "The two figures walk off together along the road, while distant mountains stand silent on the horizon"
+    ],
+    "scenes": [
+      "Two ancient mountain peaks stand motionless under a golden dawn sky, mist curling between them",
+      "A young traveler with a walking stick leaves a mountain village at sunrise, looking back over his shoulder",
+      "The traveler walks a winding dusty road between hills, a satchel bouncing on his back",
+      "Two elderly merchants pass each other at a crossroads, each carrying bundles of cloth",
+      "A bustling bazaar full of colorful arches, lanterns and crowds of shoppers",
+      "The traveler stops mid-stride in the bazaar, eyes wide as he spots someone across the crowd",
+      "Two old friends rush toward each other through the crowd, arms opening wide",
+      "The two friends embrace in the golden lantern light, laughing with joy",
+      "The two figures walk off together along the road, while distant mountains stand silent on the horizon"
+    ]
   }
 ]

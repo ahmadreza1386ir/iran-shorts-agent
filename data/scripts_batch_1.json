@@ -523,5 +523,40 @@
       "The two friends embrace in the golden lantern light, laughing with joy",
       "The two figures walk off together along the road, while distant mountains stand silent on the horizon"
     ]
+  },
+  {
+    "id": 16,
+    "category": "Short Story",
+    "core_message": "A small act of sharing and patience, given freely, is remembered longer than a grand gesture made for show.",
+    "proverb_fa": "",
+    "proverb_en": "The Ant Who Carried More Than Her Share",
+    "word_count": 106,
+    "hook_en": "A tiny ant can carry a grain many times heavier than herself, yet the village elders remember her for something she never carried at all.",
+    "narration": "A tiny ant can carry a grain many times heavier than herself, yet the village elders remember her for something she never carried at all. In a dry valley near Yazd, a long winter had left the storehouses nearly empty. An ant named Parvin worked through the autumn, gathering wheat from the fields and hauling it home, one grain at a time. When a traveling sparrow came to her door, weak and hungry, Parvin did not hesitate. She shared the best of her harvest and asked for nothing in return. The sparrow, as the story goes, later brought the whole colony seeds from a distant garden.",
+    "narration_alt": "A tiny ant can carry a grain many times heavier than herself, yet the village elders remember her for something she never carried at all. In a dry valley near Yazd, a long winter had left the storehouses nearly empty. An ant named Parvin worked through the autumn, gathering wheat from the fields and hauling it home, one grain at a time. When a traveling sparrow came to her door, weak and hungry, Parvin did not hesitate. She shared the best of her harvest and asked for nothing in return. The sparrow, as the story goes, later brought the whole colony seeds from a distant garden.",
+    "narration_display": "A tiny ant can carry a grain many times heavier than herself, yet the village elders remember her for something she never carried at all. In a dry valley near Yazd, a long winter had left the storehouses nearly empty. An ant named Parvin worked through the autumn, gathering wheat from the fields and hauling it home, one grain at a time. When a traveling sparrow came to her door, weak and hungry, Parvin did not hesitate. She shared the best of her harvest and asked for nothing in return. The sparrow, as the story goes, later brought the whole colony seeds from a distant garden.",
+    "narration_tts": "A tiny ant can carry a grain many times heavier than herself, yet the village elders remember her for something she never carried at all. In a dry valley near Yazd, a long winter had left the storehouses nearly empty. An ant named Parvin worked through the autumn, gathering wheat from the fields and hauling it home, one grain at a time. When a traveling sparrow came to her door, weak and hungry, Parvin did not hesitate. She shared the best of her harvest and asked for nothing in return. The sparrow, as the story goes, later brought the whole colony seeds from a distant garden.",
+    "visual_scenes": [
+      "A tiny ant lifts a wheat grain far larger than herself on a dusty valley path",
+      "Village elders gather under a tree, speaking softly",
+      "Parvin the ant works through the autumn fields",
+      "Storehouse nearly empty during a long winter",
+      "Parvin hauls grain back home along a winding trail",
+      "A weak sparrow lands at the ant's doorstep",
+      "Parvin offers the best of her harvest to the sparrow",
+      "The sparrow flies away over distant green fields",
+      "The sparrow returns with seeds for the whole colony"
+    ],
+    "scenes": [
+      "A tiny ant lifts a wheat grain far larger than herself on a dusty valley path",
+      "Village elders gather under a tree, speaking softly",
+      "Parvin the ant works through the autumn fields",
+      "Storehouse nearly empty during a long winter",
+      "Parvin hauls grain back home along a winding trail",
+      "A weak sparrow lands at the ant's doorstep",
+      "Parvin offers the best of her harvest to the sparrow",
+      "The sparrow flies away over distant green fields",
+      "The sparrow returns with seeds for the whole colony"
+    ]
   }
 ]

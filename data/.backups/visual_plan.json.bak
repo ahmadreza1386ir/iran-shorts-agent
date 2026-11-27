@@ -6788,6 +6788,363 @@
           }
         }
       ]
+    },
+    {
+      "id": "15",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Two ancient mountain peaks stand motionless under a golden dawn sky, mist curling between them",
+          "query": "mountain peaks dawn mist",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "mountain peaks dawn mist",
+              "mountain peaks"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two massive snowy mountain peaks standing apart at dawn, mist curling between them, no people, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A young traveler with a walking stick leaves a mountain village at sunrise, looking back over his shoulder",
+          "query": "traveler leaving village sunrise",
+          "anchor": "A young traveler",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "traveler leaving village sunrise",
+              "traveler leaving"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one young traveler with a walking stick leaving a stone village at sunrise, glancing back over his shoulder, expressive brushwork, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The traveler walks a winding dusty road between hills, a satchel bouncing on his back",
+          "query": "winding road hills traveler",
+          "anchor": "The traveler walks",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "winding road hills traveler",
+              "winding road"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one traveler with a satchel walking a winding dusty road between rolling hills, dynamic low angle framing, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two elderly merchants pass each other at a crossroads, each carrying bundles of cloth",
+          "query": "crossroads merchants bundles",
+          "anchor": "Two elderly merchants",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "crossroads merchants bundles",
+              "crossroads merchants"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two elderly merchants carrying cloth bundles passing each other at a dusty crossroads, dynamic framing, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A bustling bazaar full of colorful arches, lanterns and crowds of shoppers",
+          "query": "bazaar arches lanterns crowd",
+          "anchor": "A bustling bazaar",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bazaar arches lanterns crowd",
+              "bazaar arches"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a busy Persian bazaar with arched ceilings, hanging lanterns and a crowd of around twenty shoppers, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The traveler stops mid-stride in the bazaar, eyes wide as he spots someone across the crowd",
+          "query": "surprised reunion crowd bazaar",
+          "anchor": "The traveler stops",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "surprised reunion crowd bazaar",
+              "surprised reunion"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one traveler stopping mid-stride in a crowded bazaar, eyes wide with surprise, two other shoppers blurred in motion around him, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two old friends rush toward each other through the crowd, arms opening wide",
+          "query": "friends embrace reunion crowd",
+          "anchor": "Two old friends",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "friends embrace reunion crowd",
+              "friends embrace"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two friends in their thirties running toward each other through a crowded market, arms opening wide, dynamic motion blur, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The two friends embrace in the golden lantern light, laughing with joy",
+          "query": "embrace laughter lantern light",
+          "anchor": "The two friends",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "embrace laughter lantern light",
+              "embrace laughter"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two people embracing and laughing under warm golden lantern light in a bazaar, exactly two figures, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The two figures walk off together along the road, while distant mountains stand silent on the horizon",
+          "query": "two walking together mountains horizon",
+          "anchor": "The two figures",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "two walking together mountains horizon",
+              "two walking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, exactly two figures walking side by side along a road, distant mountains silent on the horizon at sunset, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }
