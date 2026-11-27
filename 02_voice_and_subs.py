@@ -2,9 +2,9 @@
 """
 Phase 2: Generate narration audio and synchronized word-group subtitles.
 
-Aligns subtitle chunks to real speech segments (detected via FFmpeg silence
-detection) whenever WordBoundary events are unavailable, preventing subtitles
-from drifting ahead of pauses or pace changes.
+Primary TTS engine: Hormouz-hosted `openai/gpt-4o-mini-tts` (with expressive
+storytelling instructions). Automatic fallback: `edge-tts` so the pipeline
+never stalls if the paid TTS endpoint is temporarily unreachable.
 """
 
 from __future__ import annotations
@@ -18,6 +18,9 @@ import re
 import shutil
 import subprocess
 import tempfile
+import time
+import urllib.error
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Optional
@@ -29,14 +32,29 @@ BASE_DIR = Path(__file__).resolve().parent
 INPUT_FILE = BASE_DIR / "data" / "scripts_batch_1.json"
 OUTPUT_DIR = BASE_DIR / "output" / "audio"
 
-VOICE = (os.environ.get("TTS_VOICE") or "en-US-JennyNeural").strip()
-RATE = (os.environ.get("TTS_RATE") or "+0%").strip()
+HORMOUZ_TTS_MODEL = (
+    os.environ.get("HORMOUZ_TTS_MODEL") or "openai/gpt-4o-mini-tts"
+).strip()
+HORMOUZ_TTS_VOICE = (
+    os.environ.get("HORMOUZ_TTS_VOICE") or "onyx"
+).strip()
+HORMOUZ_TTS_INSTRUCTIONS = (
+    os.environ.get("HORMOUZ_TTS_INSTRUCTIONS")
+    or (
+        "Speak like a warm, grounded, experienced storyteller narrating an Iranian fable or proverb "
+        "for a short video. Keep a smooth, calm, natural pace with subtle pauses at commas and periods. "
+        "Avoid robotic monotone, harsh sibilants, or over-dramatic shouting."
+    )
+).strip()
+
+EDGE_VOICE = (os.environ.get("TTS_VOICE") or "en-US-AndrewNeural").strip()
+EDGE_RATE = (os.environ.get("TTS_RATE") or "+0%").strip()
 
 MIN_WORDS_PER_SUBTITLE = 2
 MAX_WORDS_PER_SUBTITLE = 3
 MIN_SUBTITLE_DURATION = 0.38
 MIN_EXPECTED_AUDIO_SECONDS = 3.0
-TTS_MAX_ATTEMPTS = 4
+TTS_MAX_ATTEMPTS = 3
 TTS_STREAM_TIMEOUT_SECONDS = 75.0
 TIMESTAMP_EPSILON = 0.001
 
@@ -63,6 +81,33 @@ class Subtitle:
     start: float
     end: float
     text: str
+
+
+def _env_first(names: tuple[str, ...], default: str = "") -> str:
+    for name in names:
+        val = (os.environ.get(name) or "").strip()
+        if val:
+            return val
+    return default
+
+
+def _validate_base_url(raw_url: str) -> str:
+    cleaned = raw_url.strip().rstrip("/")
+    if not (cleaned.startswith("https://") or cleaned.startswith("http://")):
+        raise ValueError("Invalid HORMOUZ_BASE_URL scheme; expected http:// or https://")
+    return cleaned
+
+
+HORMOUZ_BASE_URL = _validate_base_url(
+    _env_first(
+        ("HORMOUZ_BASE_URL", "GAPGPT_BASE_URL"),
+        "https://global-api.hormouz.net/v1",
+    )
+)
+
+
+def get_hormouz_api_key() -> str:
+    return _env_first(("HORMOUZ_API_KEY", "GAPGPT_API_KEY"), "")
 
 
 def extract_words(text: str) -> list[str]:
@@ -137,6 +182,233 @@ def probe_media_duration(audio_path: Path) -> Optional[float]:
         return None
 
 
+def _looks_like_audio_bytes(data: bytes) -> bool:
+    if not data or len(data) < 256:
+        return False
+    # MP3 ID3 tag or frame sync, WAV RIFF header, or OGG header
+    if data[:3] == b"ID3" or data[:4] in (b"RIFF", b"OggS"):
+        return True
+    if data[0] == 0xFF and (data[1] & 0xE0) == 0xE0:
+        return True
+    # Accept raw audio payload if it isn't JSON/HTML error text
+    stripped = data.lstrip()[:20].lower()
+    if stripped.startswith(b"{") or stripped.startswith(b"[") or stripped.startswith(b"<!doctype") or stripped.startswith(b"<html"):
+        return False
+    return True
+
+
+def _download_audio_from_url(url: str, timeout: float = 60.0) -> bytes:
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "IranShortsAgent/TTS"},
+        method="GET",
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read()
+
+
+def _extract_audio_bytes_from_json_payload(payload: dict[str, Any]) -> Optional[bytes]:
+    import base64
+
+    # Direct base64 audio field if returned
+    for key in ("audio_base64", "audio", "content", "b64_json"):
+        val = payload.get(key)
+        if isinstance(val, str) and len(val) > 200 and not val.startswith("http"):
+            try:
+                decoded = base64.b64decode(val, validate=False)
+                if _looks_like_audio_bytes(decoded):
+                    return decoded
+            except Exception:
+                pass
+
+    # URL inside output / data / result fields
+    candidates: list[Any] = [
+        payload.get("output"),
+        payload.get("audio_url"),
+        payload.get("url"),
+    ]
+    data_obj = payload.get("data")
+    if isinstance(data_obj, dict):
+        candidates.extend([data_obj.get("url"), data_obj.get("audio_url"), data_obj.get("output")])
+    elif isinstance(data_obj, list) and data_obj:
+        first = data_obj[0]
+        if isinstance(first, dict):
+            candidates.extend([first.get("url"), first.get("audio_url")])
+
+    for cand in candidates:
+        if isinstance(cand, str) and cand.startswith(("http://", "https://")):
+            audio_bytes = _download_audio_from_url(cand)
+            if _looks_like_audio_bytes(audio_bytes):
+                return audio_bytes
+        elif isinstance(cand, list):
+            for item in cand:
+                if isinstance(item, str) and item.startswith(("http://", "https://")):
+                    audio_bytes = _download_audio_from_url(item)
+                    if _looks_like_audio_bytes(audio_bytes):
+                        return audio_bytes
+                elif isinstance(item, dict):
+                    u = item.get("url") or item.get("audio_url")
+                    if isinstance(u, str) and u.startswith(("http://", "https://")):
+                        audio_bytes = _download_audio_from_url(u)
+                        if _looks_like_audio_bytes(audio_bytes):
+                            return audio_bytes
+
+    return None
+
+
+def _synthesize_hormouz_speech_once(narration: str, api_key: str) -> bytes:
+    base = HORMOUZ_BASE_URL.rstrip("/")
+    speech_url = base if base.endswith("/audio/speech") else f"{base}/audio/speech"
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "Accept": "audio/mpeg, application/octet-stream, application/json",
+        "User-Agent": "IranShortsAgent/TTS",
+    }
+
+    body_dict: dict[str, Any] = {
+        "model": HORMOUZ_TTS_MODEL,
+        "input": narration,
+        "voice": HORMOUZ_TTS_VOICE,
+        "response_format": "mp3",
+    }
+    if HORMOUZ_TTS_INSTRUCTIONS:
+        body_dict["instructions"] = HORMOUZ_TTS_INSTRUCTIONS
+
+    req = urllib.request.Request(
+        speech_url,
+        data=json.dumps(body_dict, ensure_ascii=False).encode("utf-8"),
+        headers=headers,
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=75) as resp:
+            raw = resp.read()
+        if _looks_like_audio_bytes(raw):
+            return raw
+        try:
+            parsed = json.loads(raw.decode("utf-8", "replace"))
+            if isinstance(parsed, dict):
+                extracted = _extract_audio_bytes_from_json_payload(parsed)
+                if extracted:
+                    return extracted
+        except Exception:
+            pass
+        raise RuntimeError("Hormouz /audio/speech returned non-audio payload.")
+    except urllib.error.HTTPError as http_err:
+        err_detail = ""
+        try:
+            err_detail = http_err.read().decode("utf-8", "replace")[:240]
+        except Exception:
+            pass
+        if http_err.code not in (404, 405):
+            raise RuntimeError(f"Hormouz TTS HTTP {http_err.code}: {err_detail}") from http_err
+
+    # Fallback to /predictions endpoint format if /audio/speech isn't used for this model
+    pred_url = base if base.endswith("/predictions") else f"{base}/predictions"
+    pred_payload = {
+        "model": HORMOUZ_TTS_MODEL,
+        "input": {
+            "text": narration,
+            "input": narration,
+            "voice": HORMOUZ_TTS_VOICE,
+            "instructions": HORMOUZ_TTS_INSTRUCTIONS,
+        },
+    }
+    pred_req = urllib.request.Request(
+        pred_url,
+        data=json.dumps(pred_payload, ensure_ascii=False).encode("utf-8"),
+        headers=headers,
+        method="POST",
+    )
+    with urllib.request.urlopen(pred_req, timeout=75) as resp:
+        pred_raw = resp.read()
+    parsed_pred = json.loads(pred_raw.decode("utf-8", "replace"))
+    if not isinstance(parsed_pred, dict):
+        raise RuntimeError("Invalid JSON from Hormouz /predictions TTS.")
+
+    # Poll if prediction is queued/processing
+    pred_id = parsed_pred.get("id")
+    status = str(parsed_pred.get("status") or "").lower()
+    if pred_id and status in ("starting", "processing", "queued", "pending"):
+        poll_url = f"{pred_url}/{pred_id}"
+        for _ in range(25):
+            time.sleep(1.5)
+            poll_req = urllib.request.Request(
+                poll_url,
+                headers={"Authorization": f"Bearer {api_key}", "User-Agent": "IranShortsAgent/TTS"},
+                method="GET",
+            )
+            with urllib.request.urlopen(poll_req, timeout=30) as presp:
+                parsed_pred = json.loads(presp.read().decode("utf-8", "replace"))
+            status = str(parsed_pred.get("status") or "").lower()
+            if status in ("succeeded", "completed", "failed", "canceled", "error"):
+                break
+
+    if status in ("failed", "canceled", "error"):
+        raise RuntimeError(f"Hormouz TTS prediction failed: {parsed_pred.get('error')}")
+
+    extracted = _extract_audio_bytes_from_json_payload(parsed_pred)
+    if not extracted:
+        raise RuntimeError("No audio output found in Hormouz /predictions response.")
+    return extracted
+
+
+async def _try_hormouz_tts(narration: str, target_dir: Path) -> Optional[Path]:
+    api_key = get_hormouz_api_key()
+    if not api_key or not HORMOUZ_TTS_MODEL:
+        return None
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    last_err: Optional[Exception] = None
+
+    for attempt in range(1, TTS_MAX_ATTEMPTS + 1):
+        try:
+            audio_bytes = await asyncio.to_thread(
+                _synthesize_hormouz_speech_once,
+                narration,
+                api_key,
+            )
+            with tempfile.NamedTemporaryFile(
+                mode="wb",
+                suffix=".mp3",
+                prefix="hormouz_tts_",
+                dir=str(target_dir),
+                delete=False,
+            ) as tmp_f:
+                tmp_path = Path(tmp_f.name)
+                tmp_f.write(audio_bytes)
+
+            probed_dur = probe_media_duration(tmp_path)
+            if probed_dur is None or probed_dur < MIN_EXPECTED_AUDIO_SECONDS:
+                tmp_path.unlink(missing_ok=True)
+                raise RuntimeError(f"Hormouz TTS audio too short or invalid ({probed_dur}).")
+
+            logger.info(
+                "Synthesized audio via Hormouz (%s, voice=%s, %.2fs).",
+                HORMOUZ_TTS_MODEL,
+                HORMOUZ_TTS_VOICE,
+                probed_dur,
+            )
+            return tmp_path
+        except Exception as exc:
+            last_err = exc
+            logger.warning(
+                "Hormouz TTS attempt %d/%d failed (%s): %s",
+                attempt,
+                TTS_MAX_ATTEMPTS,
+                HORMOUZ_TTS_MODEL,
+                exc,
+            )
+            if attempt < TTS_MAX_ATTEMPTS:
+                await asyncio.sleep(1.5 * attempt)
+
+    logger.warning("Falling back to edge-tts (%s) due to Hormouz TTS failure: %s", EDGE_VOICE, last_err)
+    return None
+
+
 async def _stream_edge_tts_once(
     narration: str,
     target_dir: Path,
@@ -146,8 +418,8 @@ async def _stream_edge_tts_once(
 
     communicate = edge_tts.Communicate(
         text=narration,
-        voice=VOICE,
-        rate=RATE,
+        voice=EDGE_VOICE,
+        rate=EDGE_RATE,
     )
 
     with tempfile.NamedTemporaryFile(
@@ -217,8 +489,14 @@ async def synthesize_audio(
         raise ValueError("narration_tts is empty.")
 
     audio_path.parent.mkdir(parents=True, exist_ok=True)
-    last_err: Optional[Exception] = None
 
+    hormouz_mp3 = await _try_hormouz_tts(cleaned, audio_path.parent)
+    if hormouz_mp3 is not None:
+        probed_dur = probe_media_duration(hormouz_mp3)
+        hormouz_mp3.replace(audio_path)
+        return [], probed_dur
+
+    last_err: Optional[Exception] = None
     for attempt in range(1, TTS_MAX_ATTEMPTS + 1):
         try:
             temp_mp3, boundaries = await _stream_edge_tts_once(cleaned, audio_path.parent)
@@ -228,7 +506,7 @@ async def synthesize_audio(
         except Exception as exc:
             last_err = exc
             logger.warning(
-                "TTS attempt %d/%d failed for %s: %s",
+                "Edge TTS attempt %d/%d failed for %s: %s",
                 attempt,
                 TTS_MAX_ATTEMPTS,
                 audio_path.name,
