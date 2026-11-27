@@ -17,7 +17,6 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -732,8 +731,7 @@ def _select_items(items: list[dict[str, Any]], target_id: Optional[str]) -> list
     if not target_id:
         return items
     wanted = target_id.strip()
-    matched = [item for item in items if str(item.get("id", "")).strip() == wanted]
-    return matched
+    return [item for item in items if str(item.get("id", "")).strip() == wanted]
 
 
 def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
@@ -741,15 +739,17 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     parser.add_argument("--input", type=Path, default=INPUT_FILE, help="Path to scripts JSON")
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR, help="Output directory for audio & SRT")
     parser.add_argument("--id", type=str, default=None, help="Process only a specific short ID")
+    parser.add_argument("--only", type=str, default=None, help="Alias for --id (process only a specific short ID)")
     parser.add_argument("--force", action="store_true", help="Regenerate even if output already exists")
     return parser.parse_args(argv)
 
 
 async def _run_async(args: argparse.Namespace) -> int:
     items = load_scripts(args.input)
-    selected = _select_items(items, args.id)
+    target_id = args.id or args.only
+    selected = _select_items(items, target_id)
     if not selected:
-        logger.error("No matching script items found (id=%r).", args.id)
+        logger.error("No matching script items found (id=%r).", target_id)
         return 1
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
