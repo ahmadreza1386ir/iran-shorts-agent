@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Phase 2: Generate engaging, crisp narration audio and synchronized word-group subtitles.
+Phase 2: Generate smooth, slightly softer, lively narration audio and synchronized word-group subtitles.
 
-Primary TTS engine: Hormouz-hosted `openai/gpt-4o-mini-tts` tuned for an alert,
-warm, lively storytelling cadence without harsh sibilants or sleepy dragging.
-Automatic fallback: `edge-tts` (`en-US-AndrewNeural` at `+2%`).
+Primary TTS engine: Hormouz-hosted `openai/gpt-4o-mini-tts` tuned for a warm,
+gentle-yet-alert storytelling pace (~1.2% brisker) with soft consonants.
+Automatic fallback: `edge-tts` (`en-US-AndrewNeural` at `+3.2%`).
 """
 
 from __future__ import annotations
@@ -41,14 +41,14 @@ HORMOUZ_TTS_VOICE = (
 HORMOUZ_TTS_INSTRUCTIONS = (
     os.environ.get("HORMOUZ_TTS_INSTRUCTIONS")
     or (
-        "Speak with an engaging, alert, warm storytelling voice that immediately hooks the listener. "
-        "Keep a crisp, lively, conversational pace with natural vocal variety and clear emphasis on key turning points—never sleepy, slow, or monotone. "
-        "Articulate smoothly with soft, clean consonants and zero harsh sibilance on S and SH sounds."
+        "Speak with a softer, smoother, warm storytelling voice that stays alert and engaging without sounding harsh or sleepy. "
+        "Keep a natural, slightly brisk rhythm—about 1.2% faster than average—with gentle phrasing, smooth transitions, "
+        "and soft, clean consonants with zero sharp sibilance on S and SH sounds."
     )
 ).strip()
 
 EDGE_VOICE = (os.environ.get("TTS_VOICE") or "en-US-AndrewNeural").strip()
-EDGE_RATE = (os.environ.get("TTS_RATE") or "+2%").strip()
+EDGE_RATE = (os.environ.get("TTS_RATE") or "+3.2%").strip()
 
 MIN_WORDS_PER_SUBTITLE = 2
 MAX_WORDS_PER_SUBTITLE = 3
