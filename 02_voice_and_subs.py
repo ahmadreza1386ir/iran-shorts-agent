@@ -648,4 +648,126 @@ def load_scripts(input_path: Path) -> list[dict[str, Any]]:
 
     try:
         with input_path.open("r", encoding="utf-8-sig") as json_file:
-            data = json.load(j
+            data = json.load(json_file)
+    except Exception as exc:
+        raise ValueError(f"Invalid JSON in {input_path}: {exc}") from exc
+
+    if isinstance(data, list):
+        return [item for item in data if isinstance(item, dict)]
+    if isinstance(data, dict) and isinstance(data.get("shorts"), list):
+        return [item for item in data["shorts"] if isinstance(item, dict)]
+
+    raise ValueError(f"Expected a list of script objects in {input_path}")
+
+
+def _resolve_texts(item: dict[str, Any]) -> tuple[str, str]:
+    display_text = str(
+        item.get("narration_display")
+        or item.get("narration")
+        or item.get("narration_tts")
+        or ""
+    ).strip()
+    tts_text = str(
+        item.get("narration_tts")
+        or item.get("narration")
+        or item.get("narration_display")
+        or ""
+    ).strip()
+    return display_text, tts_text
+
+
+async def process_item(item: dict[str, Any], out_dir: Path, force: bool = False) -> None:
+    raw_id = item.get("id")
+    if raw_id is None or str(raw_id).strip() == "":
+        raise ValueError("Script item is missing 'id'.")
+    sid = str(raw_id).strip()
+
+    display_text, tts_text = _resolve_texts(item)
+    if not tts_text:
+        raise ValueError(f"Short {sid} has empty narration text.")
+    if not display_text:
+        display_text = tts_text
+
+    display_words = extract_words(display_text)
+    if not display_words:
+        raise ValueError(f"Short {sid} has no extractable display words.")
+
+    audio_path = out_dir / f"short_{sid}.mp3"
+    srt_path = out_dir / f"short_{sid}.srt"
+
+    if not force and audio_path.is_file() and audio_path.stat().st_size > 0 and srt_path.is_file():
+        existing_dur = probe_media_duration(audio_path)
+        if existing_dur is not None and existing_dur >= MIN_EXPECTED_AUDIO_SECONDS:
+            logger.info("Short %s already has audio and subtitles; skipping.", sid)
+            return
+
+    boundaries, probed_dur = await synthesize_audio(tts_text, audio_path)
+    final_dur = probed_dur
+    if audio_path is not None and audio_path.is_file() and final_dur is None:
+        final_dur = probe_media_duration(audio_path)
+
+    word_times = align_display_words(
+        display_words=display_words,
+        boundaries=boundaries,
+        audio_path=audio_path,
+        known_duration=final_dur,
+    )
+    subtitles = build_subtitles(
+        display_words=display_words,
+        word_times=word_times,
+        max_duration=final_dur,
+    )
+    write_srt(subtitles, srt_path)
+    logger.info(
+        "Short %s ready: audio=%s (%.2fs), subs=%d cues -> %s",
+        sid,
+        audio_path.name,
+        final_dur or 0.0,
+        len(subtitles),
+        srt_path.name,
+    )
+
+
+def _select_items(items: list[dict[str, Any]], target_id: Optional[str]) -> list[dict[str, Any]]:
+    if not target_id:
+        return items
+    wanted = target_id.strip()
+    matched = [item for item in items if str(item.get("id", "")).strip() == wanted]
+    return matched
+
+
+def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Generate voiceover audio and SRT subtitles.")
+    parser.add_argument("--input", type=Path, default=INPUT_FILE, help="Path to scripts JSON")
+    parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR, help="Output directory for audio & SRT")
+    parser.add_argument("--id", type=str, default=None, help="Process only a specific short ID")
+    parser.add_argument("--force", action="store_true", help="Regenerate even if output already exists")
+    return parser.parse_args(argv)
+
+
+async def _run_async(args: argparse.Namespace) -> int:
+    items = load_scripts(args.input)
+    selected = _select_items(items, args.id)
+    if not selected:
+        logger.error("No matching script items found (id=%r).", args.id)
+        return 1
+
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    ok = 0
+    for item in selected:
+        try:
+            await process_item(item, args.output_dir, force=args.force)
+            ok += 1
+        except Exception as exc:
+            logger.error("Failed processing short id=%r: %s", item.get("id"), exc)
+
+    return 0 if ok > 0 else 1
+
+
+def main(argv: Optional[list[str]] = None) -> int:
+    args = parse_args(argv)
+    return asyncio.run(_run_async(args))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
