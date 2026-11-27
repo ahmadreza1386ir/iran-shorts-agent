@@ -8216,6 +8216,363 @@
           }
         }
       ]
+    },
+    {
+      "id": "19",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark, no signature",
+      "scenes": [
+        {
+          "desc": "A spice merchant in a bustling bazaar holds a small brass scale over a pile of saffron threads",
+          "query": "bazaar saffron merchant scale",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bazaar saffron merchant scale",
+              "bazaar saffron"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one spice merchant with a brass scale over saffron threads in a busy bazaar, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A neighboring trader leans over the counter whispering while offering a bag of dust",
+          "query": "whispering trader counter bag",
+          "anchor": "A neighboring trader",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "whispering trader counter bag",
+              "whispering trader"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two traders at a wooden counter, one leaning in whispering while offering a small bag, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The merchant pushes the bag back across the counter with a calm shake of his head",
+          "query": "merchant refusing bag counter",
+          "anchor": "The merchant pushes",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "merchant refusing bag counter",
+              "merchant refusing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one merchant gently pushing a bag back across a counter, shaking his head, two figures total, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "An empty stall on a quiet afternoon while the merchant sweeps the floor",
+          "query": "empty bazaar stall sweeping",
+          "anchor": "An empty stall",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "empty bazaar stall sweeping",
+              "empty bazaar"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one merchant sweeping a quiet empty stall in late afternoon light, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two travelers in the crowd lean together, quietly sharing a recommendation",
+          "query": "travelers sharing recommendation market",
+          "anchor": "Two travelers in",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "travelers sharing recommendation market",
+              "travelers sharing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two travelers in a crowded market leaning together and speaking softly, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A customer carefully weighs saffron on the same brass scale with a satisfied expression",
+          "query": "customer weighing saffron brass",
+          "anchor": "A customer carefully",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "customer weighing saffron brass",
+              "customer weighing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one customer examining saffron on a brass scale with a satisfied smile, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The merchant grows older, now sharing tea with a young apprentice at the stall",
+          "query": "old merchant tea apprentice",
+          "anchor": "The merchant grows",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old merchant tea apprentice",
+              "old merchant"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one elderly merchant and one young apprentice sharing tea at a spice stall, two people total, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Crowds of customers gather at the stall while the grandchildren serve them",
+          "query": "busy stall grandchildren customers",
+          "anchor": "Crowds of customers",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "busy stall grandchildren customers",
+              "busy stall"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, three young family members serving a line of customers at a busy spice stall, four customers and three helpers, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The brass scale rests on the counter as morning light fills the bazaar",
+          "query": "brass scale counter morning light",
+          "anchor": "The brass scale",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "brass scale counter morning light",
+              "brass scale"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a brass scale resting on a wooden counter with soft morning light through bazaar arches, no people, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }
