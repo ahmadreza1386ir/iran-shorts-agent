@@ -475,4 +475,3 @@ def render_card(
     atmosphere(c)
 
     return c.img.convert("RGB")
-    
