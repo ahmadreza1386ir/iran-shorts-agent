@@ -526,191 +526,6 @@ def mux_final(
         "-filter_complex", ";".join(parts),
         "-map", "0:v:0", "-map", "[aout]",
         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-        "-ac", "2", "-t", f"{dur:.4f}", "-movflags", "+faststart", t[dict[str, Any]]) -> str:
-    blob = " ".join([
-        str(script.get("proverb_en") or ""),
-        str(script.get("narration") or ""),
-        " ".join(str(s.get("desc") or "") for s in plan_scenes),
-    ]).lower()
-    if any(k in blob for k in ("water", "stream", "frog", "ocean", "drop", "ripples", "pond")):
-        return "stream"
-    if any(k in blob for k in ("night", "winter", "cold", "ice", "star", "moon")):
-        return "night"
-    if any(k in blob for k in ("bazaar", "scale", "merchant", "wheat", "sack", "gold")):
-        return "bazaar"
-    return "story"
-
-
-def pick_music(sid: str, mood: str = "story") -> Path | None:
-    if not MUSIC_DIR.is_dir():
-        return None
-    files = sorted(p for p in MUSIC_DIR.iterdir() if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".ogg", ".flac"})
-    if not files:
-        return None
-    mood_keywords: dict[str, tuple[str, ...]] = {
-        "stream": ("water", "stream", "river", "nature", "calm", "ambient", "lofi"),
-        "night": ("night", "calm", "ambient", "soft", "pad", "moon"),
-        "bazaar": ("warm", "folk", "acoustic", "story", "gold", "persian"),
-        "story": ("story", "calm", "warm", "ambient"),
-    }
-    matched = [p for p in files if any(kw in p.stem.lower() for kw in mood_keywords.get(mood, ()))]
-    pool = matched if matched else files
-    return pool[int(hashlib.sha1(f"{sid}:{mood}".encode()).hexdigest(), 16) % len(pool)]
-
-
-def pick_sfx_files(mood: str) -> list[Path]:
-    if not SFX_DIR.is_dir():
-        return []
-    files = sorted(p for p in SFX_DIR.iterdir() if p.suffix.lower() in {".mp3", ".wav", ".m4a", ".ogg", ".flac"})
-    if not files:
-        return []
-    mood_hints: dict[str, tuple[str, ...]] = {
-        "stream": ("water", "drop", "whoosh", "swish", "chime", "soft"),
-        "night": ("whoosh", "chime", "wind", "soft", "bell"),
-        "bazaar": ("chime", "whoosh", "wood", "soft", "tap"),
-        "story": ("whoosh", "chime", "soft"),
-    }
-    preferred = [p for p in files if any(h in p.stem.lower() for h in mood_hints.get(mood, ()))]
-    return preferred if preferred else files
-
-
-def _build_sfx_bus(ffmpeg: str, work: Path, bounds_sec: list[float], dur: float, mood: str) -> tuple[str, str]:
-    cut_times = [t for t in bounds_sec if 0.30 < t < dur - 0.30][:16]
-    if not cut_times:
-        return "", ""
-    sfx_files = pick_sfx_files(mood)
-    if sfx_files:
-        copied: list[str] = []
-        for idx, sf in enumerate(sfx_files[:3]):
-            dest_name = f"sfx_src_{idx}{sf.suffix.lower()}"
-            shutil.copyfile(sf, work / dest_name)
-            copied.append(dest_name)
-        inputs_cmd: list[str] = []
-        chains: list[str] = []
-        mix_tags: list[str] = []
-        for c_i, t_cut in enumerate(cut_times):
-            src_name = copied[c_i % len(copied)]
-            ms = int(round(t_cut * 1000))
-            tag = f"s{c_i}"
-            inputs_cmd += ["-i", src_name]
-            chains.append(
-                f"[{c_i + 1}:a]aformat=sample_rates=48000:channel_layouts=stereo,"
-                f"atrim=0:0.45,asetpts=PTS-STARTPTS,afade=t=in:d=0.04,afade=t=out:st=0.18:d=0.25,"
-                f"volume=0.22,adelay={ms}|{ms}[{tag}]"
-            )
-            mix_tags.append(f"[{tag}]")
-        chains.append(f"{''.join(mix_tags)}amix=inputs={len(mix_tags)}:normalize=0,lowpass=f=2400[sfx_out]")
-        sfx_wav = work / "sfx_bus.wav"
-        run(
-            [ffmpeg, "-y", "-hide_banner", "-loglevel", "error", *inputs_cmd, "-filter_complex", ";".join(chains), "-map", "[sfx_out]", "-t", f"{dur:.4f}", str(sfx_wav)],
-            cwd=work,
-        )
-        return str(sfx_wav), "sfx-files"
-
-    parts: list[str] = []
-    mix_tags = []
-    for c_i, t_cut in enumerate(cut_times):
-        ms = int(round(t_cut * 1000))
-        tag = f"w{c_i}"
-        parts.append(
-            f"anoisesrc=color=pink:r=48000:a=0.08:d=0.28,aformat=channel_layouts=stereo,"
-            f"bandpass=f=420:width_type=h:w=320,afade=t=in:d=0.06,afade=t=out:st=0.10:d=0.18,"
-            f"volume=0.28,adelay={ms}|{ms}[{tag}]"
-        )
-        mix_tags.append(f"[{tag}]")
-    parts.append(f"{''.join(mix_tags)}amix=inputs={len(mix_tags)}:normalize=0,lowpass=f=1400[sfx_out]")
-    sfx_wav = work / "sfx_bus.wav"
-    run(
-        [ffmpeg, "-y", "-hide_banner", "-loglevel", "error", "-filter_complex", ";".join(parts), "-map", "[sfx_out]", "-t", f"{dur:.4f}", str(sfx_wav)],
-        cwd=work,
-    )
-    return str(sfx_wav), "soft-whoosh"
-
-
-def _scene_modulated_bed(dur: float, bounds_sec: list[float], music_stream_tag: str | None, mood: str) -> tuple[str, str]:
-    fades = f"afade=t=in:d=1.5,afade=t=out:st={max(0.0, dur - 2.0):.3f}:d=2.0"
-    level = "loudnorm=I=-28:TP=-3:LRA=8,aresample=48000"
-    d = f"{dur + 0.5:.3f}"
-    if music_stream_tag:
-        base_bed = f"{music_stream_tag}atrim=duration={d},aformat=sample_rates=48000:channel_layouts=stereo,{level}[raw_bed]"
-    else:
-        chord_map: dict[str, tuple[float, float, float]] = {
-            "stream": (146.83, 220.00, 329.63),
-            "night": (130.81, 196.00, 293.66),
-            "bazaar": (146.83, 220.00, 277.18),
-            "story": (146.83, 220.00, 329.63),
-        }
-        f1, f2, f3 = chord_map.get(mood, chord_map["story"])
-        base_bed = (
-            f"sine=f={f1}:r=48000:d={d}[s1];sine=f={f2}:r=48000:d={d}[s2];sine=f={f3}:r=48000:d={d}[s3];"
-            f"anoisesrc=color=pink:r=48000:a=0.05:d={d}[nz];"
-            f"[s1][s2][s3][nz]amix=inputs=4:normalize=0,aformat=channel_layouts=stereo,"
-            f"lowpass=f=680,tremolo=f=0.12:d=0.22,{level}[raw_bed]"
-        )
-    mod_expr_terms: list[str] = ["0.92"]
-    for i, t_cut in enumerate(bounds_sec[:16]):
-        amp = 0.10 if (i % 2 == 0) else -0.08
-        mod_expr_terms.append(f"{amp}*exp(-((t-{t_cut:.3f})*(t-{t_cut:.3f}))/0.50)")
-    mod_bed = f"[raw_bed]volume='{'+'.join(mod_expr_terms)}':eval=frame,{fades}[bed]"
-    return f"{base_bed};{mod_bed}", f"mood:{mood}"
-
-
-def mux_final(
-    ffmpeg: str,
-    work: Path,
-    dur: float,
-    music: Path | None,
-    use_bed: bool,
-    bounds_sec: list[float],
-    mood: str,
-    out_name: str,
-) -> str:
-    cmd = [ffmpeg, "-y", "-hide_banner", "-loglevel", "error", "-i", "video.mp4", "-i", "voice.wav"]
-    next_idx = 2
-    music_tag: str | None = None
-    if use_bed and music:
-        cmd += ["-stream_loop", "-1", "-i", f"music{music.suffix.lower()}"]
-        music_tag = f"[{next_idx}:a]"
-        next_idx += 1
-
-    sfx_wav, sfx_tag = ("", "")
-    sfx_tag_in: str | None = None
-    if use_bed:
-        sfx_wav, sfx_tag = _build_sfx_bus(ffmpeg, work, bounds_sec, dur, mood)
-        if sfx_wav:
-            cmd += ["-i", sfx_wav]
-            sfx_tag_in = f"[{next_idx}:a]"
-            next_idx += 1
-
-    if not use_bed:
-        g = f"[1:a]alimiter=limit=0.89:level=0,apad=whole_dur={dur:.4f},atrim=end={dur:.4f},asetpts=PTS-STARTPTS[aout]"
-        cmd += [
-            "-filter_complex", g, "-map", "0:v:0", "-map", "[aout]",
-            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-            "-ac", "2", "-t", f"{dur:.4f}", "-movflags", "+faststart", out_name,
-        ]
-        run(cmd, cwd=work)
-        return "off"
-
-    bed_graph_str, bed_label = _scene_modulated_bed(dur, bounds_sec, music_tag, mood)
-    parts = [
-        "[1:a]asplit=2[va][vb]",
-        bed_graph_str,
-        "[bed][vb]sidechaincompress=threshold=0.045:ratio=8:attack=20:release=450:makeup=1[bedd]",
-    ]
-    if sfx_tag_in:
-        parts.append(f"{sfx_tag_in}aformat=sample_rates=48000:channel_layouts=stereo[sfx_clean]")
-        parts.append("[va][bedd][sfx_clean]amix=inputs=3:duration=first:normalize=0[mix]")
-        tag_desc = f"{bed_label}+{sfx_tag}"
-    else:
-        parts.append("[va][bedd]amix=inputs=2:duration=first:normalize=0[mix]")
-        tag_desc = bed_label
-
-    parts.append(f"[mix]alimiter=limit=0.89:level=0,apad=whole_dur={dur:.4f},atrim=end={dur:.4f},asetpts=PTS-STARTPTS[aout]")
-    cmd += [
-        "-filter_complex", ";".join(parts),
-        "-map", "0:v:0", "-map", "[aout]",
-        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
         "-ac", "2", "-t", f"{dur:.4f}", "-movflags", "+faststart", out_name,
     ]
     run(cmd, cwd=work)
@@ -762,4 +577,134 @@ def process_short(
     audio = find_audio(sid)
     if not audio:
         raise FileNotFoundError(f"Audio not found for short {sid} in {AUDIO_DIR}")
-    full_dur = probe_duration(ffprobe, a
+    full_dur = probe_duration(ffprobe, audio)
+    dur = min(full_dur, float(args.max_secs)) if args.max_secs and args.max_secs > 0 else full_dur
+    total_frames = max(1, round(dur * FPS))
+
+    raw_scenes = script.get("scenes")
+    plan_scenes = (plan_entry or {}).get("scenes", []) if isinstance(plan_entry, dict) else []
+    n = len(raw_scenes) if isinstance(raw_scenes, list) and raw_scenes else len(plan_scenes)
+    if n <= 0:
+        raise ValueError(f"No scenes defined for short {sid}")
+
+    images = collect_scene_images(sid, n)
+    anchors = [(plan_scenes[i].get("anchor") if i < len(plan_scenes) and isinstance(plan_scenes[i], dict) else None) for i in range(n)]
+
+    srt = AUDIO_DIR / f"short_{sid}.srt"
+    raw_cues = parse_srt(srt) if srt.is_file() else []
+    cues = [(s, min(e, dur), t) for (s, e, t) in raw_cues if s < dur]
+    with_subs = bool(cues) and not args.no_subs
+
+    narr_primary = str(script.get("narration_display") or script.get("narration") or "")
+    narr_alt = str(script.get("narration_alt") or narr_primary)
+    bounds, notes = scene_boundaries(n, dur, [narr_primary, narr_alt], anchors, cues)
+    bounds_sec = [b / FPS for b in bounds]
+    mood = _detect_mood(script, plan_scenes)
+
+    log.info("[%s] %.3fs (%d frames) | %d scenes | %d cues | mood=%s", sid, dur, total_frames, n, len(cues), mood)
+    for note in notes:
+        log.info("[%s]   %s", sid, note)
+
+    work = Path(tempfile.mkdtemp(prefix="shorts_"))
+    try:
+        voice_src_name = f"voice_src{audio.suffix.lower()}"
+        shutil.copyfile(audio, work / voice_src_name)
+
+        if with_subs:
+            family, fonts = find_caption_font()
+            for f in fonts:
+                shutil.copyfile(f, work / f.name)
+            ass_content = build_ass(cues, dur, family)
+            (work / "subs.ass").write_text(ass_content, encoding="utf-8")
+
+        use_bed = not args.no_music
+        music_path = pick_music(sid, mood) if use_bed else None
+        if use_bed and music_path:
+            shutil.copyfile(music_path, work / f"music{music_path.suffix.lower()}")
+
+        voice_note = master_voice(ffmpeg, work, voice_src_name)
+        render_fast_video(
+            ffmpeg=ffmpeg,
+            work=work,
+            sid=sid,
+            plan_scenes=plan_scenes,
+            still_paths=images,
+            bounds=bounds,
+            total_frames=total_frames,
+            with_subs=with_subs,
+            preset=args.preset,
+        )
+
+        final_temp = work / "final_out.mp4"
+        mix_note = mux_final(
+            ffmpeg=ffmpeg,
+            work=work,
+            dur=dur,
+            music=music_path,
+            use_bed=use_bed,
+            bounds_sec=bounds_sec,
+            mood=mood,
+            out_name=final_temp.name,
+        )
+
+        final_dst = OUTPUT_DIR / f"short_{sid}.mp4"
+        _atomic_move_file(final_temp, final_dst)
+        loud_summary = measure_loudness(ffmpeg, final_dst)
+        log.info("[%s] Ready -> %s | %s | %s | %s", sid, final_dst.name, voice_note, mix_note, loud_summary)
+        return {"id": sid, "output": str(final_dst), "duration": round(dur, 3), "mood": mood}
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Assemble vertical Shorts videos.")
+    ap.add_argument("--id", type=str, default=None, help="Specific short id to assemble")
+    ap.add_argument("--max-secs", type=float, default=0.0, help="Optional cap on duration in seconds")
+    ap.add_argument("--no-subs", action="store_true", help="Disable burned-in subtitles")
+    ap.add_argument("--no-music", action="store_true", help="Disable music bed and SFX")
+    ap.add_argument("--preset", type=str, default="veryfast", help="x264 preset (e.g. veryfast, fast, medium)")
+    args = ap.parse_args()
+
+    try:
+        ffmpeg = find_tool("ffmpeg")
+        ffprobe = find_tool("ffprobe")
+    except ToolError as exc:
+        log.error("Missing required media tool: %s", exc)
+        return 1
+
+    scripts = load_scripts()
+    plan_data = load_plan()
+    plan_shorts = plan_data.get("shorts") if isinstance(plan_data, dict) else []
+    plan_by_id = {
+        str(entry.get("id")): entry
+        for entry in (plan_shorts if isinstance(plan_shorts, list) else [])
+        if isinstance(entry, dict) and entry.get("id") is not None
+    }
+
+    target_scripts = [
+        s for s in scripts
+        if isinstance(s, dict) and s.get("id") is not None
+        and (args.id is None or str(s.get("id")).strip() == args.id.strip())
+    ]
+
+    if not target_scripts:
+        log.error("No matching scripts found to assemble.")
+        return 1
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    ok_count = 0
+    for sc in target_scripts:
+        sid = str(sc["id"]).strip()
+        try:
+            process_short(ffmpeg, ffprobe, sc, plan_by_id.get(sid, {}), args)
+            ok_count += 1
+        except Exception as exc:
+            log.error("[%s] Assembly failed: %s", sid, exc)
+
+    if ok_count == 0:
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
