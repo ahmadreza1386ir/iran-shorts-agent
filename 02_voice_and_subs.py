@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Phase 2: Generate narration audio and synchronized word-group subtitles.
+Phase 2: Generate engaging, crisp narration audio and synchronized word-group subtitles.
 
-Primary TTS engine: Hormouz-hosted `openai/gpt-4o-mini-tts` (with expressive
-storytelling instructions). Automatic fallback: `edge-tts` so the pipeline
-never stalls if the paid TTS endpoint is temporarily unreachable.
+Primary TTS engine: Hormouz-hosted `openai/gpt-4o-mini-tts` tuned for an alert,
+warm, lively storytelling cadence without harsh sibilants or sleepy dragging.
+Automatic fallback: `edge-tts` (`en-US-AndrewNeural` at `+2%`).
 """
 
 from __future__ import annotations
@@ -36,23 +36,23 @@ HORMOUZ_TTS_MODEL = (
     os.environ.get("HORMOUZ_TTS_MODEL") or "openai/gpt-4o-mini-tts"
 ).strip()
 HORMOUZ_TTS_VOICE = (
-    os.environ.get("HORMOUZ_TTS_VOICE") or "onyx"
+    os.environ.get("HORMOUZ_TTS_VOICE") or "echo"
 ).strip()
 HORMOUZ_TTS_INSTRUCTIONS = (
     os.environ.get("HORMOUZ_TTS_INSTRUCTIONS")
     or (
-        "Speak like a warm, grounded, experienced storyteller narrating an Iranian fable or proverb "
-        "for a short video. Keep a smooth, calm, natural pace with subtle pauses at commas and periods. "
-        "Avoid robotic monotone, harsh sibilants, or over-dramatic shouting."
+        "Speak with an engaging, alert, warm storytelling voice that immediately hooks the listener. "
+        "Keep a crisp, lively, conversational pace with natural vocal variety and clear emphasis on key turning points—never sleepy, slow, or monotone. "
+        "Articulate smoothly with soft, clean consonants and zero harsh sibilance on S and SH sounds."
     )
 ).strip()
 
 EDGE_VOICE = (os.environ.get("TTS_VOICE") or "en-US-AndrewNeural").strip()
-EDGE_RATE = (os.environ.get("TTS_RATE") or "+0%").strip()
+EDGE_RATE = (os.environ.get("TTS_RATE") or "+2%").strip()
 
 MIN_WORDS_PER_SUBTITLE = 2
 MAX_WORDS_PER_SUBTITLE = 3
-MIN_SUBTITLE_DURATION = 0.38
+MIN_SUBTITLE_DURATION = 0.36
 MIN_EXPECTED_AUDIO_SECONDS = 3.0
 TTS_MAX_ATTEMPTS = 3
 TTS_STREAM_TIMEOUT_SECONDS = 75.0
@@ -185,12 +185,10 @@ def probe_media_duration(audio_path: Path) -> Optional[float]:
 def _looks_like_audio_bytes(data: bytes) -> bool:
     if not data or len(data) < 256:
         return False
-    # MP3 ID3 tag or frame sync, WAV RIFF header, or OGG header
     if data[:3] == b"ID3" or data[:4] in (b"RIFF", b"OggS"):
         return True
     if data[0] == 0xFF and (data[1] & 0xE0) == 0xE0:
         return True
-    # Accept raw audio payload if it isn't JSON/HTML error text
     stripped = data.lstrip()[:20].lower()
     if stripped.startswith(b"{") or stripped.startswith(b"[") or stripped.startswith(b"<!doctype") or stripped.startswith(b"<html"):
         return False
@@ -210,7 +208,6 @@ def _download_audio_from_url(url: str, timeout: float = 60.0) -> bytes:
 def _extract_audio_bytes_from_json_payload(payload: dict[str, Any]) -> Optional[bytes]:
     import base64
 
-    # Direct base64 audio field if returned
     for key in ("audio_base64", "audio", "content", "b64_json"):
         val = payload.get(key)
         if isinstance(val, str) and len(val) > 200 and not val.startswith("http"):
@@ -221,7 +218,6 @@ def _extract_audio_bytes_from_json_payload(payload: dict[str, Any]) -> Optional[
             except Exception:
                 pass
 
-    # URL inside output / data / result fields
     candidates: list[Any] = [
         payload.get("output"),
         payload.get("audio_url"),
@@ -306,7 +302,6 @@ def _synthesize_hormouz_speech_once(narration: str, api_key: str) -> bytes:
         if http_err.code not in (404, 405):
             raise RuntimeError(f"Hormouz TTS HTTP {http_err.code}: {err_detail}") from http_err
 
-    # Fallback to /predictions endpoint format if /audio/speech isn't used for this model
     pred_url = base if base.endswith("/predictions") else f"{base}/predictions"
     pred_payload = {
         "model": HORMOUZ_TTS_MODEL,
@@ -329,7 +324,6 @@ def _synthesize_hormouz_speech_once(narration: str, api_key: str) -> bytes:
     if not isinstance(parsed_pred, dict):
         raise RuntimeError("Invalid JSON from Hormouz /predictions TTS.")
 
-    # Poll if prediction is queued/processing
     pred_id = parsed_pred.get("id")
     status = str(parsed_pred.get("status") or "").lower()
     if pred_id and status in ("starting", "processing", "queued", "pending"):
