@@ -1,0 +1,5923 @@
+{
+  "_readme": "11 scenes for short 1, 9 scenes for short 2, 8 scenes for short 3 — expressive faces & purposeful motion.",
+  "shorts": [
+    {
+      "id": "1",
+      "style": "warm cinematic Persian miniature and storybook illustration, rich warm amber and gold tones, soft light, no text",
+      "scenes": [
+        {
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 80
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.5,
+                  "y": 0.22,
+                  "r": 0.08
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.72
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.5,
+                  "y": 0.85,
+                  "h": 0.43,
+                  "facing": 1,
+                  "walk": 0.08,
+                  "smile": false,
+                  "headgear": "cap"
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Iranians have a classic proverb",
+          "motion": "pan_right",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.24,
+                  "r": 0.1
+                }
+              ],
+              [
+                "arches",
+                {
+                  "y": 0.42
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.28,
+                  "y": 0.86,
+                  "w": 0.38
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.72,
+                  "y": 0.88,
+                  "w": 0.34
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "A single handful",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.65,
+                  "y": 0.25,
+                  "r": 0.09
+                }
+              ],
+              [
+                "arches",
+                {
+                  "y": 0.4
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.5,
+                  "y": 0.88,
+                  "w": 0.76
+                }
+              ],
+              [
+                "hand",
+                {
+                  "x": 0.5,
+                  "y": 0.52,
+                  "s": 0.32,
+                  "grains": true,
+                  "action": "scoop"
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Picture an old bazaar grain merchant",
+          "motion": "drift_up",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.3,
+                  "y": 0.26,
+                  "r": 0.09
+                }
+              ],
+              [
+                "arches",
+                {
+                  "y": 0.42
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.44,
+                  "y": 0.86,
+                  "h": 0.44,
+                  "facing": 1,
+                  "pose": "point_sack",
+                  "beard": true,
+                  "smile": true
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.74,
+                  "y": 0.88,
+                  "w": 0.32
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.2,
+                  "y": 0.88,
+                  "w": 0.24
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "whole donkey-load",
+          "motion": "pan_left",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "arches",
+                {
+                  "y": 0.42
+                }
+              ],
+              [
+                "donkey",
+                {
+                  "x": 0.55,
+                  "y": 0.83,
+                  "w": 0.62,
+                  "travel": 0.32
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.16,
+                  "y": 0.9,
+                  "w": 0.22
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "He dips in his hand",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.7,
+                  "y": 0.24,
+                  "r": 0.08
+                }
+              ],
+              [
+                "arches",
+                {
+                  "y": 0.42
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.56,
+                  "y": 0.86,
+                  "h": 0.44,
+                  "facing": -1,
+                  "pose": "scoop_and_smell",
+                  "beard": true,
+                  "smile": true
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.34,
+                  "y": 0.88,
+                  "w": 0.32
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "A small sample often hints",
+          "motion": "pull_out",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.12
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "wheat",
+                {
+                  "n": 18,
+                  "y": 0.96,
+                  "h": 0.36
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "We do the exact same thing",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 70
+                }
+              ],
+              [
+                "phone",
+                {
+                  "x": 0.5,
+                  "y": 0.46,
+                  "w": 0.54
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "shaking a hand",
+          "motion": "pan_right",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 40
+                }
+              ],
+              [
+                "handshake_pair",
+                {
+                  "y": 0.62
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "only tells the truth",
+          "motion": "drift_down",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.22,
+                  "r": 0.09
+                }
+              ],
+              [
+                "scales",
+                {
+                  "x": 0.5,
+                  "y": 0.78,
+                  "s": 0.5
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Judge quick if you have to",
+          "motion": "pull_out",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.25,
+                  "r": 0.1
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.5,
+                  "y": 0.88,
+                  "w": 0.8
+                }
+              ],
+              [
+                "hand",
+                {
+                  "x": 0.5,
+                  "y": 0.46,
+                  "s": 0.38,
+                  "grains": true,
+                  "action": "release"
+                }
+              ],
+              [
+                "grain_fall",
+                {
+                  "x": 0.5,
+                  "y1": 0.52,
+                  "y2": 0.78,
+                  "n": 55
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "style": "traditional Persian miniature painting, rich storybook gouache, warm sunset over stream, no text",
+      "scenes": [
+        {
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.3,
+                  "r": 0.1
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.42
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.6,
+                  "n": 6,
+                  "r": 0.11
+                }
+              ],
+              [
+                "scorpion",
+                {
+                  "x": 0.5,
+                  "y": 0.6,
+                  "s": 0.42,
+                  "swim_x": 0.06
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "There's a famous Persian story",
+          "motion": "pan_right",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.32,
+                  "y": 0.28,
+                  "r": 0.1
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.86
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.42,
+                  "y": 0.84,
+                  "h": 0.44,
+                  "facing": 1,
+                  "walk": 0.18,
+                  "beard": true,
+                  "smile": true
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "He reaches down to pull it out",
+          "motion": "drift_down",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.72,
+                  "y": 0.28,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.58
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.8
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.3,
+                  "y": 0.82,
+                  "h": 0.44,
+                  "kneel": true,
+                  "pose": "reach_water",
+                  "beard": true,
+                  "smile": true
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.72,
+                  "y": 0.68,
+                  "n": 4,
+                  "r": 0.07
+                }
+              ],
+              [
+                "scorpion",
+                {
+                  "x": 0.72,
+                  "y": 0.68,
+                  "s": 0.14
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "He tries again",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.65,
+                  "y": 0.26,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.55,
+                  "y": 0.64,
+                  "n": 5,
+                  "r": 0.09
+                }
+              ],
+              [
+                "hand",
+                {
+                  "x": 0.35,
+                  "y": 0.56,
+                  "s": 0.24,
+                  "grains": false,
+                  "action": "scoop"
+                }
+              ],
+              [
+                "scorpion",
+                {
+                  "x": 0.62,
+                  "y": 0.64,
+                  "s": 0.2,
+                  "swim_x": -0.05
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "A watching stranger",
+          "motion": "pan_left",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.28,
+                  "y": 0.26,
+                  "r": 0.09
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.88
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.72,
+                  "y": 0.84,
+                  "h": 0.44,
+                  "facing": -1,
+                  "pose": "point_sack",
+                  "robe": [
+                    150,
+                    70,
+                    60
+                  ],
+                  "smile": false
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "The wise man smiles gently",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.68,
+                  "y": 0.28,
+                  "r": 0.1
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.88
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.32,
+                  "y": 0.84,
+                  "h": 0.44,
+                  "facing": 1,
+                  "beard": true,
+                  "smile": true
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Why would I drop",
+          "motion": "drift_up",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.12
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.56
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "n": 6,
+                  "r": 0.1
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Still, next time?",
+          "motion": "pan_right",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.32,
+                  "r": 0.11
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.56
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "n": 4,
+                  "r": 0.08
+                }
+              ],
+              [
+                "leaf",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "s": 0.36,
+                  "ang": -10,
+                  "drift": 0.12
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Be kind, friend",
+          "motion": "pull_out",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.34,
+                  "r": 0.14
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.56
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.78
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.28,
+                  "y": 0.84,
+                  "h": 0.44,
+                  "kneel": true,
+                  "pose": "reach_water",
+                  "beard": true,
+                  "smile": true
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.68,
+                  "y": 0.68,
+                  "n": 3,
+                  "r": 0.06
+                }
+              ],
+              [
+                "leaf",
+                {
+                  "x": 0.6,
+                  "y": 0.66,
+                  "s": 0.24,
+                  "ang": -12,
+                  "drift": -0.06
+                }
+              ],
+              [
+                "scorpion",
+                {
+                  "x": 0.6,
+                  "y": 0.635,
+                  "s": 0.1,
+                  "swim_x": -0.06
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "style": "cinematic travel and desert architecture illustration, warm golden hour and cool ice tones, no text",
+      "scenes": [
+        {
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "desert_day",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.78,
+                  "y": 0.18,
+                  "r": 0.1
+                }
+              ],
+              [
+                "dunes",
+                {
+                  "y": 0.6
+                }
+              ],
+              [
+                "ice_blocks",
+                {
+                  "x": 0.5,
+                  "y": 0.82,
+                  "cols": 3,
+                  "rows": 2,
+                  "s": 0.08
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Centuries ago, builders in Iran",
+          "motion": "pull_out",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "desert_day",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.78,
+                  "y": 0.18,
+                  "r": 0.09
+                }
+              ],
+              [
+                "dunes",
+                {
+                  "y": 0.62
+                }
+              ],
+              [
+                "yakhchal",
+                {
+                  "x": 0.5,
+                  "y": 0.74,
+                  "w": 0.74,
+                  "h": 0.44
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Their walls were super thick",
+          "motion": "pan_right",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "desert_day",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.22,
+                  "y": 0.16,
+                  "r": 0.08
+                }
+              ],
+              [
+                "brick_wall",
+                {
+                  "y": 0.28
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Underneath sat a deep underground vault",
+          "motion": "drift_down",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "desert_day",
+            "layers": [
+              [
+                "cutaway",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "How did they make the ice?",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "night_ice",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 160
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.76,
+                  "y": 0.16,
+                  "r": 0.06
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.66
+                }
+              ],
+              [
+                "pools",
+                {
+                  "y": 0.76
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "workers cut the blocks",
+          "motion": "pan_left",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "night_ice",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 120
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.25,
+                  "y": 0.16,
+                  "r": 0.06
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.66
+                }
+              ],
+              [
+                "ice_blocks",
+                {
+                  "x": 0.68,
+                  "y": 0.74,
+                  "cols": 3,
+                  "rows": 2,
+                  "s": 0.065
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.36,
+                  "y": 0.74,
+                  "h": 0.34,
+                  "facing": 1,
+                  "pose": "chop_ice",
+                  "robe": [
+                    60,
+                    70,
+                    110
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "Come hot summer days",
+          "motion": "push_in",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "warm_summer",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.22,
+                  "r": 0.1
+                }
+              ],
+              [
+                "glasses",
+                {
+                  "y": 0.72
+                }
+              ],
+              [
+                "ice_blocks",
+                {
+                  "x": 0.2,
+                  "y": 0.92,
+                  "cols": 3,
+                  "rows": 1,
+                  "s": 0.08
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "anchor": "No AC, no power grid",
+          "motion": "pull_out",
+          "order": [
+            "card"
+          ],
+          "card": {
+            "palette": "warm_summer",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.75,
+                  "y": 0.2,
+                  "r": 0.1
+                }
+              ],
+              [
+                "dunes",
+                {
+                  "y": 0.64
+                }
+              ],
+              [
+                "yakhchal",
+                {
+                  "x": 0.42,
+                  "y": 0.74,
+                  "w": 0.58,
+                  "h": 0.36
+                }
+              ],
+              [
+                "ice_blocks",
+                {
+                  "x": 0.78,
+                  "y": 0.84,
+                  "cols": 2,
+                  "rows": 2,
+                  "s": 0.065
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "style": "coherent visual storytelling, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "[frozen_water #1] Why does the smallest voice suddenly act like a king the second pressure disappears?",
+          "query": "frozen pond winter",
+          "anchor": null,
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frozen pond winter",
+              "frozen pond"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frozen pond winter, Why does the smallest voice suddenly act like a king the second pressure disappears?, no text",
+          "card": {
+            "palette": "night_ice",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 115
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.74,
+                  "y": 0.16,
+                  "r": 0.06
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.66
+                }
+              ],
+              [
+                "pools",
+                {
+                  "y": 0.76
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[water_ripples #2] In Iran",
+          "query": "water ripples stream",
+          "anchor": "In Iran",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "water ripples stream",
+              "water ripples"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "water ripples stream, In Iran, no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.58
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.45,
+                  "y": 0.7,
+                  "n": 4,
+                  "r": 0.09
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[frog_on_rock #3] people expose that exact attitude with one sharp line",
+          "query": "frog rock pond",
+          "anchor": "people expose that",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frog rock pond",
+              "frog rock"
+            ],
+            "reject": [
+              "statue",
+              "sculpture",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frog rock pond, people expose that exact attitude with one sharp line, no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.65,
+                  "y": 0.24,
+                  "r": 0.085
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "frog_on_stone",
+                {
+                  "x": 0.5,
+                  "y": 0.67,
+                  "s": 0.27
+                }
+              ],
+              [
+                "reeds",
+                {
+                  "side": "right",
+                  "y": 0.6,
+                  "n": 6
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[evening_lantern #4] Ab ke sar bala barad",
+          "query": "lantern night light",
+          "anchor": "Ab ke sar",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "lantern night light",
+              "lantern night"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "lantern night light, Ab ke sar bala barad, no text",
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 85
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "lantern",
+                {
+                  "x": 0.52,
+                  "y": 0.45,
+                  "s": 0.24
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[pond_frog_water #5] ghorbagheh Abu Ata mikhanad.",
+          "query": "frog water lily",
+          "anchor": "ghorbagheh Abu Ata",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frog water lily",
+              "frog water"
+            ],
+            "reject": [
+              "statue",
+              "sculpture",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frog water lily, ghorbagheh Abu Ata mikhanad., no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.56
+                }
+              ],
+              [
+                "frog_on_stone",
+                {
+                  "x": 0.44,
+                  "y": 0.66,
+                  "s": 0.25
+                }
+              ],
+              [
+                "reeds",
+                {
+                  "side": "left",
+                  "y": 0.61,
+                  "n": 6
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[flowing_river #6] When water rises high",
+          "query": "river stream water",
+          "anchor": "When water rises",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "river stream water",
+              "river stream"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "river stream water, When water rises high, no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.3,
+                  "y": 0.27,
+                  "r": 0.095
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "n": 6,
+                  "r": 0.12
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[frog_on_rock #7] even a tiny frog starts singing a classical melody.",
+          "query": "frog rock pond",
+          "anchor": "even a tiny",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frog rock pond",
+              "frog rock"
+            ],
+            "reject": [
+              "statue",
+              "sculpture",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frog rock pond, even a tiny frog starts singing a classical melody., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.65,
+                  "y": 0.24,
+                  "r": 0.085
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "frog_on_stone",
+                {
+                  "x": 0.5,
+                  "y": 0.67,
+                  "s": 0.27
+                }
+              ],
+              [
+                "reeds",
+                {
+                  "side": "right",
+                  "y": 0.6,
+                  "n": 6
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[water_ripples #8] Look at a quiet stream at dusk.",
+          "query": "water ripples stream",
+          "anchor": "Look at a",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "water ripples stream",
+              "water ripples"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "water ripples stream, Look at a quiet stream at dusk., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.58
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.45,
+                  "y": 0.7,
+                  "n": 4,
+                  "r": 0.09
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[water_ripples #9] Low water means silence and discipline.",
+          "query": "water ripples stream",
+          "anchor": "Low water means",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "water ripples stream",
+              "water ripples"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "water ripples stream, Low water means silence and discipline., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.58
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.45,
+                  "y": 0.7,
+                  "n": 4,
+                  "r": 0.09
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[flowing_river #10] The moment fresh water swells the stream",
+          "query": "river stream water",
+          "anchor": "The moment fresh",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "river stream water",
+              "river stream"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "river stream water, The moment fresh water swells the stream, no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.3,
+                  "y": 0.27,
+                  "r": 0.095
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "n": 6,
+                  "r": 0.12
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[pond_frog_water #11] a tiny frog hops onto a stone and croaks like a master.",
+          "query": "frog water lily",
+          "anchor": "a tiny frog",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frog water lily",
+              "frog water"
+            ],
+            "reject": [
+              "statue",
+              "sculpture",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frog water lily, a tiny frog hops onto a stone and croaks like a master., no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.56
+                }
+              ],
+              [
+                "frog_on_stone",
+                {
+                  "x": 0.44,
+                  "y": 0.66,
+                  "s": 0.25
+                }
+              ],
+              [
+                "reeds",
+                {
+                  "side": "left",
+                  "y": 0.61,
+                  "n": 6
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[frog_on_rock #12] We have all seen someone act big only because conditions got easy.",
+          "query": "frog rock pond",
+          "anchor": "We have all",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frog rock pond",
+              "frog rock"
+            ],
+            "reject": [
+              "statue",
+              "sculpture",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frog rock pond, We have all seen someone act big only because conditions got easy., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.65,
+                  "y": 0.24,
+                  "r": 0.085
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "frog_on_stone",
+                {
+                  "x": 0.5,
+                  "y": 0.67,
+                  "s": 0.27
+                }
+              ],
+              [
+                "reeds",
+                {
+                  "side": "right",
+                  "y": 0.6,
+                  "n": 6
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[evening_lantern #13] Sudden comfort or a little attention inflates weak confidence fast.",
+          "query": "lantern night light",
+          "anchor": "Sudden comfort or",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "lantern night light",
+              "lantern night"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "lantern night light, Sudden comfort or a little attention inflates weak confidence fast., no text",
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 85
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "lantern",
+                {
+                  "x": 0.52,
+                  "y": 0.45,
+                  "s": 0.24
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[calm_horizon #14] Stay grounded",
+          "query": "sunset river horizon",
+          "anchor": "Stay grounded",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "sunset river horizon",
+              "sunset river"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "sunset river horizon, Stay grounded, no text",
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 80
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.26,
+                  "y": 0.18,
+                  "r": 0.065
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "figure",
+                {
+                  "x": 0.5,
+                  "y": 0.85,
+                  "h": 0.43,
+                  "facing": 1,
+                  "walk": 0.14
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[flowing_river #15] let real action speak long before the spotlight hits.",
+          "query": "river stream water",
+          "anchor": "let real action",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "river stream water",
+              "river stream"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "river stream water, let real action speak long before the spotlight hits., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.3,
+                  "y": 0.27,
+                  "r": 0.095
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "n": 6,
+                  "r": 0.12
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "style": "coherent visual storytelling, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "[wheat_grains #1] One tiny habit looks",
+          "query": "wheat grain harvest",
+          "anchor": null,
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "wheat grain harvest",
+              "wheat grain"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "wheat grain harvest, One tiny habit looks, no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.36,
+                  "y": 0.24,
+                  "r": 0.09
+                }
+              ],
+              [
+                "hand",
+                {
+                  "x": 0.5,
+                  "y": 0.52,
+                  "s": 0.34,
+                  "grains": true,
+                  "action": "scoop"
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[frozen_water #2] laughably small on day one",
+          "query": "frozen pond winter",
+          "anchor": "laughably small on",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frozen pond winter",
+              "frozen pond"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frozen pond winter, laughably small on day one, no text",
+          "card": {
+            "palette": "night_ice",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 115
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.74,
+                  "y": 0.16,
+                  "r": 0.06
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.66
+                }
+              ],
+              [
+                "pools",
+                {
+                  "y": 0.76
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[wheat_field #3] until a year later it owns the room.",
+          "query": "golden wheat field",
+          "anchor": "until a year",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "golden wheat field",
+              "golden wheat"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "golden wheat field, until a year later it owns the room., no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.24,
+                  "r": 0.095
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.72
+                }
+              ],
+              [
+                "wheat",
+                {
+                  "n": 15,
+                  "y": 0.96,
+                  "h": 0.32
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[brass_balance #4] A timeless Persian verse says",
+          "query": "balance scale brass",
+          "anchor": "A timeless Persian",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "balance scale brass",
+              "balance scale"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "balance scale brass, A timeless Persian verse says, no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.19,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.23,
+                  "r": 0.09
+                }
+              ],
+              [
+                "scales",
+                {
+                  "x": 0.5,
+                  "y": 0.78,
+                  "s": 0.48
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[water_ripples #5] Ghatreh ghatreh jam gardad van gahi darya shavad.",
+          "query": "water ripples stream",
+          "anchor": "Ghatreh ghatreh jam",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "water ripples stream",
+              "water ripples"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "water ripples stream, Ghatreh ghatreh jam gardad van gahi darya shavad., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.58
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.45,
+                  "y": 0.7,
+                  "n": 4,
+                  "r": 0.09
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[flowing_river #6] Drop by drop it gathers",
+          "query": "river stream water",
+          "anchor": "Drop by drop",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "river stream water",
+              "river stream"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "river stream water, Drop by drop it gathers, no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.3,
+                  "y": 0.27,
+                  "r": 0.095
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.54
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.5,
+                  "y": 0.68,
+                  "n": 6,
+                  "r": 0.12
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[water_ripples #7] and in time becomes an ocean.",
+          "query": "water ripples stream",
+          "anchor": "and in time",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "water ripples stream",
+              "water ripples"
+            ],
+            "reject": [
+              "ice",
+              "blocks",
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "water ripples stream, and in time becomes an ocean., no text",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.28,
+                  "r": 0.09
+                }
+              ],
+              [
+                "water",
+                {
+                  "y0": 0.58
+                }
+              ],
+              [
+                "ripples",
+                {
+                  "x": 0.45,
+                  "y": 0.7,
+                  "n": 4,
+                  "r": 0.09
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[wheat_field #8] A single grain of wheat in",
+          "query": "golden wheat field",
+          "anchor": "A single grain",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "golden wheat field",
+              "golden wheat"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "golden wheat field, A single grain of wheat in, no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.24,
+                  "r": 0.095
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.72
+                }
+              ],
+              [
+                "wheat",
+                {
+                  "n": 15,
+                  "y": 0.96,
+                  "h": 0.32
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[wheat_grains #9] your palm looks like almost nothing.",
+          "query": "wheat grain harvest",
+          "anchor": "your palm looks",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "wheat grain harvest",
+              "wheat grain"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "wheat grain harvest, your palm looks like almost nothing., no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.36,
+                  "y": 0.24,
+                  "r": 0.09
+                }
+              ],
+              [
+                "hand",
+                {
+                  "x": 0.5,
+                  "y": 0.52,
+                  "s": 0.34,
+                  "grains": true,
+                  "action": "scoop"
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[winter_ice #10] One cold night freezing a shallow pool looks minor.",
+          "query": "winter ice frost",
+          "anchor": "One cold night",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "winter ice frost",
+              "winter ice"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "winter ice frost, One cold night freezing a shallow pool looks minor., no text",
+          "card": {
+            "palette": "night_ice",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 90
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.68
+                }
+              ],
+              [
+                "ice_blocks",
+                {
+                  "x": 0.5,
+                  "y": 0.82,
+                  "cols": 3,
+                  "rows": 2,
+                  "s": 0.075
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[wheat_field #11] Yet repeated small steps compound into unstoppable momentum.",
+          "query": "golden wheat field",
+          "anchor": "Yet repeated small",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "golden wheat field",
+              "golden wheat"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "golden wheat field, Yet repeated small steps compound into unstoppable momentum., no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "clouds",
+                {
+                  "y": 0.2,
+                  "n": 3
+                }
+              ],
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.24,
+                  "r": 0.095
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.72
+                }
+              ],
+              [
+                "wheat",
+                {
+                  "n": 15,
+                  "y": 0.96,
+                  "h": 0.32
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[frozen_water #12] You do not need a dramatic leap today.",
+          "query": "frozen pond winter",
+          "anchor": "You do not",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frozen pond winter",
+              "frozen pond"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "frozen pond winter, You do not need a dramatic leap today., no text",
+          "card": {
+            "palette": "night_ice",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 115
+                }
+              ],
+              [
+                "moon",
+                {
+                  "x": 0.74,
+                  "y": 0.16,
+                  "r": 0.06
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.66
+                }
+              ],
+              [
+                "pools",
+                {
+                  "y": 0.76
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[evening_lantern #13] Show up",
+          "query": "lantern night light",
+          "anchor": "Show up",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "lantern night light",
+              "lantern night"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "lantern night light, Show up, no text",
+          "card": {
+            "palette": "cool_dusk",
+            "layers": [
+              [
+                "stars",
+                {
+                  "n": 85
+                }
+              ],
+              [
+                "ground",
+                {
+                  "y": 0.74
+                }
+              ],
+              [
+                "lantern",
+                {
+                  "x": 0.52,
+                  "y": 0.45,
+                  "s": 0.24
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[wheat_grains #14] keep the pace steady",
+          "query": "wheat grain harvest",
+          "anchor": "keep the pace",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "wheat grain harvest",
+              "wheat grain"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "wheat grain harvest, keep the pace steady, no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.36,
+                  "y": 0.24,
+                  "r": 0.09
+                }
+              ],
+              [
+                "hand",
+                {
+                  "x": 0.5,
+                  "y": 0.52,
+                  "s": 0.34,
+                  "grains": true,
+                  "action": "scoop"
+                }
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "[grain_sack #15] and let consistency do the heavy lifting.",
+          "query": "burlap sack grain",
+          "anchor": "and let consistency",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "burlap sack grain",
+              "burlap sack"
+            ],
+            "reject": [
+              "castle",
+              "flower",
+              "flowers",
+              "ice",
+              "map",
+              "diagram",
+              "logo",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "burlap sack grain, and let consistency do the heavy lifting., no text",
+          "card": {
+            "palette": "bazaar_gold",
+            "layers": [
+              [
+                "sun",
+                {
+                  "x": 0.5,
+                  "y": 0.25,
+                  "r": 0.09
+                }
+              ],
+              [
+                "sack",
+                {
+                  "x": 0.5,
+                  "y": 0.88,
+                  "w": 0.72
+                }
+              ],
+              [
+                "grain_fall",
+                {
+                  "x": 0.5,
+                  "y1": 0.5,
+                  "y2": 0.78,
+                  "n": 40
+                }
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Dusk over a quiet Iranian village with mud-brick houses and warm lantern light",
+          "query": "village dusk desert mud brick",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "village dusk desert mud brick",
+              "village dusk"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, dusk sky glowing amber fading to deep teal, a quiet Iranian village of mud-brick houses with lantern light in windows, dirt path winding through, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A weary traveler with a walking staff approaches a village doorway",
+          "query": "traveler walking staff doorway",
+          "anchor": "A weary traveler",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "traveler walking staff doorway",
+              "traveler walking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one weary traveler with a walking staff and dusty cloak standing at a wooden village doorway at dusk, exactly one person, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A host opens the door with a gentle welcoming gesture",
+          "query": "host welcoming door gesture",
+          "anchor": "A host opens",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "host welcoming door gesture",
+              "host welcoming"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, two people facing each other at an open wooden doorway, one older host with a kind smile opening the door with an open palm gesture, one younger traveler with a staff, exactly two people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Fresh flatbread being torn in a warm clay oven kitchen",
+          "query": "flatbread baking clay oven",
+          "anchor": "Fresh flatbread being",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "flatbread baking clay oven",
+              "flatbread baking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a cozy kitchen with a clay tandoor oven releasing golden steam, exactly one person's hands tearing a warm round flatbread, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A ceramic bowl of white yogurt beside fresh herbs on a low table",
+          "query": "yogurt bowl herbs rustic table",
+          "anchor": "A ceramic bowl",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "yogurt bowl herbs rustic table",
+              "yogurt bowl"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a rustic low table with a ceramic bowl of creamy white yogurt, fresh green herbs and a wooden spoon, soft lantern glow, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The host and traveler sit together sharing the simple meal",
+          "query": "two people sharing meal floor",
+          "anchor": "The host and",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "two people sharing meal floor",
+              "two people"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, exactly two people sitting cross-legged on a woven carpet sharing bread and yogurt from one bowl, warm lantern light, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Silk Road caravan silhouettes crossing a desert under moonlight",
+          "query": "caravan silhouette desert moonlight",
+          "anchor": "Silk Road caravan",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "caravan silhouette desert moonlight",
+              "caravan silhouette"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a distant caravan of exactly five camels and riders silhouetted against a teal moonlit desert dune horizon, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The traveler smiles gratefully with a restored spirit",
+          "query": "grateful smile warm light",
+          "anchor": "The traveler smiles",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "grateful smile warm light",
+              "grateful smile"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, close view of exactly one traveler with a grateful, relieved smile, soft warm lantern light on the face, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The village at night with a single glowing doorway, closing scene",
+          "query": "village night glowing doorway stars",
+          "anchor": "The village at",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "village night glowing doorway stars",
+              "village night"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a peaceful village at night with stars above, one warmly glowing open doorway in the center, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Caravan of camels crossing a salt desert at sunset",
+          "query": "camel caravan desert sunset",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "camel caravan desert sunset",
+              "camel caravan"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm amber sunset over a vast salt desert with a long line of camels carrying bundles, one tall merchant in a cream robe walking at the front, teal distant mountains, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant Behrouz with his grandmother's memory",
+          "query": "old woman merchant memory",
+          "anchor": "Merchant Behrouz with",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old woman merchant memory",
+              "old woman"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one middle-aged merchant with a turban standing beside one elderly woman in a teal shawl, both facing each other gently in a warm courtyard lit by lanterns, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Silk and saffron bundles on camels",
+          "query": "silk saffron bundles camels",
+          "anchor": "Silk and saffron",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "silk saffron bundles camels",
+              "silk saffron"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, close view of woven silk bolts and small saffron sacks tied across the back of a single camel, warm golden light, teal shadows, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Sandstorm swallowing the stars",
+          "query": "sandstorm desert night",
+          "anchor": "Sandstorm swallowing the",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "sandstorm desert night",
+              "sandstorm desert"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a swirling dark teal and ochre sandstorm rising over the desert at night, faint stars fading behind the dust, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Camels growing frightened",
+          "query": "frightened camels storm",
+          "anchor": "Camels growing frightened",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frightened camels storm",
+              "frightened camels"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, three camels rearing with raised heads in blowing sand, one merchant in a cream robe holding a rope with both hands, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Travelers scattering in the dust",
+          "query": "travelers scattering dust storm",
+          "anchor": "Travelers scattering in",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "travelers scattering dust storm",
+              "travelers scattering"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, four travelers in dusty robes running in different directions through swirling sand, warm lantern glow faint in the distance, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Behrouz ties the brass bell",
+          "query": "brass bell camel rope",
+          "anchor": "Behrouz ties the",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "brass bell camel rope",
+              "brass bell"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one merchant with a turban tying a small glowing brass bell to the neck of a lead camel, close framing on hands and bell, warm golden light, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The bell ringing through the storm",
+          "query": "bell ringing storm glow",
+          "anchor": "The bell ringing",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bell ringing storm glow",
+              "bell ringing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a small brass bell emitting soft golden ripples of sound through the darkened sandstorm, faint silhouettes of camels in the distance, teal and gold palette, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Lost travelers following the sound",
+          "query": "lost travelers following light",
+          "anchor": "Lost travelers following",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "lost travelers following light",
+              "lost travelers"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, five travelers walking together through dim sand toward a faint warm glow, one holding another's arm, teal night sky, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Dawn reunion of the caravan",
+          "query": "dawn caravan reunion desert",
+          "anchor": "Dawn reunion of",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "dawn caravan reunion desert",
+              "dawn caravan"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, dawn light spreading over the desert as the whole caravan of camels gathers together, travelers embracing in a loose circle, warm golden and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Behrouz opens his bag to reveal the secret",
+          "query": "merchant opening bag secret",
+          "anchor": "Behrouz opens his",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "merchant opening bag secret",
+              "merchant opening"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one merchant kneeling and opening a worn leather bag, a small old brass bell resting inside on folded silk, warm light on his face, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Opening silhouette of a robed scholar at dawn",
+          "query": "persian scholar dawn silhouette",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "persian scholar dawn silhouette",
+              "persian scholar"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm golden dawn light bleeding into teal mountain shadows, one lone robed Persian scholar with a turban standing on a rocky ridge facing the rising sun, exactly one person, no text, no watermark, cohesive warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Young Suhrawardi as a boy in a village near Zanjan",
+          "query": "persian boy village mountains",
+          "anchor": "Young Suhrawardi as",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "persian boy village mountains",
+              "persian boy"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a small village of clay-brick houses nestled in green hills near Zanjan, exactly one young boy in a simple tunic reading a scroll on a stone wall, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Suhrawardi studying in a madrasa courtyard",
+          "query": "medieval persian madrasa courtyard",
+          "anchor": "Suhrawardi studying in",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "medieval persian madrasa courtyard",
+              "medieval persian"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, an arched medieval Persian madrasa courtyard with turquoise tilework and a small pool, exactly three students sitting in a circle on carpets with open books, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Scholar lecturing before a circle of students",
+          "query": "philosopher teaching students ancient",
+          "anchor": "Scholar lecturing before",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "philosopher teaching students ancient",
+              "philosopher teaching"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a Persian philosopher in a long cloak speaking animatedly, exactly six students seated around him under a domed hall, light streaming through a high window, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Abstract depiction of divine light flowing into the soul",
+          "query": "light rays glowing mystical",
+          "anchor": "Abstract depiction of",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "light rays glowing mystical",
+              "light rays"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a single beam of golden radiance descending from a sky of deep teal clouds onto a human figure with open arms, exactly one person silhouetted, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Caravanserai scene from one of his parables",
+          "query": "ancient caravanserai desert night",
+          "anchor": "Caravanserai scene from",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient caravanserai desert night",
+              "ancient caravanserai"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a desert caravanserai at night with lanterns glowing in archways, exactly two travelers with camels resting in the courtyard, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Writing the Book of Radiance by lamplight",
+          "query": "scholar writing by lamplight",
+          "anchor": "Writing the Book",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "scholar writing by lamplight",
+              "scholar writing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a scholar at a low wooden desk writing with a reed pen by an oil lamp, exactly one person, papers scattered around, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Mountain city of ideas rising at sunset",
+          "query": "persian mountain city sunset",
+          "anchor": "Mountain city of",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "persian mountain city sunset",
+              "persian mountain"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a terraced mountain city with domes and minarets glowing at sunset, no people visible, teal shadows and warm gold highlights, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Scholar confronting rulers in a royal hall",
+          "query": "medieval court debate ruler",
+          "anchor": "Scholar confronting rulers",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "medieval court debate ruler",
+              "medieval court"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a grand medieval royal hall with a seated ruler on a throne and exactly two figures facing each other in debate, one robed scholar and one guard, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Prison cell in Aleppo with a single window of light",
+          "query": "dark prison cell window light",
+          "anchor": "Prison cell in",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "dark prison cell window light",
+              "dark prison"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a stone prison cell with a single arched window letting in a shaft of golden light, exactly one seated prisoner in a robe, no text, no watermark, warm and teal palette",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Closing image of his light continuing in scholars' hands",
+          "query": "scholars reading books light",
+          "anchor": "Closing image of",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "scholars reading books light",
+              "scholars reading"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, exactly three scholars of different generations reading an old manuscript together under a glowing lamp in a library, warm golden light against teal shadows, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Bustling old bazaar entrance at golden hour",
+          "query": "old bazaar arch sunset",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old bazaar arch sunset",
+              "old bazaar"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a crowded old Persian bazaar entrance with a tall brick arch, warm golden light and teal shadows, merchants and shoppers in the background, no people in foreground, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Confident merchant standing proudly at his spice stall",
+          "query": "spice merchant stall bazaar",
+          "anchor": "Confident merchant standing",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "spice merchant stall bazaar",
+              "spice merchant"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of one elderly male merchant with a white beard and turban standing proudly behind a colorful spice stall, pyramids of saffron and sumac, warm and teal palette, exactly one person, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant boasting with arms raised",
+          "query": "proud merchant gesturing bazaar",
+          "anchor": "Merchant boasting with",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "proud merchant gesturing bazaar",
+              "proud merchant"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one elderly merchant with arms spread wide in a boastful gesture, surrounded by baskets of goods, expressive face, warm golden tones with teal accents, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Young girl entering the bazaar carrying a basket",
+          "query": "girl carrying basket market",
+          "anchor": "Young girl entering",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "girl carrying basket market",
+              "girl carrying"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one young girl with a woven basket of dates on her hip walking into a bazaar lane, sunlight through dust, storybook style, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Girl setting out dates on a cloth",
+          "query": "dates on cloth market stall",
+          "anchor": "Girl setting out",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "dates on cloth market stall",
+              "dates on"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one young girl arranging bright red and golden dates on a cloth mat on the ground, cheerful expression, warm palette with teal fabric, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Customers crowding the girl's stall",
+          "query": "customers buying fruit market",
+          "anchor": "Customers crowding the",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "customers buying fruit market",
+              "customers buying"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly three customers in traditional clothing reaching toward a small fruit stall with a young girl behind it, lively bazaar atmosphere, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant noticing the crowd shifting away from him",
+          "query": "merchant looking surprised bazaar",
+          "anchor": "Merchant noticing the",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "merchant looking surprised bazaar",
+              "merchant looking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one elderly merchant at his empty stall glancing across the lane toward a busy crowd, surprised expression, warm light, teal shadows, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Empty dates basket in sunlight",
+          "query": "empty basket sunlight market",
+          "anchor": "Empty dates basket",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "empty basket sunlight market",
+              "empty basket"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a single empty woven basket resting on a sunlit cobblestone bazaar floor with a few scattered date pits, warm golden light, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Merchant laughing and bowing to the girl",
+          "query": "old man bowing respect child",
+          "anchor": "Merchant laughing and",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old man bowing respect child",
+              "old man"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly two people, an elderly merchant with a warm smile bowing respectfully to a young girl who smiles back, facing each other in a bazaar lane, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two hands clasped in mutual respect",
+          "query": "hands shaking respect symbol",
+          "anchor": "Two hands clasped",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "hands shaking respect symbol",
+              "hands shaking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly two people's hands clasped together in friendly respect, one older and one younger, close-up, warm golden light, teal background, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Girl climbing a staircase toward a bright doorway",
+          "query": "girl climbing stairs light",
+          "anchor": "Girl climbing a",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "girl climbing stairs light",
+              "girl climbing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly one young girl climbing a winding stone staircase toward a bright archway glowing with golden light, symbolic of rising higher, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Shepherd boy standing alone on a green mountain slope at dawn",
+          "query": "shepherd boy mountain dawn",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd boy mountain dawn",
+              "shepherd boy"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy standing alone on a green Alborz mountain slope at dawn, warm golden light blending into teal mist, grazing sheep scattered in background, soft brush textures, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy cupping hands to mouth shouting across the valley",
+          "query": "boy shouting mountain valley",
+          "anchor": "Boy cupping hands",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy shouting mountain valley",
+              "boy shouting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy cupping his hands to his mouth and shouting across a deep green valley, warm orange sky and teal shadows, wind-swept grass, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Villagers running uphill carrying sticks",
+          "query": "villagers running uphill sticks",
+          "anchor": "Villagers running uphill",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "villagers running uphill sticks",
+              "villagers running"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, four villagers running uphill on a rocky mountain path carrying wooden sticks and stones, warm dusty tones with teal background hills, dynamic brushstrokes, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy laughing while villagers look confused",
+          "query": "boy laughing villagers confused",
+          "anchor": "Boy laughing while",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy laughing villagers confused",
+              "boy laughing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy laughing heartily while three villagers stand breathless and confused on a grassy hilltop, warm golden light, teal sky, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Villagers angrily walking back down the hill",
+          "query": "villagers walking down hill angry",
+          "anchor": "Villagers angrily walking",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "villagers walking down hill angry",
+              "villagers walking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, three villagers walking down a winding hill path with frowns and lowered shoulders, warm earthy palette with teal distant mountains, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy again shouting wolf while sheep graze peacefully",
+          "query": "boy shouting sheep grazing peacefully",
+          "anchor": "Boy again shouting",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy shouting sheep grazing peacefully",
+              "boy shouting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one shepherd boy shouting with a playful grin while sheep graze peacefully beside him on a meadow, warm sunlight and teal shadows, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Cold winter evening with snow on ridge",
+          "query": "winter evening snow mountain ridge",
+          "anchor": "Cold winter evening",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "winter evening snow mountain ridge",
+              "winter evening"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, a cold winter evening over a snowy mountain ridge with dusk sky shifting from warm amber to deep teal, bare trees and drifting snow, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Large grey wolf emerging from the ridge toward sheep",
+          "query": "grey wolf mountain ridge snow",
+          "anchor": "Large grey wolf",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "grey wolf mountain ridge snow",
+              "grey wolf"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one large grey wolf stepping down from a snowy ridge toward a small flock of sheep, warm lantern-like glow contrasting teal snow, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy screaming in fear with empty village behind him",
+          "query": "boy screaming fear snow night",
+          "anchor": "Boy screaming in",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy screaming fear snow night",
+              "boy screaming"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one terrified young shepherd boy screaming on a snowy slope at night, distant village lights glowing warm yellow with no people visible, teal night sky, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy sitting alone reflecting by a quiet fire",
+          "query": "boy sitting alone campfire reflecting",
+          "anchor": "Boy sitting alone",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy sitting alone campfire reflecting",
+              "boy sitting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one young shepherd boy sitting alone beside a small quiet campfire, head bowed in thought, warm orange firelight against cool teal night, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Boy standing tall in a sunlit valley, voice echoing",
+          "query": "boy standing tall sunlit valley",
+          "anchor": "Boy standing tall",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "boy standing tall sunlit valley",
+              "boy standing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, one shepherd boy standing tall on a rock in a sunlit valley with his arms open, golden light and teal mountains, sound waves rendered as soft painted swirls in the air, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Sun-scorched desert plain at dawn",
+          "query": "desert dawn landscape Iran",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert dawn landscape Iran",
+              "desert dawn"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a vast Iranian desert plain at dawn, pale gold sand dunes fading into teal shadows, a distant snow-capped mountain range glowing softly, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Mountain aquifer at the foothills",
+          "query": "mountain spring foothills water",
+          "anchor": "Mountain aquifer at",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "mountain spring foothills water",
+              "mountain spring"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of clear water seeping from rocky mountain foothills into a shallow pool, green shrubs along the edges, warm sunlight and teal shadows, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Workers digging the first vertical shaft",
+          "query": "ancient well digging workers",
+          "anchor": "Workers digging the",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient well digging workers",
+              "ancient well"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly three workers in simple robes digging a deep round vertical shaft in dry earth with wooden tools, a pile of soil beside them, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Sloped tunnel descending underground",
+          "query": "underground tunnel cross section",
+          "anchor": "Sloped tunnel descending",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "underground tunnel cross section",
+              "underground tunnel"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook cross-section illustration of a gently sloping underground tunnel with arched brick walls, a faint trickle of water along the floor, warm lantern glow against teal stone, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Row of vertical shafts across the desert",
+          "query": "row of desert wells landscape",
+          "anchor": "Row of vertical",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "row of desert wells landscape",
+              "row of"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a long line of small circular mound openings marking an underground channel across golden desert, dusk light, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two workers repairing the tunnel by lamplight",
+          "query": "workers repairing tunnel lamplight",
+          "anchor": "Two workers repairing",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "workers repairing tunnel lamplight",
+              "workers repairing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly two workers kneeling inside a narrow underground tunnel, one holding a clay oil lamp, the other patching the stone wall, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Water flowing into a village channel",
+          "query": "irrigation channel village water",
+          "anchor": "Water flowing into",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "irrigation channel village water",
+              "irrigation channel"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of clear water flowing out of a tunnel mouth into a stone channel that winds between mud-brick houses and date palms, warm sunlight, teal reflections, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Women filling jugs at a village pool",
+          "query": "village women water jugs",
+          "anchor": "Women filling jugs",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "village women water jugs",
+              "village women"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of exactly three women in colorful headscarves and long dresses filling clay jugs at a small stone pool, palm trees behind them, warm and teal palette, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Green fields irrigated by the qanat",
+          "query": "green farm fields oasis",
+          "anchor": "Green fields irrigated",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "green farm fields oasis",
+              "green farm"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of lush green wheat fields and orchards in a desert oasis, irrigated by thin shining water channels, golden desert edges, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Old qanat shaft viewed from above",
+          "query": "ancient qanat shaft aerial",
+          "anchor": "Old qanat shaft",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient qanat shaft aerial",
+              "ancient qanat"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of an aerial view of several circular shaft openings in tan desert soil, long shadows across the sand, a line of green crops in the distance, warm and teal palette, no people, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Sunset over the living desert oasis",
+          "query": "desert oasis sunset",
+          "anchor": "Sunset over the",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert oasis sunset",
+              "desert oasis"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration of a peaceful desert oasis at sunset, a single farmer with a walking stick standing at the edge of green fields, warm glowing sky and teal shadows, no text, no watermark.",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Opening close-up of a brimming clay bowl of water on a wooden table",
+          "query": "full bowl water wooden table",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "full bowl water wooden table",
+              "full bowl"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a brimming clay bowl of water sitting on a rustic wooden table in a sunlit Persian courtyard, a single drop about to fall, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A young potter hurries at a wheel, clay wobbling",
+          "query": "young potter wheel clay",
+          "anchor": "A young potter",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "young potter wheel clay",
+              "young potter"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man in a patched tunic rushing at a spinning potter's wheel, clay wobbling dangerously, eager expression, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The clay vessel cracks apart on the wheel",
+          "query": "cracked clay pot wheel",
+          "anchor": "The clay vessel",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "cracked clay pot wheel",
+              "cracked clay"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a clay vessel splitting into cracks on a spinning wheel, shards flying, one young man in a patched tunic recoiling with a startled face, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Young potter pointing accusingly at the clay",
+          "query": "frustrated man pointing clay",
+          "anchor": "Young potter pointing",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "frustrated man pointing clay",
+              "frustrated man"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man in a patched tunic pointing an accusing finger at a lump of gray clay on a workbench, frowning, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Elderly master potter observing with a calm smile",
+          "query": "old potter smiling workshop",
+          "anchor": "Elderly master potter",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "old potter smiling workshop",
+              "old potter"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one elderly master potter with a white beard seated in a warm clay workshop, gentle knowing smile, hands folded, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Master and apprentice facing each other across the workshop",
+          "query": "master apprentice talking workshop",
+          "anchor": "Master and apprentice",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "master apprentice talking workshop",
+              "master apprentice"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, two people facing each other in a clay workshop, an elderly master on the left and a young apprentice on the right, both mid-conversation, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Master gently pours water out of a bowl to empty it",
+          "query": "pouring water out bowl",
+          "anchor": "Master gently pours",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "pouring water out bowl",
+              "pouring water"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one elderly master potter tilting a clay bowl to pour out its water onto the earth, calm focused gesture, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Apprentice sits quietly with eyes closed, listening",
+          "query": "young man meditating quiet",
+          "anchor": "Apprentice sits quietly",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "young man meditating quiet",
+              "young man"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man sitting cross-legged on a woven mat with eyes closed, hands resting on his knees, peaceful posture, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Apprentice slowly centers fresh clay on the wheel",
+          "query": "hands shaping clay wheel",
+          "anchor": "Apprentice slowly centers",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "hands shaping clay wheel",
+              "hands shaping"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, one young man's two hands gently centering a mound of soft clay on a spinning wheel, careful and patient, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A finished graceful vessel gleaming in the light",
+          "query": "beautiful clay vase sunlight",
+          "anchor": "A finished graceful",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "beautiful clay vase sunlight",
+              "beautiful clay"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a finished elegant turquoise-glazed clay vase standing on a shelf in warm morning light, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Closing image of an empty bowl ready to be filled again",
+          "query": "empty bowl sunlight courtyard",
+          "anchor": "Closing image of",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "empty bowl sunlight courtyard",
+              "empty bowl"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "Vertical 9:16 hand-painted storybook illustration, warm and teal palette, a clean empty clay bowl resting on a wooden table in a sunlit Persian courtyard, open and ready, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

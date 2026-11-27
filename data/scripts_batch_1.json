@@ -410,5 +410,44 @@
       "A finished graceful vessel gleaming in the light",
       "Closing image of an empty bowl ready to be filled again"
     ]
+  },
+  {
+    "id": 13,
+    "category": "Short Story",
+    "core_message": "Patience and persistence wear down obstacles that force cannot break, just as steady water shapes stone over time.",
+    "proverb_fa": "",
+    "proverb_en": "The Patient Water and the Stone",
+    "word_count": 128,
+    "hook_en": "Ten thousand years of mountains have never once moved an inch, yet somehow a single drop of water carved a canyon straight through them!",
+    "narration": "Ten thousand years of mountains have never once moved an inch, yet somehow a single drop of water carved a canyon straight through them! Sounds impossible, right? Long ago in a village near Isfahan, an angry young stonemason swore he would smash a stubborn wall with brute force. He hammered. He sweated. He cracked his knuckles raw. Nothing. Then his old teacher walked over, held a clay jug under a dripping spout, and said nothing at all. Drip. Drip. Drip. Day after day, the teacher returned, watching the water fall on one spot of stone. The young man laughed at first. Then he noticed the tiny hollow forming. Patience, the teacher finally whispered, is water. Force is only stone. Keep dripping, and the wall will remember your name.",
+    "narration_alt": "Ten thousand years of mountains have never once moved an inch, yet somehow a single drop of water carved a canyon straight through them! Sounds impossible, right? Long ago in a village near Isfahan, an angry young stonemason swore he would smash a stubborn wall with brute force. He hammered. He sweated. He cracked his knuckles raw. Nothing. Then his old teacher walked over, held a clay jug under a dripping spout, and said nothing at all. Drip. Drip. Drip. Day after day, the teacher returned, watching the water fall on one spot of stone. The young man laughed at first. Then he noticed the tiny hollow forming. Patience, the teacher finally whispered, is water. Force is only stone. Keep dripping, and the wall will remember your name.",
+    "narration_display": "Ten thousand years of mountains have never once moved an inch, yet somehow a single drop of water carved a canyon straight through them! Sounds impossible, right? Long ago in a village near Isfahan, an angry young stonemason swore he would smash a stubborn wall with brute force. He hammered. He sweated. He cracked his knuckles raw. Nothing. Then his old teacher walked over, held a clay jug under a dripping spout, and said nothing at all. Drip. Drip. Drip. Day after day, the teacher returned, watching the water fall on one spot of stone. The young man laughed at first. Then he noticed the tiny hollow forming. Patience, the teacher finally whispered, is water. Force is only stone. Keep dripping, and the wall will remember your name.",
+    "narration_tts": "Ten thousand years of mountains have never once moved an inch, yet somehow a single drop of water carved a canyon straight through them! Sounds impossible, right? Long ago, in a village near Isfahan, an angry young stonemason swore he would smash a stubborn wall with brute force. He hammered. He sweated. He cracked his knuckles raw. Nothing! Then his old teacher walked over, held a clay jug under a dripping spout, and said nothing at all. Drip... drip... drip. Day after day, the teacher came back and watched the water fall on one single spot. The young man laughed at first. Then he noticed it. A tiny hollow, forming in the stone! Patience, the teacher finally whispered, is water. Force is only stone. Keep dripping, and the wall will remember your name.",
+    "visual_scenes": [
+      "Close-up of a towering stone mountain face with a thin silver stream of water falling beside it",
+      "A young stonemason, alone, swinging a heavy hammer against a stubborn stone wall in a village courtyard",
+      "The stonemason sitting exhausted on the ground, hands bruised, sweat on his brow, the wall unbroken behind him",
+      "An elderly teacher and the young man meeting in the courtyard, the teacher carrying a clay jug",
+      "The teacher placing a clay jug beneath a dripping spout fixed above the stone wall",
+      "Single water drops falling steadily onto the same spot of stone, glistening in the light",
+      "The young man laughing and gesturing toward the wall, scoffing at the slow water",
+      "Two figures crouching together, the young man noticing a small hollow forming in the stone",
+      "Weeks pass: the hollow has deepened into a visible groove, with the teacher returning each dawn",
+      "Years later, the stone wall is worn through, with a clear channel of water flowing through it",
+      "The now-older stonemason kneeling beside the carved channel, gently touching the smooth stone, two figures silhouetted in warm light"
+    ],
+    "scenes": [
+      "Close-up of a towering stone mountain face with a thin silver stream of water falling beside it",
+      "A young stonemason, alone, swinging a heavy hammer against a stubborn stone wall in a village courtyard",
+      "The stonemason sitting exhausted on the ground, hands bruised, sweat on his brow, the wall unbroken behind him",
+      "An elderly teacher and the young man meeting in the courtyard, the teacher carrying a clay jug",
+      "The teacher placing a clay jug beneath a dripping spout fixed above the stone wall",
+      "Single water drops falling steadily onto the same spot of stone, glistening in the light",
+      "The young man laughing and gesturing toward the wall, scoffing at the slow water",
+      "Two figures crouching together, the young man noticing a small hollow forming in the stone",
+      "Weeks pass: the hollow has deepened into a visible groove, with the teacher returning each dawn",
+      "Years later, the stone wall is worn through, with a clear channel of water flowing through it",
+      "The now-older stonemason kneeling beside the carved channel, gently touching the smooth stone, two figures silhouetted in warm light"
+    ]
   }
 ]
