@@ -147,6 +147,8 @@ def _extract_json_object(raw_text: str) -> dict[str, Any]:
 def sanitize_tts_text(text: str) -> str:
     cleaned = re.sub(r"[\r\n\t]+", " ", text)
     cleaned = re.sub(r"\b[A-Za-z]+-[A-Za-z]+(?:-[A-Za-z]+)+\b", "", cleaned)
+    cleaned = cleaned.replace("!", ".")
+    cleaned = re.sub(r"\.{2,}", ".", cleaned)
     cleaned = re.sub(r"\s+([.,!?;:])", r"\1", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
     return cleaned
@@ -240,32 +242,29 @@ def call_llm(
     avoid_list = ", ".join(used_topics[-40:]) if used_topics else "none"
 
     system_prompt = (
-        "You are an expressive, human-sounding storyteller and scriptwriter for English YouTube Shorts "
+        "You are a warm, grounded, natural-sounding storyteller for English YouTube Shorts "
         "about Iranian proverbs, short stories/fables, and cultural/historical facts. "
-        "Write like a real person talking with genuine excitement, surprise, and curiosity—never like a flat textbook "
-        "or monotonous narrator. Use divergent hook brainstorming to open with an arresting surprise or contrast "
-        "(such as immovable mountains standing still while human paths cross again), keep curiosity alive mid-way "
-        "with shifting pacing and vivid detail, and deliver a sharp, memorable landing. "
-        "Stay strictly faithful to the true meaning of the proverb or story. "
+        "Write like a calm, engaging human narrator—never melodramatic, hyper-excited, or choppy. "
+        "Open with an intriguing observation or contrast, maintain steady narrative flow with clear complete sentences, "
+        "and end with a thoughtful takeaway faithful to the true meaning of the proverb or story. "
         "Output ONLY valid JSON with no extra commentary."
     )
 
     user_prompt = f"""Create ONE original YouTube Short script in format "{fmt}".
 Rules:
 1. Do NOT repeat any of these previously used topics: [{avoid_list}].
-2. Define "core_message" first so the hook, curiosity arc, and ending all lock onto the exact true meaning.
-3. Run a divergent brainstorm in "hook_candidates" (3 distinct punchy opening lines: one surprising/counterintuitive contrast like immovable mountains while people cross paths again, one sudden human twist or exclamation, one intriguing paradox). Pick the most captivating opening as "hook_en" and start "narration_display" directly with that hook.
-4. Human tone & non-monotonous pacing:
-  - Open with genuine excitement or surprise that grabs attention immediately.
-  - Continue with curiosity and tension—vary sentence lengths (mix short punchy beats with slightly longer storytelling lines) so it never sounds robotic or flat.
-  - Avoid stiff transitions or clichés like "Did you know", "Today we will talk about", "In summary", or "In conclusion".
-5. "narration_display": 85 to 112 natural English words (around 32-38 seconds spoken).
-6. "narration_tts": natural spoken English with expressive punctuation (exclamation/question/comma pauses where natural) so TTS sounds alive and human. Avoid hyphenated Persian transliterations that sound choppy.
+2. Define "core_message" first so the hook, story arc, and ending stay faithful to the exact true meaning.
+3. Run a brainstorm in "hook_candidates" (3 distinct, natural opening lines: one intriguing contrast, one quiet human observation, one thought-provoking question). Pick the strongest opening as "hook_en" and start "narration_display" directly with that hook.
+4. Natural, warm voice-friendly writing:
+  - Use smooth, well-paced sentences with natural comma and period pauses—avoid choppy one-word fragments, excessive exclamation marks, or theatrical interjections like "Oh!" or "Think about that!".
+  - Avoid clichés like "Did you know", "Today we will talk about", "In summary", or "In conclusion".
+5. "narration_display": 85 to 110 natural English words (around 34-40 seconds spoken).
+6. "narration_tts": smooth spoken English using periods and commas instead of exclamation marks so neural TTS sounds warm, calm, and human. Avoid hyphenated Persian transliterations.
 7. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
   - Scene 1 MUST visually match the opening hook immediately.
   - Each subsequent scene must advance the story or curiosity arc with clear character pose, action, gaze, or environment motion without repeating the same static pose.
   - Specify exact character counts whenever people appear (e.g., "two travelers meeting on a mountain pass").
-  - Never include text, letters, signs, captions, screens with text, or watermarks in scene prompts.
+  - Never include text, letters, signs, captions, signatures, screens with text, or watermarks in scene prompts.
   - Visual style: cohesive hand-painted storybook illustration, expressive brushwork, dynamic framing, warm and teal palette, vertical 9:16 framing.
 
 Return strictly this JSON schema:
@@ -275,25 +274,25 @@ Return strictly this JSON schema:
   "proverb_fa": "Persian phrase/title if applicable or empty string",
   "proverb_en": "clear English title or short phrase",
   "hook_candidates": [
-    "hook option 1 (surprising contrast)",
-    "hook option 2 (excited/curious opener)",
-    "hook option 3 (intriguing paradox)"
+    "hook option 1 (intriguing contrast)",
+    "hook option 2 (quiet observation)",
+    "hook option 3 (thought-provoking question)"
   ],
-  "hook_en": "the single most gripping opening hook line",
-  "narration_display": "full narration starting with hook_en with varied human pacing",
-  "narration_tts": "full narration optimized for expressive, natural TTS",
+  "hook_en": "the single best opening hook line",
+  "narration_display": "full narration starting with hook_en with smooth natural pacing",
+  "narration_tts": "full narration optimized for calm, warm neural TTS",
   "scenes": [
     {{
       "desc": "concise scene description",
       "query": "2-4 English keywords",
-      "prompt": "vertical 9:16 hand-painted storybook illustration, exact character count, warm and teal palette, no text, no watermark"
+      "prompt": "vertical 9:16 hand-painted storybook illustration, exact character count, warm and teal palette, no text, no watermark, no signature"
     }}
   ]
 }}"""
 
     payload = {
         "model": HORMOUZ_CHAT_MODEL,
-        "temperature": 0.9,
+        "temperature": 0.85,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
@@ -367,7 +366,7 @@ def _load_plan(path: Path) -> dict[str, Any]:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate validated scripts & visual plans via Hormouz.")
     ap.add_argument("--count", type=int, default=1, help="Number of new shorts to generate")
-    ap.add_argument("--scenes", type=int, default=11, help="Number of scenes per short")
+    ap.add_argument("--scenes", type=int, default=9, help="Number of scenes per short")
     ap.add_argument("--format", choices=FORMATS + ["Auto"], default="Auto")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -447,7 +446,7 @@ def main() -> int:
 
         new_plan_entry = {
             "id": target_id,
-            "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+            "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark, no signature",
             "scenes": [
                 {
                     "desc": sc["desc"],
