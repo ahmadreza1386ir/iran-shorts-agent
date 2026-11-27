@@ -772,9 +772,11 @@ def process_short(
 def main() -> int:
     ap = argparse.ArgumentParser(description="Fetch or generate scene visuals for shorts.")
     ap.add_argument("--id", type=str, default=None, help="Target short id")
+    ap.add_argument("--only", type=str, default=None, help="Alias for --id (target short id)")
     ap.add_argument("--force", action="store_true", help="Regenerate existing scene images")
     ap.add_argument("--offline", action="store_true", help="Skip network requests and use fallbacks")
     ap.add_argument("--reset-state", action="store_true", help="Reset provider state")
+    ap.add_argument("--reset-providers", action="store_true", help="Alias for --reset-state")
     args = ap.parse_args()
 
     VISUALS_DIR.mkdir(parents=True, exist_ok=True)
@@ -792,10 +794,11 @@ def main() -> int:
                 plan_by_id[sid] = entry
 
     target_ids: list[str] = []
-    if args.id is not None:
-        sid = safe_script_id(args.id)
+    raw_target_id = args.id if args.id is not None else args.only
+    if raw_target_id is not None:
+        sid = safe_script_id(raw_target_id)
         if not sid:
-            log.error("Invalid --id %r.", args.id)
+            log.error("Invalid target id %r.", raw_target_id)
             return 1
         target_ids = [sid]
     else:
@@ -813,7 +816,7 @@ def main() -> int:
         return 0
 
     api_key = get_hormouz_key()
-    net = Net(offline=args.offline, reset=args.reset_state)
+    net = Net(offline=args.offline, reset=(args.reset_state or args.reset_providers))
     global_hashes = load_global_hashes()
     success_count = 0
 
