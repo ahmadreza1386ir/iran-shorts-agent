@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-Phase 2B: Scene visuals via Hormouz API with multi-model fallback chain
-(black-forest-labs/flux-schnell -> prunaai/z-image-turbo -> black-forest-labs/flux-2-klein-4b),
-automatic visual guard for corner/text/artifact defects, duplicate-aware retry,
-and Wikimedia Commons, Openverse & cards fallback.
+Phase 2B: Scene visuals via Hormouz Predictions API (/v1/predictions) with
+multi-model fallback chain (black-forest-labs/flux-schnell -> prunaai/z-image-turbo
+-> black-forest-labs/flux-2-klein-4b), automatic visual guard for corner/text/artifact
+defects, duplicate-aware retry, and Wikimedia Commons, Openverse & cards fallback.
 """
 
 from __future__ import annotations
 
 import argparse
-import base64
 import hashlib
 import html
 import io
@@ -38,6 +37,7 @@ from common import (
     setup_logging,
 )
 from fallback_art import render_card
+from hormouz_image_chain import generate_image_with_fallback
 
 try:
     from PIL import Image, ImageEnhance, ImageFilter, ImageOps, ImageStat
@@ -49,7 +49,7 @@ log = setup_logging("visuals")
 
 CONTACT = os.environ.get("SHORTS_CONTACT", "").strip()
 USER_AGENT = (
-    f"IranShortsAgent/6.14 ({CONTACT or 'https://github.com/openverse-client'}) "
+    f"IranShortsAgent/6.15 ({CONTACT or 'https://github.com/openverse-client'}) "
     f"python-urllib/{sys.version_info.major}.{sys.version_info.minor}"
 )
 
@@ -113,13 +113,6 @@ MIN_LONG_SIDE, MIN_SHORT_SIDE = 960, 640
 MIN_SHARPNESS, MIN_STDDEV = 6.0, 12.0
 DHASH_DUP_DISTANCE = 10
 MAX_CANDIDATES_PER_SCENE = 8
-
-SOURCE_INFO = {
-    "hormouz": ("generated-unverified", 0.0, 0.0),
-    "commons": ("verified-text", 0.0, 0.0),
-    "openverse": ("verified-text", 0.0, 0.0),
-    "card": ("procedural", 0.0, 0.0),
-}
 
 
 class FetchError(Exception):
@@ -583,43 +576,34 @@ def _decode_image_bytes(raw_bytes: bytes) -> Image.Image:
 
 
 def generate_hormouz_image(net: Net, api_key: str, prompt: str, model: str) -> Image.Image:
-    url = f"{HORMOUZ_ROOT}/images/generations"
-    payload = {
-        "model": model,
-        "prompt": prompt,
-        "size": HORMOUZ_IMAGE_SIZE,
-        "n": 1,
-    }
-    raw = net.request(
-        "hormouz",
-        url,
-        method="POST",
-        payload=payload,
-        headers={"Authorization": f"Bearer {api_key}"},
-        timeout=120,
-        retries=1,
-        auth_fatal=True,
-    )
-    data = json.loads(raw.decode("utf-8", "replace"))
-    items = data.get("data") or []
-    if not isinstance(items, list) or not items:
-        raise FetchError("Hormouz image response missing 'data' list.")
+    if net.offline:
+        raise FetchError("offline mode", fatal=True)
+    if net.is_disabled("hormouz"):
+        raise FetchError(f"hormouz disabled: {net.disabled['hormouz']}", fatal=True)
 
-    first = items[0] if isinstance(items[0], dict) else {}
-    b64_data = first.get("b64_json") or first.get("image_base64")
-    if isinstance(b64_data, str) and b64_data.strip():
-        clean_b64 = b64_data.split(",", 1)[-1].strip()
-        img_bytes = base64.b64decode(clean_b64)
-        if len(img_bytes) > MAX_BYTES:
-            raise FetchError("Decoded image exceeds size limit.")
-        return _decode_image_bytes(img_bytes)
+    prev_models = os.environ.get("HORMOUZ_IMAGE_MODELS")
+    os.environ["HORMOUZ_IMAGE_MODELS"] = model
+    try:
+        img_bytes, _used_model = generate_image_with_fallback(
+            prompt=prompt,
+            api_key=api_key,
+            base_url=HORMOUZ_ROOT,
+            aspect_ratio=HORMOUZ_IMAGE_SIZE,
+            logger=log,
+        )
+    except urllib.error.HTTPError as exc:
+        raise FetchError(f"HTTP {exc.code} from Hormouz predictions", status=exc.code) from exc
+    except Exception as exc:
+        raise FetchError(str(exc)) from exc
+    finally:
+        if prev_models is None:
+            os.environ.pop("HORMOUZ_IMAGE_MODELS", None)
+        else:
+            os.environ["HORMOUZ_IMAGE_MODELS"] = prev_models
 
-    img_url = str(first.get("url") or "").strip()
-    if img_url:
-        img_bytes = net.request("hormouz", img_url, method="GET", timeout=60, retries=1, auth_fatal=False)
-        return _decode_image_bytes(img_bytes)
-
-    raise FetchError("Hormouz response contained neither b64_json nor url.")
+    if len(img_bytes) > MAX_BYTES:
+        raise FetchError("Generated image exceeds size limit.")
+    return _decode_image_bytes(img_bytes)
 
 
 def fetch_scene_image(
