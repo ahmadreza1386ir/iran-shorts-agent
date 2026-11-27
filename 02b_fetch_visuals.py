@@ -294,7 +294,6 @@ def has_word(blob: str, term: str) -> bool:
     return re.search(r"(?<![a-z0-9])" + re.escape(term.lower()) + r"(?![a-z0-9])", blob) is not None
 
 
-# Kept balanced so cultural/story motifs (jars, rooms, buildings) are not over-rejected
 GLOBAL_REJECT = [
     "seal", "seals", "coat of arms", "emblem", "insignia", "logo", "flag", "banner",
     "stamp", "coin", "banknote", "currency", "icon", "pictogram", "diagram", "map",
@@ -466,10 +465,6 @@ def sharpness(img: Image.Image) -> float:
 
 
 def visual_guard_check(img: Image.Image) -> tuple[bool, str]:
-    """
-    Lightweight visual guard to flag likely corner watermarks/text signatures
-    or isolated sharp symbol clusters in generated storybook frames.
-    """
     if not VISUAL_GUARD_ENABLED:
         return True, "guard_disabled"
 
@@ -639,7 +634,6 @@ def fetch_scene_image(
     base_prompt = str(scene_plan.get("prompt") or desc).strip()
     full_prompt = f"{base_prompt}. {style}".strip()
 
-    # 1. Try Hormouz multi-model chain with guard & duplicate retries
     if api_key and not net.is_disabled("hormouz"):
         for model in HORMOUZ_IMAGE_MODELS:
             max_tries = 1 + max(0, HORMOUZ_GUARD_RETRIES) + max(0, HORMOUZ_MAX_DUP_RETRIES)
@@ -657,7 +651,6 @@ def fetch_scene_image(
                 except Exception as exc:
                     log.warning("Hormouz (%s) attempt %d failed: %s", model, attempt, exc)
 
-    # 2. Fallback to Commons / Openverse
     rules = scene_plan.get("commons") if isinstance(scene_plan.get("commons"), dict) else {}
     queries = [query]
     if isinstance(rules.get("queries"), list):
@@ -691,7 +684,6 @@ def fetch_scene_image(
         except Exception as exc:
             log.debug("Candidate download failed (%s): %s", cand.url, exc)
 
-    # 3. Guaranteed procedural card fallback
     card_spec = scene_plan.get("card") if isinstance(scene_plan.get("card"), dict) else {}
     card_img = render_card(
         title=desc,
@@ -782,14 +774,21 @@ def main() -> int:
     VISUALS_DIR.mkdir(parents=True, exist_ok=True)
     scripts = load_scripts()
     plan_data = load_plan()
-    plan_shorts = plan_data.get("shorts") if isinstance(plan_data, dict) else []
+
+    if isinstance(plan_data, list):
+        plan_shorts = plan_data
+    elif isinstance(plan_data, dict):
+        plan_shorts = plan_data.get("shorts") or plan_data.get("items") or []
+    else:
+        plan_shorts = []
     if not isinstance(plan_shorts, list):
         plan_shorts = []
 
     plan_by_id: dict[str, dict[str, Any]] = {}
     for entry in plan_shorts:
         if isinstance(entry, dict):
-            sid = safe_script_id(entry.get("id"))
+            raw_sid = entry.get("id") if entry.get("id") is not None else entry.get("short_id")
+            sid = safe_script_id(raw_sid)
             if sid:
                 plan_by_id[sid] = entry
 
@@ -822,6 +821,11 @@ def main() -> int:
 
     for sid in target_ids:
         entry = plan_by_id.get(sid)
+        if not entry and plan_shorts:
+            last_entry = plan_shorts[-1]
+            if isinstance(last_entry, dict):
+                log.warning("Exact plan entry for id=%s not found; using latest plan entry as fallback.", sid)
+                entry = last_entry
         if not entry:
             log.error("No visual plan entry found for short id=%s.", sid)
             continue
