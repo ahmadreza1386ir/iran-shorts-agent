@@ -6353,6 +6353,441 @@
           }
         }
       ]
+    },
+    {
+      "id": "14",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark",
+      "scenes": [
+        {
+          "desc": "Vast golden desert under a bright sky, a faint shimmer of heat on the sand",
+          "query": "desert sand dunes",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "desert sand dunes",
+              "desert sand"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, vast golden desert dunes under a bright sky with heat shimmer, no people, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Distant snow-capped mountains glowing at the horizon above the desert",
+          "query": "snowy mountains horizon",
+          "anchor": "Distant snow capped",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "snowy mountains horizon",
+              "snowy mountains"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, distant snow-capped mountains rising above a desert plain at sunrise, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Melting snow trickling down a hillside into the soil",
+          "query": "snowmelt seeping ground",
+          "anchor": "Melting snow trickling",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "snowmelt seeping ground",
+              "snowmelt seeping"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, meltwater trickling down a rocky hillside and sinking into the earth, warm and teal palette, no people, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Two workers standing at the mouth of a qanat tunnel entrance",
+          "query": "ancient tunnel entrance",
+          "anchor": "Two workers standing",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient tunnel entrance",
+              "ancient tunnel"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, two workers standing at the mouth of a stone-lined underground tunnel on a slope, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Three diggers in a deep shaft, passing soil in baskets upward",
+          "query": "ancient digging workers",
+          "anchor": "Three diggers in",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "ancient digging workers",
+              "ancient digging"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, three workers in a deep vertical shaft passing baskets of soil up to a rope, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A row of shaft openings dotting the desert plain like wells in a line",
+          "query": "qanat shafts desert",
+          "anchor": "A row of",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "qanat shafts desert",
+              "qanat shafts"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a line of circular shaft openings with mounds of earth dotting the desert plain, no people, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Underground channel with clear water gently flowing through stone walls",
+          "query": "underground water channel",
+          "anchor": "Underground channel with",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "underground water channel",
+              "underground water"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a clear stream of water flowing along a stone-lined underground channel lit by soft light, no people, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "One worker kneeling to inspect the channel with a lantern",
+          "query": "worker lantern tunnel",
+          "anchor": "One worker kneeling",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "worker lantern tunnel",
+              "worker lantern"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one worker kneeling beside a flowing channel holding a lantern, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Four villagers gathered around a stone basin, taking turns with water",
+          "query": "villagers sharing water",
+          "anchor": "Four villagers gathered",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "villagers sharing water",
+              "villagers sharing"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, four villagers gathered around a stone basin taking turns to draw water, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A grandfather teaching a child beside a qanat outlet",
+          "query": "grandfather child water",
+          "anchor": "A grandfather teaching",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "grandfather child water",
+              "grandfather child"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one elderly man and one child standing beside a qanat outlet, the elder pointing toward the flowing water, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Green oasis with date palms and fields thriving where the water emerges",
+          "query": "oasis palms green",
+          "anchor": "Green oasis with",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "oasis palms green",
+              "oasis palms"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a lush green oasis with date palms and fields thriving where water emerges from the ground, no people, warm and teal palette, no text, no watermark",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }

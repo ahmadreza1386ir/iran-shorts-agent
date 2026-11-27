@@ -449,5 +449,44 @@
       "Years later, the stone wall is worn through, with a clear channel of water flowing through it",
       "The now-older stonemason kneeling beside the carved channel, gently touching the smooth stone, two figures silhouetted in warm light"
     ]
+  },
+  {
+    "id": 14,
+    "category": "Cultural/Historical Fact",
+    "core_message": "Ancient Persian engineers built underground qanat channels, and the water they carried was shared through patient cooperation across generations, showing that the desert could be tamed by collective effort rather than force.",
+    "proverb_fa": "",
+    "proverb_en": "The Desert That Learned to Share",
+    "word_count": 112,
+    "hook_en": "Deserts are supposed to be dry, empty, and hopeless, yet in ancient Iran, people were pulling rivers out of the ground!",
+    "narration": "Deserts are supposed to be dry, empty, and hopeless, yet in ancient Iran, people were pulling rivers out of the ground! Here's the trick. Engineers dug long, gently sloping underground tunnels called qanats, sometimes stretching for dozens of kilometers. Mountain snowmelt seeped into the hills, and gravity carried it down through the tunnel, quietly, without a single pump. Vertical shafts every few dozen meters let workers reach the channel for repairs and clearing. Some qanats are still flowing after centuries. And the water was shared fairly, measured out by turns and rules passed down through generations. The desert didn't get conquered by force. It got persuaded, one patient tunnel at a time.",
+    "narration_alt": "Deserts are supposed to be dry, empty, and hopeless, yet in ancient Iran, people were pulling rivers out of the ground! Here's the trick. Engineers dug long, gently sloping underground tunnels called qanats, sometimes stretching for dozens of kilometers. Mountain snowmelt seeped into the hills, and gravity carried it down through the tunnel, quietly, without a single pump. Vertical shafts every few dozen meters let workers reach the channel for repairs and clearing. Some qanats are still flowing after centuries. And the water was shared fairly, measured out by turns and rules passed down through generations. The desert didn't get conquered by force. It got persuaded, one patient tunnel at a time.",
+    "narration_display": "Deserts are supposed to be dry, empty, and hopeless, yet in ancient Iran, people were pulling rivers out of the ground! Here's the trick. Engineers dug long, gently sloping underground tunnels called qanats, sometimes stretching for dozens of kilometers. Mountain snowmelt seeped into the hills, and gravity carried it down through the tunnel, quietly, without a single pump. Vertical shafts every few dozen meters let workers reach the channel for repairs and clearing. Some qanats are still flowing after centuries. And the water was shared fairly, measured out by turns and rules passed down through generations. The desert didn't get conquered by force. It got persuaded, one patient tunnel at a time.",
+    "narration_tts": "Deserts are supposed to be dry, empty, and hopeless... yet in ancient Iran, people were pulling rivers out of the ground! Here's the trick, and it's brilliant. Engineers dug long, gently sloping underground tunnels called qanats, sometimes stretching for dozens of kilometers. Snowmelt from the distant mountains seeped into the hills, and gravity carried it down through the tunnel, quietly, with no pumps at all! Vertical shafts, spaced every few dozen meters, let workers reach in for repairs and clearing. Some of these qanats are still flowing after centuries. And the water was shared fairly, measured out by turns, with rules handed down from parent to child. The desert didn't get conquered by force. It got persuaded, one patient tunnel at a time!",
+    "visual_scenes": [
+      "Vast golden desert under a bright sky, a faint shimmer of heat on the sand",
+      "Distant snow-capped mountains glowing at the horizon above the desert",
+      "Melting snow trickling down a hillside into the soil",
+      "Two workers standing at the mouth of a qanat tunnel entrance",
+      "Three diggers in a deep shaft, passing soil in baskets upward",
+      "A row of shaft openings dotting the desert plain like wells in a line",
+      "Underground channel with clear water gently flowing through stone walls",
+      "One worker kneeling to inspect the channel with a lantern",
+      "Four villagers gathered around a stone basin, taking turns with water",
+      "A grandfather teaching a child beside a qanat outlet",
+      "Green oasis with date palms and fields thriving where the water emerges"
+    ],
+    "scenes": [
+      "Vast golden desert under a bright sky, a faint shimmer of heat on the sand",
+      "Distant snow-capped mountains glowing at the horizon above the desert",
+      "Melting snow trickling down a hillside into the soil",
+      "Two workers standing at the mouth of a qanat tunnel entrance",
+      "Three diggers in a deep shaft, passing soil in baskets upward",
+      "A row of shaft openings dotting the desert plain like wells in a line",
+      "Underground channel with clear water gently flowing through stone walls",
+      "One worker kneeling to inspect the channel with a lantern",
+      "Four villagers gathered around a stone basin, taking turns with water",
+      "A grandfather teaching a child beside a qanat outlet",
+      "Green oasis with date palms and fields thriving where the water emerges"
+    ]
   }
 ]
