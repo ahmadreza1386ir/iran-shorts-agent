@@ -12,7 +12,7 @@ on:
       upscale:
         description: "Upscale scene images via prunaai/p-image-upscale (true / false)"
         required: false
-        default: "true"
+        default: "false"
       upload_id:
         description: "Short ID to upload to YouTube (leave empty to auto-use newly generated short)"
         required: false
@@ -57,11 +57,11 @@ jobs:
           HORMOUZ_IMAGE_MODELS: ${{ secrets.HORMOUZ_IMAGE_MODELS }}
           HORMOUZ_IMAGE_SIZE: "9:16"
           HORMOUZ_TTS_MODEL: "openai/gpt-4o-mini-tts"
-          HORMOUZ_TTS_VOICE: "onyx"
+          HORMOUZ_TTS_VOICE: "echo"
           HORMOUZ_UPSCALE_MODEL: "prunaai/p-image-upscale"
           TTS_VOICE: "en-US-AndrewNeural"
-          TTS_RATE: "+0%"
-          ENABLE_UPSCALE: ${{ github.event.inputs.upscale || 'true' }}
+          TTS_RATE: "+2%"
+          ENABLE_UPSCALE: ${{ github.event.inputs.upscale || 'false' }}
         run: |
           SCENES="${{ github.event.inputs.scenes || '9' }}"
           python 01_llm_writer.py --count 1 --scenes "$SCENES"
