@@ -256,17 +256,17 @@ Rules:
 2. Define "core_message" first so the hook, curiosity arc, and ending all lock onto the exact true meaning.
 3. Run a divergent brainstorm in "hook_candidates" (3 distinct punchy opening lines: one surprising/counterintuitive contrast like immovable mountains while people cross paths again, one sudden human twist or exclamation, one intriguing paradox). Pick the most captivating opening as "hook_en" and start "narration_display" directly with that hook.
 4. Human tone & non-monotonous pacing:
-   - Open with genuine excitement or surprise that grabs attention immediately.
-   - Continue with curiosity and tension—vary sentence lengths (mix short punchy beats with slightly longer storytelling lines) so it never sounds robotic or flat.
-   - Avoid stiff transitions or clichés like "Did you know", "Today we will talk about", "In summary", or "In conclusion".
+  - Open with genuine excitement or surprise that grabs attention immediately.
+  - Continue with curiosity and tension—vary sentence lengths (mix short punchy beats with slightly longer storytelling lines) so it never sounds robotic or flat.
+  - Avoid stiff transitions or clichés like "Did you know", "Today we will talk about", "In summary", or "In conclusion".
 5. "narration_display": 85 to 112 natural English words (around 32-38 seconds spoken).
 6. "narration_tts": natural spoken English with expressive punctuation (exclamation/question/comma pauses where natural) so TTS sounds alive and human. Avoid hyphenated Persian transliterations that sound choppy.
 7. "scenes": Provide EXACTLY {num_scenes} distinct visual scenes in English.
-   - Scene 1 MUST visually match the opening hook immediately.
-   - Each subsequent scene must advance the story or curiosity arc without repeating the same action.
-   - Specify exact character counts whenever people appear (e.g., "two travelers meeting on a mountain pass").
-   - Never include text, letters, signs, captions, screens with text, or watermarks in scene prompts.
-   - Visual style: cohesive hand-painted storybook illustration, warm and teal palette, vertical 9:16 framing.
+  - Scene 1 MUST visually match the opening hook immediately.
+  - Each subsequent scene must advance the story or curiosity arc with clear character pose, action, gaze, or environment motion without repeating the same static pose.
+  - Specify exact character counts whenever people appear (e.g., "two travelers meeting on a mountain pass").
+  - Never include text, letters, signs, captions, screens with text, or watermarks in scene prompts.
+  - Visual style: cohesive hand-painted storybook illustration, expressive brushwork, dynamic framing, warm and teal palette, vertical 9:16 framing.
 
 Return strictly this JSON schema:
 {{
