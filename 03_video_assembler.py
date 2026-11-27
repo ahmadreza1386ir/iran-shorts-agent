@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Phase 3: Fast vertical Shorts assembler with mood-matched music, SFX & -14 LUFS voice.
+Phase 3: High-clarity vertical Shorts assembler with 3x supersampled camera motion,
+subtle vignette & micro-sharpening, mood-matched music, SFX & -14 LUFS voice.
 """
 
 from __future__ import annotations
@@ -9,10 +10,8 @@ import argparse
 import hashlib
 import json
 import os
-import random
 import re
 import shutil
-import sys
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -220,7 +219,9 @@ def scene_boundaries(
 
 def _motion_expr(motion: str, frames_n: int) -> tuple[str, str, str]:
     denom = max(1, frames_n - 1)
-    p = f"(on/{denom})"
+    # Smooth ease-in-out progress curve: 3p^2 - 2p^3
+    linear = f"(on/{denom})"
+    p = f"(3*pow({linear},2)-2*pow({linear},3))"
     if motion == "pan_right":
         return "1.10", f"(iw-ow)*{p}", "(ih-oh)/2"
     if motion == "pan_left":
@@ -248,6 +249,8 @@ def render_fast_video(
     full_bounds = [0] + bounds + [total_frames]
     n_scenes = len(full_bounds) - 1
     seg_files: list[Path] = []
+    super_w = WIDTH * 3
+    super_h = HEIGHT * 3
 
     for i in range(n_scenes):
         s_frames = max(1, full_bounds[i + 1] - full_bounds[i])
@@ -262,12 +265,14 @@ def render_fast_video(
                 ffmpeg, "-y", "-hide_banner", "-loglevel", "error",
                 "-loop", "1", "-i", str(still_paths[i]),
                 "-vf", (
-                    f"scale={WIDTH * 2}:{HEIGHT * 2}:flags=lanczos,"
+                    f"scale={super_w}:{super_h}:force_original_aspect_ratio=increase:flags=lanczos,"
+                    f"crop={super_w}:{super_h},"
                     f"zoompan=z='{z_expr}':x='{x_expr}':y='{y_expr}':d={s_frames}:s={WIDTH}x{HEIGHT}:fps={FPS},"
+                    f"unsharp=5:5:0.35:5:5:0.0,"
                     f"format=yuv420p,setsar=1"
                 ),
                 "-t", f"{s_dur:.4f}",
-                "-c:v", "libx264", "-preset", preset, "-crf", "18", "-pix_fmt", "yuv420p",
+                "-c:v", "libx264", "-preset", preset, "-crf", "16", "-pix_fmt", "yuv420p",
                 "-an", str(seg_out),
             ],
             cwd=work,
@@ -276,7 +281,10 @@ def render_fast_video(
     concat_list = work / "segs.txt"
     concat_list.write_text("\n".join(f"file '{p.name}'" for p in seg_files) + "\n", encoding="utf-8")
 
-    vf_parts = ["eq=contrast=1.05:saturation=1.08"]
+    vf_parts = [
+        "eq=contrast=1.05:saturation=1.09:gamma=1.01",
+        "vignette=angle=PI/5.5:eval=init",
+    ]
     if with_subs and (work / "subs.ass").is_file():
         vf_parts.append("subtitles=subs.ass:fontsdir=.")
     vf_parts.append("scale=in_range=full:out_range=tv:flags=bicubic,format=yuv420p,setsar=1")
@@ -287,7 +295,7 @@ def render_fast_video(
             "-f", "concat", "-safe", "0", "-i", concat_list.name,
             "-vf", ",".join(vf_parts),
             "-frames:v", str(total_frames), "-r", str(FPS),
-            "-c:v", "libx264", "-preset", preset, "-crf", "18", "-profile:v", "high", "-level", "4.2",
+            "-c:v", "libx264", "-preset", preset, "-crf", "16", "-profile:v", "high", "-level", "4.2",
             "-pix_fmt", "yuv420p", "-color_range", "tv", "-g", str(FPS * 2),
             "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
             "-an", "video.mp4",
