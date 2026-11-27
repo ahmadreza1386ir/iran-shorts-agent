@@ -703,6 +703,28 @@ def save_scene_png(img: Image.Image, out_path: Path) -> None:
     _atomic_write_bytes(out_path, buf.getvalue())
 
 
+def _fallback_plan_from_script(script_item: dict[str, Any]) -> dict[str, Any]:
+    raw_scenes = script_item.get("scenes")
+    if not isinstance(raw_scenes, list):
+        raw_scenes = []
+    motions = ["push_in", "pan_right", "drift_up", "pull_out", "pan_left", "drift_down"]
+    built: list[dict[str, Any]] = []
+    for idx, sc in enumerate(raw_scenes):
+        desc = sc.strip() if isinstance(sc, str) and sc.strip() else f"Scene {idx + 1}"
+        kw = " ".join(re.findall(r"[A-Za-z]+", desc)[:3]) or "iranian heritage"
+        built.append({
+            "desc": desc,
+            "query": kw,
+            "motion": motions[idx % len(motions)],
+            "prompt": f"vertical 9:16 hand-painted storybook illustration, {desc}, no text, no watermark",
+        })
+    return {
+        "id": str(script_item.get("id") or ""),
+        "style": "Cohesive hand-painted storybook illustration, vertical 9:16, no text, no watermark",
+        "scenes": built,
+    }
+
+
 def process_short(
     short_id: str,
     plan_entry: dict[str, Any],
@@ -723,8 +745,13 @@ def process_short(
 
     for idx, sc in enumerate(scenes):
         if not isinstance(sc, dict):
-            log.warning("Short %s scene %d invalid; using fallback dict.", short_id, idx + 1)
-            sc = {"desc": f"Scene {idx + 1}", "query": "iranian heritage", "prompt": f"Scene {idx + 1}"}
+            desc = str(sc).strip() if isinstance(sc, str) and str(sc).strip() else f"Scene {idx + 1}"
+            kw = " ".join(re.findall(r"[A-Za-z]+", desc)[:3]) or "iranian heritage"
+            sc = {
+                "desc": desc,
+                "query": kw,
+                "prompt": f"vertical 9:16 hand-painted storybook illustration, {desc}, no text, no watermark",
+            }
 
         out_path = VISUALS_DIR / f"short_{short_id}_scene_{idx + 1:02d}.png"
         h_val = plan_hash(sc, style, str(sc.get("desc") or ""))
@@ -773,24 +800,33 @@ def main() -> int:
 
     VISUALS_DIR.mkdir(parents=True, exist_ok=True)
     scripts = load_scripts()
-    plan_data = load_plan()
-
-    if isinstance(plan_data, list):
-        plan_shorts = plan_data
-    elif isinstance(plan_data, dict):
-        plan_shorts = plan_data.get("shorts") or plan_data.get("items") or []
-    else:
-        plan_shorts = []
-    if not isinstance(plan_shorts, list):
-        plan_shorts = []
-
-    plan_by_id: dict[str, dict[str, Any]] = {}
-    for entry in plan_shorts:
-        if isinstance(entry, dict):
-            raw_sid = entry.get("id") if entry.get("id") is not None else entry.get("short_id")
-            sid = safe_script_id(raw_sid)
+    scripts_by_id: dict[str, dict[str, Any]] = {}
+    for item in scripts:
+        if isinstance(item, dict):
+            sid = safe_script_id(item.get("id"))
             if sid:
-                plan_by_id[sid] = entry
+                scripts_by_id[sid] = item
+
+    raw_plan = load_plan()
+    plan_by_id: dict[str, dict[str, Any]] = {}
+    if isinstance(raw_plan, dict):
+        if "shorts" in raw_plan and isinstance(raw_plan["shorts"], list):
+            for entry in raw_plan["shorts"]:
+                if isinstance(entry, dict):
+                    sid = safe_script_id(entry.get("id"))
+                    if sid:
+                        plan_by_id[sid] = entry
+        else:
+            for k, v in raw_plan.items():
+                sid = safe_script_id(k)
+                if sid and isinstance(v, dict):
+                    plan_by_id[sid] = v
+    elif isinstance(raw_plan, list):
+        for entry in raw_plan:
+            if isinstance(entry, dict):
+                sid = safe_script_id(entry.get("id"))
+                if sid:
+                    plan_by_id[sid] = entry
 
     target_ids: list[str] = []
     raw_target_id = args.id if args.id is not None else args.only
@@ -801,11 +837,9 @@ def main() -> int:
             return 1
         target_ids = [sid]
     else:
-        for item in scripts:
-            if isinstance(item, dict):
-                sid = safe_script_id(item.get("id"))
-                if sid and sid not in target_ids:
-                    target_ids.append(sid)
+        for sid in scripts_by_id:
+            if sid not in target_ids:
+                target_ids.append(sid)
         for sid in plan_by_id:
             if sid not in target_ids:
                 target_ids.append(sid)
@@ -821,11 +855,9 @@ def main() -> int:
 
     for sid in target_ids:
         entry = plan_by_id.get(sid)
-        if not entry and plan_shorts:
-            last_entry = plan_shorts[-1]
-            if isinstance(last_entry, dict):
-                log.warning("Exact plan entry for id=%s not found; using latest plan entry as fallback.", sid)
-                entry = last_entry
+        if not entry and sid in scripts_by_id:
+            log.warning("Plan entry for id=%s missing in visual_plan.json; deriving from script scenes.", sid)
+            entry = _fallback_plan_from_script(scripts_by_id[sid])
         if not entry:
             log.error("No visual plan entry found for short id=%s.", sid)
             continue
