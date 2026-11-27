@@ -593,5 +593,40 @@
       "The apprentice days later, tying knots with greater ease while the master smiles from a distance",
       "The completed carpet hung on a wall in a home, its patterns glowing in evening light"
     ]
+  },
+  {
+    "id": 18,
+    "category": "Proverb",
+    "core_message": "Patience and care pay off, because rushing to grab something before it is ready often leaves you with nothing at all.",
+    "proverb_fa": "",
+    "proverb_en": "The Sparrow Who Wanted the Roasted Wheat Too Soon",
+    "word_count": 123,
+    "hook_en": "A sparrow can cross a valley in a single breath, yet in the old village kitchens of Iran, it was once the symbol of impatience.",
+    "narration": "A sparrow can cross a valley in a single breath, yet in the old village kitchens of Iran, it was once the symbol of impatience. The story goes that a small sparrow spotted a pot of wheat roasting over a fire. The grains were still pale and soft, and the sparrow, impatient for a meal, hopped down and pecked at them before the cook had finished. Its beak came away with nothing but scorched husks and bitter ash. The cook only shook her head and said that what is rushed before its time is lost before it is ever tasted. The lesson has lingered in Iranian homes ever since, reminding each generation that good things come to those who can wait for them.",
+    "narration_alt": "A sparrow can cross a valley in a single breath, yet in the old village kitchens of Iran, it was once the symbol of impatience. The story goes that a small sparrow spotted a pot of wheat roasting over a fire. The grains were still pale and soft, and the sparrow, impatient for a meal, hopped down and pecked at them before the cook had finished. Its beak came away with nothing but scorched husks and bitter ash. The cook only shook her head and said that what is rushed before its time is lost before it is ever tasted. The lesson has lingered in Iranian homes ever since, reminding each generation that good things come to those who can wait for them.",
+    "narration_display": "A sparrow can cross a valley in a single breath, yet in the old village kitchens of Iran, it was once the symbol of impatience. The story goes that a small sparrow spotted a pot of wheat roasting over a fire. The grains were still pale and soft, and the sparrow, impatient for a meal, hopped down and pecked at them before the cook had finished. Its beak came away with nothing but scorched husks and bitter ash. The cook only shook her head and said that what is rushed before its time is lost before it is ever tasted. The lesson has lingered in Iranian homes ever since, reminding each generation that good things come to those who can wait for them.",
+    "narration_tts": "A sparrow can cross a valley in a single breath, yet in the old village kitchens of Iran, it was once the symbol of impatience. The story goes that a small sparrow spotted a pot of wheat roasting over a fire. The grains were still pale and soft, and the sparrow, impatient for a meal, hopped down and pecked at them before the cook had finished. Its beak came away with nothing but scorched husks and bitter ash. The cook only shook her head and said that what is rushed before its time is lost before it is ever tasted. The lesson has lingered in Iranian homes ever since, reminding each generation that good things come to those who can wait for them.",
+    "visual_scenes": [
+      "A small sparrow darts swiftly across a wide green valley at sunrise",
+      "An old village kitchen with a clay pot of wheat simmering over a fire",
+      "A cook in headscarf stirs the pot while glancing up with a calm expression",
+      "The sparrow perches on the windowsill eyeing the pale wheat grains",
+      "The sparrow hops down from the sill toward the pot with wings half open",
+      "The sparrow pecks at the grains while the pot is still steaming",
+      "The sparrow pulls back with a beak full of scorched husks and ash",
+      "The cook shakes her head gently and looks down at the sparrow",
+      "The sparrow sits quietly beside a pot of bread cooling in the sun, waiting"
+    ],
+    "scenes": [
+      "A small sparrow darts swiftly across a wide green valley at sunrise",
+      "An old village kitchen with a clay pot of wheat simmering over a fire",
+      "A cook in headscarf stirs the pot while glancing up with a calm expression",
+      "The sparrow perches on the windowsill eyeing the pale wheat grains",
+      "The sparrow hops down from the sill toward the pot with wings half open",
+      "The sparrow pecks at the grains while the pot is still steaming",
+      "The sparrow pulls back with a beak full of scorched husks and ash",
+      "The cook shakes her head gently and looks down at the sparrow",
+      "The sparrow sits quietly beside a pot of bread cooling in the sun, waiting"
+    ]
   }
 ]

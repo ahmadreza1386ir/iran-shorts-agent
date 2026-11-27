@@ -7859,6 +7859,363 @@
           }
         }
       ]
+    },
+    {
+      "id": "18",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark, no signature",
+      "scenes": [
+        {
+          "desc": "A small sparrow darts swiftly across a wide green valley at sunrise",
+          "query": "sparrow valley sunrise flight",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "sparrow valley sunrise flight",
+              "sparrow valley"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one small sparrow mid-flight over a wide green valley at sunrise, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "An old village kitchen with a clay pot of wheat simmering over a fire",
+          "query": "village kitchen clay pot fire",
+          "anchor": "An old village",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "village kitchen clay pot fire",
+              "village kitchen"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, rustic village kitchen interior with a clay pot of wheat simmering over an open fire, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "A cook in headscarf stirs the pot while glancing up with a calm expression",
+          "query": "cook stirring pot woman",
+          "anchor": "A cook in",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "cook stirring pot woman",
+              "cook stirring"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one woman in a headscarf stirring a clay pot over a fire, gazing calmly upward, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The sparrow perches on the windowsill eyeing the pale wheat grains",
+          "query": "sparrow windowsill perched",
+          "anchor": "The sparrow perches",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "sparrow windowsill perched",
+              "sparrow windowsill"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one sparrow perched on a stone windowsill, eyeing the pot inside with eager posture, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The sparrow hops down from the sill toward the pot with wings half open",
+          "query": "bird hopping down wings",
+          "anchor": "The sparrow hops",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bird hopping down wings",
+              "bird hopping"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one sparrow hopping down from a windowsill with wings half open toward a pot, dynamic framing, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The sparrow pecks at the grains while the pot is still steaming",
+          "query": "bird pecking grains steam",
+          "anchor": "The sparrow pecks",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bird pecking grains steam",
+              "bird pecking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one sparrow pecking at pale wheat grains inside a steaming clay pot, close framing, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The sparrow pulls back with a beak full of scorched husks and ash",
+          "query": "bird scorched husks ash",
+          "anchor": "The sparrow pulls",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bird scorched husks ash",
+              "bird scorched"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one sparrow pulling back from a pot with a beak full of dark scorched husks and ash, surprised posture, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The cook shakes her head gently and looks down at the sparrow",
+          "query": "woman shaking head bird",
+          "anchor": "The cook shakes",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "woman shaking head bird",
+              "woman shaking"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one woman in a headscarf shaking her head gently while looking down at a sparrow on the table, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The sparrow sits quietly beside a pot of bread cooling in the sun, waiting",
+          "query": "bird waiting patiently bread",
+          "anchor": "The sparrow sits",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "bird waiting patiently bread",
+              "bird waiting"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one sparrow sitting patiently beside a pot of golden roasted wheat cooling in sunlight, calm mood, warm and teal palette, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }
