@@ -44,12 +44,11 @@ SNAP_SECONDS = 1.6
 TARGET_LUFS = -14.0
 MOTION_CYCLE = ["push_in", "pan_right", "drift_up", "pull_out", "pan_left", "drift_down"]
 
-# فرمت رنگ در ASS به صورت &H00BBGGRR& است
 ACCENT_COLORS_ASS: list[str] = [
-    "&H005CE6FF&",  # طلایی گرم
-    "&H00F2D468&",  # فیروزه‌ای روشن
-    "&H0080F5A8&",  # سبز ملایم
-    "&H009EC5FF&",  # کهربایی/نارنجی ملایم
+    "&H005CE6FF&",
+    "&H00F2D468&",
+    "&H0080F5A8&",
+    "&H009EC5FF&",
 ]
 
 HIGHLIGHT_WORDS = {
@@ -659,6 +658,7 @@ def process_short(
 def main() -> int:
     ap = argparse.ArgumentParser(description="Assemble vertical Shorts videos.")
     ap.add_argument("--id", type=str, default=None, help="Specific short id to assemble")
+    ap.add_argument("--only", type=str, default=None, help="Alias for --id (specific short id to assemble)")
     ap.add_argument("--max-secs", type=float, default=0.0, help="Optional cap on duration in seconds")
     ap.add_argument("--no-subs", action="store_true", help="Disable burned-in subtitles")
     ap.add_argument("--no-music", action="store_true", help="Disable music bed and SFX")
@@ -673,18 +673,27 @@ def main() -> int:
         return 1
 
     scripts = load_scripts()
-    plan_data = load_plan()
-    plan_shorts = plan_data.get("shorts") if isinstance(plan_data, dict) else []
-    plan_by_id = {
-        str(entry.get("id")): entry
-        for entry in (plan_shorts if isinstance(plan_shorts, list) else [])
-        if isinstance(entry, dict) and entry.get("id") is not None
-    }
+    raw_plan = load_plan()
+    plan_by_id: dict[str, dict[str, Any]] = {}
+    if isinstance(raw_plan, dict):
+        if "shorts" in raw_plan and isinstance(raw_plan["shorts"], list):
+            for entry in raw_plan["shorts"]:
+                if isinstance(entry, dict) and entry.get("id") is not None:
+                    plan_by_id[str(entry.get("id")).strip()] = entry
+        else:
+            for k, v in raw_plan.items():
+                if isinstance(v, dict):
+                    plan_by_id[str(k).strip()] = v
+    elif isinstance(raw_plan, list):
+        for entry in raw_plan:
+            if isinstance(entry, dict) and entry.get("id") is not None:
+                plan_by_id[str(entry.get("id")).strip()] = entry
 
+    target_id = (args.id or args.only or "").strip() or None
     target_scripts = [
         s for s in scripts
         if isinstance(s, dict) and s.get("id") is not None
-        and (args.id is None or str(s.get("id")).strip() == args.id.strip())
+        and (target_id is None or str(s.get("id")).strip() == target_id)
     ]
 
     if not target_scripts:
