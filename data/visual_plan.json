@@ -8930,6 +8930,363 @@
           }
         }
       ]
+    },
+    {
+      "id": "21",
+      "style": "Cohesive hand-painted storybook illustration, expressive brushwork, unified warm-and-teal color palette, vertical 9:16 composition, no text, no watermark, no signature",
+      "scenes": [
+        {
+          "desc": "A wide valley at dusk with a shepherd's village and a flock of sheep, one lamb shown in the foreground, the moment of the sweet voice beginning.",
+          "query": "shepherd village flock dusk",
+          "anchor": null,
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd village flock dusk",
+              "shepherd village"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, a wide valley at dusk with a village and a large flock of sheep, one lamb in the foreground, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Hassan, the shepherd, stands at his wooden gate listening to a hooded stranger who speaks sweetly from the dark.",
+          "query": "shepherd gate stranger night",
+          "anchor": "Hassan the shepherd",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd gate stranger night",
+              "shepherd gate"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, one shepherd man and one hooded stranger at a wooden gate at night, 2 characters, warm lantern light against teal shadows, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "The stranger, a wolf in a cloak, sits by the fire with Hassan, both smiling as the shepherd lowers the bolt.",
+          "query": "wolf cloak fire shepherd",
+          "anchor": "The stranger a",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "wolf cloak fire shepherd",
+              "wolf cloak"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, 2 characters, a shepherd and a wolf wearing a cloak sitting by a campfire, the shepherd's hand on a bolt, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Hassan leans toward the stranger's whispering mouth while the flock rests behind them in the darkness.",
+          "query": "whispering flattery night flock",
+          "anchor": "Hassan leans toward",
+          "motion": "pull_out",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "whispering flattery night flock",
+              "whispering flattery"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, 2 characters, a shepherd leaning in close to a whispering wolf figure, sheep sleeping faintly behind, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Dawn breaks and the pen stands empty, with scattered wool and a single open gate.",
+          "query": "dawn empty pen wool",
+          "anchor": "Dawn breaks and",
+          "motion": "pan_left",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "dawn empty pen wool",
+              "dawn empty"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, an empty sheep pen at dawn with scattered wool and an open wooden gate, no characters, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Hassan runs up the hillside, arms raised, calling toward the drugged dogs lying still in the grass.",
+          "query": "shepherd running hill dogs",
+          "anchor": "Hassan runs up",
+          "motion": "drift_down",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd running hill dogs",
+              "shepherd running"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, 3 characters, one shepherd running up a hill, two dogs lying motionless in the grass below, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Hassan kneels by cold ashes of a dead fire, head bowed, the valley fading into mist.",
+          "query": "shepherd kneeling ashes mist",
+          "anchor": "Hassan kneels by",
+          "motion": "push_in",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd kneeling ashes mist",
+              "shepherd kneeling"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, 1 character, a shepherd kneeling by cold fire ashes, misty valley behind him, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Hassan lifts his head, eyes narrowing, as a faint sweet voice drifts from the distant ridge.",
+          "query": "listening distant voice ridge",
+          "anchor": "Hassan lifts his",
+          "motion": "pan_right",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "listening distant voice ridge",
+              "listening distant"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, 1 character, a shepherd lifting his head with narrowed eyes, a faint hooded silhouette on a distant ridge, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        },
+        {
+          "desc": "Close framing on Hassan's wary face in lantern light, the gate bolt in his fist, the cycle about to repeat.",
+          "query": "shepherd wary face lantern bolt",
+          "anchor": "Close framing on",
+          "motion": "drift_up",
+          "order": [
+            "commons",
+            "card"
+          ],
+          "commons": {
+            "queries": [
+              "shepherd wary face lantern bolt",
+              "shepherd wary"
+            ],
+            "reject": [
+              "text",
+              "watermark",
+              "logo",
+              "map",
+              "diagram",
+              "cartoon",
+              "clipart"
+            ]
+          },
+          "prompt": "vertical 9:16 hand-painted storybook illustration, 1 character, close framing on a shepherd's wary face in lantern light, his fist gripping a gate bolt, warm and teal palette, expressive brushwork, dynamic framing, no text, no watermark, no signature",
+          "card": {
+            "palette": "story_sunset",
+            "layers": [
+              [
+                "sun",
+                {}
+              ],
+              [
+                "dunes",
+                {}
+              ]
+            ]
+          }
+        }
+      ]
     }
   ]
 }

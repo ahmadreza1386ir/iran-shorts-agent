@@ -699,5 +699,41 @@
       "A merchant (exactly 1 person) in fine robes buys a block of ice at a bustling market under the summer sun.",
       "The desert sun blazes over the ice house dome as a final glowing ember of frost remains in the dark."
     ]
+  },
+  {
+    "id": 21,
+    "category": "Proverb",
+    "core_message": "Trusting a flattering voice over your own experience can lead you straight into the trap that was set for you.",
+    "proverb_fa": "",
+    "proverb_en": "The Wolf Who Wore a Shepherd's Voice",
+    "word_count": 143,
+    "hook_en": "One sweet voice emptied an entire village's flock overnight.",
+    "loop_bridge": "The final line reveals the stranger's trick is still waiting at the gate, so the opening voice returns as the warning that restarts the story.",
+    "narration": "One sweet voice emptied an entire village's flock overnight. Hassan, the richest shepherd in the valley, heard a stranger praising his wool, his dogs, and his wisdom. The voice was warm. It was kind. It knew his name before he said it. Hassan had sworn never to open his gate after dark, but flattery is a patient thief. The stranger asked only for one lamb, just to rest by the fire and talk. Hassan laughed, lowered the bolt, and let him in. By dawn the lambs were gone and the stranger was gone with them. Hassan ran to the hill, screaming for his dogs, but the dogs had been drugged with the same kind words. Now he sits by the cold ashes, listening. Somewhere a sweet voice is calling his name again, and this time it sounds like the one that saved him.",
+    "narration_alt": "One sweet voice emptied an entire village's flock overnight. Hassan, the richest shepherd in the valley, heard a stranger praising his wool, his dogs, and his wisdom. The voice was warm. It was kind. It knew his name before he said it. Hassan had sworn never to open his gate after dark, but flattery is a patient thief. The stranger asked only for one lamb, just to rest by the fire and talk. Hassan laughed, lowered the bolt, and let him in. By dawn the lambs were gone and the stranger was gone with them. Hassan ran to the hill, screaming for his dogs, but the dogs had been drugged with the same kind words. Now he sits by the cold ashes, listening. Somewhere a sweet voice is calling his name again, and this time it sounds like the one that saved him.",
+    "narration_display": "One sweet voice emptied an entire village's flock overnight. Hassan, the richest shepherd in the valley, heard a stranger praising his wool, his dogs, and his wisdom. The voice was warm. It was kind. It knew his name before he said it. Hassan had sworn never to open his gate after dark, but flattery is a patient thief. The stranger asked only for one lamb, just to rest by the fire and talk. Hassan laughed, lowered the bolt, and let him in. By dawn the lambs were gone and the stranger was gone with them. Hassan ran to the hill, screaming for his dogs, but the dogs had been drugged with the same kind words. Now he sits by the cold ashes, listening. Somewhere a sweet voice is calling his name again, and this time it sounds like the one that saved him.",
+    "narration_tts": "One sweet voice emptied an entire village's flock overnight. Hassan, the richest shepherd in the valley, heard a stranger praising his wool, his dogs, and his wisdom. The voice was warm. It was kind. It knew his name before he said it. Hassan had sworn never to open his gate after dark, but flattery is a patient thief. The stranger asked only for one lamb, just to rest by the fire and talk. Hassan laughed, lowered the bolt, and let him in. By dawn the lambs were gone and the stranger was gone with them. Hassan ran to the hill, calling for his dogs, but the dogs had been drugged with the same kind words. Now he sits by the cold ashes, listening. Somewhere a sweet voice is calling his name again, and this time it sounds like the one that saved him.",
+    "visual_scenes": [
+      "A wide valley at dusk with a shepherd's village and a flock of sheep, one lamb shown in the foreground, the moment of the sweet voice beginning.",
+      "Hassan, the shepherd, stands at his wooden gate listening to a hooded stranger who speaks sweetly from the dark.",
+      "The stranger, a wolf in a cloak, sits by the fire with Hassan, both smiling as the shepherd lowers the bolt.",
+      "Hassan leans toward the stranger's whispering mouth while the flock rests behind them in the darkness.",
+      "Dawn breaks and the pen stands empty, with scattered wool and a single open gate.",
+      "Hassan runs up the hillside, arms raised, calling toward the drugged dogs lying still in the grass.",
+      "Hassan kneels by cold ashes of a dead fire, head bowed, the valley fading into mist.",
+      "Hassan lifts his head, eyes narrowing, as a faint sweet voice drifts from the distant ridge.",
+      "Close framing on Hassan's wary face in lantern light, the gate bolt in his fist, the cycle about to repeat."
+    ],
+    "scenes": [
+      "A wide valley at dusk with a shepherd's village and a flock of sheep, one lamb shown in the foreground, the moment of the sweet voice beginning.",
+      "Hassan, the shepherd, stands at his wooden gate listening to a hooded stranger who speaks sweetly from the dark.",
+      "The stranger, a wolf in a cloak, sits by the fire with Hassan, both smiling as the shepherd lowers the bolt.",
+      "Hassan leans toward the stranger's whispering mouth while the flock rests behind them in the darkness.",
+      "Dawn breaks and the pen stands empty, with scattered wool and a single open gate.",
+      "Hassan runs up the hillside, arms raised, calling toward the drugged dogs lying still in the grass.",
+      "Hassan kneels by cold ashes of a dead fire, head bowed, the valley fading into mist.",
+      "Hassan lifts his head, eyes narrowing, as a faint sweet voice drifts from the distant ridge.",
+      "Close framing on Hassan's wary face in lantern light, the gate bolt in his fist, the cycle about to repeat."
+    ]
   }
 ]
